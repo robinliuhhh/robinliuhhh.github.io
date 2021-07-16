@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>gitee添加SSH公钥：指纹生成失败</title>
+    <link href="/2021/07/16/gitee%E6%8C%87%E7%BA%B9%E7%94%9F%E6%88%90%E5%A4%B1%E8%B4%A5/"/>
+    <url>/2021/07/16/gitee%E6%8C%87%E7%BA%B9%E7%94%9F%E6%88%90%E5%A4%B1%E8%B4%A5/</url>
+    
+    <content type="html"><![CDATA[<h3 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h3><p>已生成id_rsa.pub文件，且github配置ssh公钥成功。</p><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>gitee添加ssh公钥，输完密码后弹出：指纹生成失败</p><p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/image-20210716141949630.png"></p><h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>我去看了.ssh文件夹</p><p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/image-20210716142048988.png"></p><p>发现known_hosts里面已经有了gitee.com</p><p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/image-20210716142113728.png"></p><p>于是我把它删除了，然后再次添加，显示成功</p><p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/image-20210716142218033.png"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Git</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>启动CentOS7图形界面报错</title>
     <link href="/2021/07/14/%E5%90%AF%E5%8A%A8CentOS7%20A%20problem%20has%20occurred%20and%20the%20system%20can&#39;t%20recover%20Please%20contact%20a%20system%20administrator/"/>
     <url>/2021/07/14/%E5%90%AF%E5%8A%A8CentOS7%20A%20problem%20has%20occurred%20and%20the%20system%20can&#39;t%20recover%20Please%20contact%20a%20system%20administrator/</url>
