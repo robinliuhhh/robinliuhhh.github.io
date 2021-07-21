@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>LeetCode TOP 145：3 longest-substring-without-repeating-characters</title>
+    <link href="/2021/07/22/3%20longest-substring-without-repeating-characters/"/>
+    <url>/2021/07/22/3%20longest-substring-without-repeating-characters/</url>
+    
+    <content type="html"><![CDATA[<h2 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a>题目链接</h2><p><a href="https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/">3. 无重复字符的最长子串 - 力扣（LeetCode） (leetcode-cn.com)</a></p><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">lengthOfLongestSubstring</span><span class="hljs-params">(String s)</span> </span>&#123;<br>        <span class="hljs-comment">// 滑动窗口</span><br>        Map&lt;Character, Integer&gt; map = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();<br>        <span class="hljs-keyword">int</span> res = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">int</span> left = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; s.length(); i++) &#123;<br>            <span class="hljs-comment">// map中存过该值</span><br>            <span class="hljs-keyword">if</span>(map.containsKey(s.charAt(i))) &#123;<br>                <span class="hljs-comment">// 左指针右滑</span><br>                left = Math.max(left, map.get(s.charAt(i)) + <span class="hljs-number">1</span>);                <br>            &#125;<br>            <span class="hljs-comment">// 未存过</span><br>            map.put(s.charAt(i), i);<br>            <span class="hljs-comment">// 更新结果</span><br>            res = Math.max(res, i - left + <span class="hljs-number">1</span>);<br>        &#125;<br>        <span class="hljs-keyword">return</span> res;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure><p>时间复杂度：O(N)，N 是字符串的长度。</p><p>空间复杂度：<em>O</em>(∣Σ∣)，最大可存ASCII 码在 [0, 128)内的字符，即 ∣Σ∣ = 128。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode TOP 145：2 Add Two Numbers</title>
     <link href="/2021/07/17/2%20Add%20Two%20Numbers/"/>
     <url>/2021/07/17/2%20Add%20Two%20Numbers/</url>
