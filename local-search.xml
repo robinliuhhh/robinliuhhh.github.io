@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>解决：git commit后本地代码丢失</title>
+    <link href="/2021/08/02/git%20commit%E5%90%8E%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%A0%81%E4%B8%A2%E5%A4%B1/"/>
+    <url>/2021/08/02/git%20commit%E5%90%8E%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%A0%81%E4%B8%A2%E5%A4%B1/</url>
+    
+    <content type="html"><![CDATA[<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs angelscript">git <span class="hljs-built_in">ref</span>log<br></code></pre></td></tr></table></figure><p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20210802173753.png"></p><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs perl">git <span class="hljs-keyword">reset</span> --hard HEAD@&#123;7&#125;<br></code></pre></td></tr></table></figure><p><strong>注意</strong>：reset后HEAD值会变，需要再次执行 <code>git reflog</code> 查看最新的HEAD值</p><ul><li>看我的6789，找了好几次才找到想要的那个版本</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Git</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>解决：org.apache.ibatis.binding.BindingException</title>
     <link href="/2021/08/02/Parameter/"/>
     <url>/2021/08/02/Parameter/</url>
