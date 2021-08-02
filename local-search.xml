@@ -4,12 +4,18 @@
   
   
   <entry>
-    <title>实现：双层锁防止Redis缓存击穿</title>
+    <title>解决：</title>
     <link href="/2021/08/02/a/"/>
     <url>/2021/08/02/a/</url>
     
-    <content type="html"><![CDATA[<p>在service层中加入Redis帮Mysql抗下频繁的数据查询</p><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">RedisSerializer rs = <span class="hljs-keyword">new</span> <span class="hljs-constructor">StringRedisSerializer()</span>;<br>        redisTemplate.set<span class="hljs-constructor">KeySerializer(<span class="hljs-params">rs</span>)</span>;<br></code></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>Mybatis传递参数是按位置传递的，如果想要按值传递，需要加 <code>@Param</code> 注解</p><ul><li><code>@Param</code>内的字段名称要和sql语句对应上</li></ul><p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20210802162655.png"></p>]]></content>
     
+    
+    <categories>
+      
+      <category>MyBatis</category>
+      
+    </categories>
     
     
   </entry>
