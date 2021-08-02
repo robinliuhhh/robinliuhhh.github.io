@@ -241,10 +241,8 @@
           
             
           
-          假设情景：高并发下，若干人同时进入getAllCourse方法查询课程信息，若在缓存中没找到结果，则这些人将同时访问数据库，Redis做缓存失去了应有的作用。
-12RedisSerializer rs = new StringRedisSerializer();        redisTemplate.setKeySerializer(rs);
-
-
+          假设情景高并发下，若干人同时进入getAllCourse方法查询课程信息，若在缓存中没找到结果，则这些人将同时访问数据库，Redis做缓存失去了应有的作用。
+模拟20个线程高并发123456789101112131415@GetMapping(&quot;getAllCourse&quot;)public List&lt;Course&gt; getAllCourse() &#123;    //
         </a>
       </p>
 

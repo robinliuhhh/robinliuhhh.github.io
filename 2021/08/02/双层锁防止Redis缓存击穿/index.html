@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      65 字
+      395 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      5
        分钟
     </span>
   
@@ -228,9 +228,16 @@
             <h1 style="display: none">实现：双层锁防止Redis缓存击穿</h1>
             
             <div class="markdown-body">
-              <p>假设情景：高并发下，若干人同时进入<code>getAllCourse</code>方法查询课程信息，若在缓存中没找到结果，则这些人将同时访问数据库，Redis做缓存失去了应有的作用。</p>
-<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">RedisSerializer rs = <span class="hljs-keyword">new</span> <span class="hljs-constructor">StringRedisSerializer()</span>;<br>        redisTemplate.set<span class="hljs-constructor">KeySerializer(<span class="hljs-params">rs</span>)</span>;<br></code></pre></td></tr></table></figure>
+              <h3 id="假设情景"><a href="#假设情景" class="headerlink" title="假设情景"></a>假设情景</h3><p>高并发下，若干人同时进入<code>getAllCourse</code>方法查询课程信息，若在缓存中没找到结果，则这些人将同时访问数据库，Redis做缓存失去了应有的作用。</p>
+<h4 id="模拟20个线程高并发"><a href="#模拟20个线程高并发" class="headerlink" title="模拟20个线程高并发"></a>模拟20个线程高并发</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@GetMapping(&quot;getAllCourse&quot;)</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Course&gt; <span class="hljs-title">getAllCourse</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-comment">// 模拟多线程：创建一个容量20个的线程池</span><br>    ExecutorService es = Executors.newFixedThreadPool(<span class="hljs-number">20</span>);<br>    <span class="hljs-comment">// 模拟20个线程同时查询</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">20</span>; i++) &#123;<br>        es.submit(<span class="hljs-keyword">new</span> Runnable() &#123;<br>            <span class="hljs-meta">@Override</span><br>            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;<br>                courseService.getAllCourse();<br>            &#125;<br>        &#125;);<br>    &#125;<br>    <span class="hljs-keyword">return</span> courseService.getAllCourse();<br>&#125;<br></code></pre></td></tr></table></figure>
 
+<h4 id="双层检测锁-DCL：double-check-lock"><a href="#双层检测锁-DCL：double-check-lock" class="headerlink" title="双层检测锁 DCL：double check lock"></a>双层检测锁 DCL：double check lock</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Service</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CourseServiceImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">CourseService</span> </span>&#123;<br>    <span class="hljs-meta">@Autowired</span><br>    <span class="hljs-keyword">private</span> CourseMapper courseMapper;<br><br>    <span class="hljs-meta">@Autowired</span><br>    <span class="hljs-keyword">private</span> RedisTemplate&lt;Object,Object&gt; redisTemplate;<br>    <br>    <span class="hljs-meta">@Override</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Course&gt; <span class="hljs-title">getAllCourse</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-comment">//将redis内存中的序列化的集合名称用String重新命名（增加可读性）</span><br>    RedisSerializer rs = <span class="hljs-keyword">new</span> StringRedisSerializer();<br>    redisTemplate.setKeySerializer(rs);<br><br>    System.out.println(<span class="hljs-string">&quot;***查询redis***&quot;</span>);<br>    List&lt;Course&gt; list = (List&lt;Course&gt;)redisTemplate.opsForValue().get(<span class="hljs-string">&quot;allCourses&quot;</span>);<br>    <span class="hljs-keyword">if</span>(list == <span class="hljs-keyword">null</span>)&#123;<br>        <span class="hljs-comment">//排队，让第一个人进，走一遍流程（后面的人就会走缓存了）</span><br>        <span class="hljs-keyword">synchronized</span> (<span class="hljs-keyword">this</span>)&#123;<br>            list = (List&lt;Course&gt;)redisTemplate.opsForValue().get(<span class="hljs-string">&quot;allCourses&quot;</span>);<br>            <span class="hljs-keyword">if</span>(list == <span class="hljs-keyword">null</span>)&#123;<br>                <span class="hljs-comment">//去数据库</span><br>                System.out.println(<span class="hljs-string">&quot;===MySql数据库===&quot;</span>);<br>                list = courseMapper.getAllCourse();<br>                <span class="hljs-comment">// 把从数据库查询的集合放在redis内存中(key,value,过期时间,分钟为单位)</span><br>                redisTemplate.opsForValue().set(<span class="hljs-string">&quot;allCourses&quot;</span>, list,<span class="hljs-number">10</span>, TimeUnit.MINUTES);<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> list;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="如何保证Redis中数据是最新的"><a href="#如何保证Redis中数据是最新的" class="headerlink" title="如何保证Redis中数据是最新的"></a>如何保证Redis中数据是最新的</h4><ol>
+<li>先将Redis中的相关集合删除</li>
+<li>将最新的数据保存到数据库</li>
+<li>查询数据时，因为Redis中的数据已经删除了，所以会第一时间去数据库查询</li>
+</ol>
 
             </div>
             <hr>
