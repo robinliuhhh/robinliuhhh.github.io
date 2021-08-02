@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>a - Robin Liu&#39;s Blog</title>
+  <title>实现：双层锁防止Redis缓存击穿 - Robin Liu&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="a">
+            <span class="h2" id="subtitle" title="实现：双层锁防止Redis缓存击穿">
               
             </span>
 
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      0 字
+      23 字
     </span>
   
 
@@ -225,10 +225,13 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">a</h1>
+            <h1 style="display: none">实现：双层锁防止Redis缓存击穿</h1>
             
             <div class="markdown-body">
-              
+              <p>在service层中加入Redis帮Mysql抗下频繁的数据查询</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">RedisSerializer rs = <span class="hljs-keyword">new</span> <span class="hljs-constructor">StringRedisSerializer()</span>;<br>        redisTemplate.set<span class="hljs-constructor">KeySerializer(<span class="hljs-params">rs</span>)</span>;<br></code></pre></td></tr></table></figure>
+
+
             </div>
             <hr>
             <div>

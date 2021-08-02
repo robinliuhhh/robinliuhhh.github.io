@@ -183,7 +183,7 @@
       <h1 class="index-header">
         
         <a href="/2021/08/02/a/" target="_self">
-          a
+          实现：双层锁防止Redis缓存击穿
         </a>
       </h1>
 
@@ -193,7 +193,10 @@
           
             
           
-          
+          在service层中加入Redis帮Mysql抗下频繁的数据查询
+12RedisSerializer rs = new StringRedisSerializer();        redisTemplate.setKeySerializer(rs);
+
+
         </a>
       </p>
 

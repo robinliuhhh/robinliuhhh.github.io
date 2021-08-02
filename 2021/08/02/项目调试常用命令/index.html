@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      692 字
+      710 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      10
+      11
        分钟
     </span>
   
@@ -275,10 +275,15 @@
 
 <h4 id="开启远程访问"><a href="#开启远程访问" class="headerlink" title="开启远程访问"></a>开启远程访问</h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">vi <span class="hljs-regexp">/lib/</span>systemd<span class="hljs-regexp">/system/</span>docker.service<br></code></pre></td></tr></table></figure>
 
+<blockquote>
+<p>ExecStart=/usr/bin/dockerd -H tcp://0.0.0.0:2375 -H unix://var/run/docker.sock</p>
+</blockquote>
 <p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20210801222435.png" srcset="/img/loading.gif" lazyload></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">systemctl daemon-reload # 重新加载配置文件<br>service docker restart # 重启<br>dockernetstat -nlpt # 查看端口<br>curl http://192.168.xx.xxx:2375/version # 测试<br></code></pre></td></tr></table></figure>
 
-<h4 id="IDEA镜像加速器"><a href="#IDEA镜像加速器" class="headerlink" title="IDEA镜像加速器"></a>IDEA镜像加速器</h4><p><a target="_blank" rel="noopener" href="https://owi3yzzk.mirror.aliyuncs.com/">https://owi3yzzk.mirror.aliyuncs.com</a></p>
+<h4 id="IDEA镜像加速器"><a href="#IDEA镜像加速器" class="headerlink" title="IDEA镜像加速器"></a>IDEA镜像加速器</h4><blockquote>
+<p><a target="_blank" rel="noopener" href="https://owi3yzzk.mirror.aliyuncs.com/">https://owi3yzzk.mirror.aliyuncs.com</a></p>
+</blockquote>
 <p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/d4.png" srcset="/img/loading.gif" lazyload></p>
 <h4 id="Docker的Maven插件"><a href="#Docker的Maven插件" class="headerlink" title="Docker的Maven插件"></a>Docker的Maven插件</h4><p><code>docker-maven-plugin</code>，自动生成镜像并推送到仓库中</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.spotify<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>docker-maven-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.0.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span><br>        <span class="hljs-comment">&lt;!--镜像名称 robin/test-docker-demo--&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">imageName</span>&gt;</span>robin/$&#123;project.artifactId&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">imageName</span>&gt;</span><br>        <span class="hljs-comment">&lt;!--标签版本--&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">imageTags</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">imageTag</span>&gt;</span>latest<span class="hljs-tag">&lt;/<span class="hljs-name">imageTag</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">imageTags</span>&gt;</span><br>        <span class="hljs-comment">&lt;!--基础镜像，相当于Dockerfile里的from--&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">baseImage</span>&gt;</span>java<span class="hljs-tag">&lt;/<span class="hljs-name">baseImage</span>&gt;</span><br>        <span class="hljs-comment">&lt;!--签名（作者）--&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">maintainer</span>&gt;</span>robin robin_liu_work@163.com<span class="hljs-tag">&lt;/<span class="hljs-name">maintainer</span>&gt;</span><br>        <span class="hljs-comment">&lt;!--入口点，project.build.finalName就是project标签下的build标签下的filename标签内容 test-docker-demo--&gt;</span><br>        <span class="hljs-comment">&lt;!--相当于启动容器后，会自动执行java -jar/test-docker-demo.jar--&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">entryPoint</span>&gt;</span>[&quot;java&quot;, &quot;-jar&quot;, &quot;/$&#123;project.build.finalName&#125;.jar&quot;]<span class="hljs-tag">&lt;/<span class="hljs-name">entryPoint</span>&gt;</span><br>        <span class="hljs-comment">&lt;!--docker地址--&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dockerHost</span>&gt;</span>http://192.168.11.128:2375<span class="hljs-tag">&lt;/<span class="hljs-name">dockerHost</span>&gt;</span><br><br>        <span class="hljs-comment">&lt;!-- 这里是复制 jar 包到 docker 容器指定目录配置 --&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">resources</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">resource</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">targetPath</span>&gt;</span>/<span class="hljs-tag">&lt;/<span class="hljs-name">targetPath</span>&gt;</span><br>                <span class="hljs-comment">&lt;!--复制的根目录，target--&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">directory</span>&gt;</span>$&#123;project.build.directory&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">directory</span>&gt;</span><br>                <span class="hljs-comment">&lt;!--把哪个文件上传到docker 相当于Dockerfile里的add test-docker-demo.jar /--&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">include</span>&gt;</span>$&#123;project.build.finalName&#125;.jar<span class="hljs-tag">&lt;/<span class="hljs-name">include</span>&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">resource</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">resources</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span><br></code></pre></td></tr></table></figure>
@@ -343,7 +348,7 @@
                     
                       <a href="/2021/08/02/a/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">a</span>
+                        <span class="hidden-mobile">实现：双层锁防止Redis缓存击穿</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
