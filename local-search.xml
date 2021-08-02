@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>解决：org.apache.ibatis.binding.BindingException</title>
+    <link href="/2021/08/02/Parameter/"/>
+    <url>/2021/08/02/Parameter/</url>
+    
+    <content type="html"><![CDATA[<h3 id="报错信息"><a href="#报错信息" class="headerlink" title="报错信息"></a>报错信息</h3><p><code>org.apache.ibatis.binding.BindingException: Parameter &#39;courseId&#39; not found.</code></p><h3 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h3><p>Mybatis传递参数是按<strong>位置</strong>传递的，如果想要按<strong>值</strong>传递，需要加 <code>@Param</code> 注解</p><ul><li>参数通过<code>@Param</code>内的字段名称注入到sql语句对应位置</li></ul><p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20210802162655.png"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>MyBatis</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>实现：双层锁防止Redis缓存击穿</title>
     <link href="/2021/08/02/%E5%8F%8C%E5%B1%82%E9%94%81%E9%98%B2%E6%AD%A2Redis%E7%BC%93%E5%AD%98%E5%87%BB%E7%A9%BF/"/>
     <url>/2021/08/02/%E5%8F%8C%E5%B1%82%E9%94%81%E9%98%B2%E6%AD%A2Redis%E7%BC%93%E5%AD%98%E5%87%BB%E7%A9%BF/</url>
