@@ -4,25 +4,6 @@
   
   
   <entry>
-    <title>解决：</title>
-    <link href="/2021/08/02/a/"/>
-    <url>/2021/08/02/a/</url>
-    
-    <content type="html"><![CDATA[<p>Mybatis传递参数是按位置传递的，如果想要按值传递，需要加 <code>@Param</code> 注解</p><ul><li><code>@Param</code>内的字段名称要和sql语句对应上</li></ul><p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20210802162655.png"></p>]]></content>
-    
-    
-    <categories>
-      
-      <category>MyBatis</category>
-      
-    </categories>
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>实现：双层锁防止Redis缓存击穿</title>
     <link href="/2021/08/02/%E5%8F%8C%E5%B1%82%E9%94%81%E9%98%B2%E6%AD%A2Redis%E7%BC%93%E5%AD%98%E5%87%BB%E7%A9%BF/"/>
     <url>/2021/08/02/%E5%8F%8C%E5%B1%82%E9%94%81%E9%98%B2%E6%AD%A2Redis%E7%BC%93%E5%AD%98%E5%87%BB%E7%A9%BF/</url>
