@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>查找薪水排名第二多的员工编号emp_no、薪水salary、last_name以及first_name，不能使用order by</title>
+    <link href="/2021/08/13/a/"/>
+    <url>/2021/08/13/a/</url>
+    
+    <content type="html"><![CDATA[<h3 id="查找薪水排名第二多的员工编号emp-no、薪水salary、last-name以及first-name，不能使用order-by"><a href="#查找薪水排名第二多的员工编号emp-no、薪水salary、last-name以及first-name，不能使用order-by" class="headerlink" title="查找薪水排名第二多的员工编号emp_no、薪水salary、last_name以及first_name，不能使用order by"></a>查找薪水排名第二多的员工编号emp_no、薪水salary、last_name以及first_name，不能使用order by</h3><p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20210813204531.png"></p><p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20210813204601.png"></p><p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20210813204643.png"></p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> e.emp_no, s.salary, e.last_name, e.first_name<br><span class="hljs-keyword">from</span> employees e <span class="hljs-keyword">join</span> salaries s <br><span class="hljs-keyword">on</span> e.emp_no <span class="hljs-operator">=</span> s.emp_no <br><span class="hljs-keyword">and</span> s.salary <span class="hljs-operator">=</span> <br>(<br>    <span class="hljs-keyword">select</span> s1.salary <span class="hljs-keyword">from</span> salaries s1 <span class="hljs-keyword">join</span> salaries s2 <span class="hljs-comment">-- 自连接</span><br>    <span class="hljs-keyword">on</span> s1.salary <span class="hljs-operator">&lt;</span> s2.salary <span class="hljs-comment">-- 连接条件使用&lt;</span><br>    <span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> s1.salary<br>    <span class="hljs-keyword">having</span> <span class="hljs-built_in">count</span>(<span class="hljs-keyword">distinct</span> s2.salary) <span class="hljs-operator">=</span> <span class="hljs-number">1</span> <span class="hljs-comment">-- 筛选出小于最大的值 第三多就改成2（小于前二）</span><br>)<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>MySQL</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>回溯：全排列与N皇后</title>
     <link href="/2021/08/06/%E5%85%A8%E6%8E%92%E5%88%97%E4%B8%8EN%E7%9A%87%E5%90%8E/"/>
     <url>/2021/08/06/%E5%85%A8%E6%8E%92%E5%88%97%E4%B8%8EN%E7%9A%87%E5%90%8E/</url>
