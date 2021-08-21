@@ -182,13 +182,57 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/08/13/%E6%9F%A5%E6%89%BE%E8%96%AA%E6%B0%B4%E6%8E%92%E5%90%8D%E7%AC%AC%E4%BA%8C%E5%A4%9A%E7%9A%84%E5%91%98%E5%B7%A5%E7%BC%96%E5%8F%B7%20%E4%B8%8D%E8%83%BD%E4%BD%BF%E7%94%A8order%20by/" target="_self">
-          查找薪水排名第二多的员工编号emp_no、薪水salary、last_name以及first_name，不能使用order by
+        <a href="/2021/08/21/%E7%BB%9F%E8%AE%A1salary%E7%9A%84%E7%B4%AF%E8%AE%A1%E5%92%8C%EF%BC%88%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%89/" target="_self">
+          统计salary的累计和（窗口函数的使用）
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/08/13/%E6%9F%A5%E6%89%BE%E8%96%AA%E6%B0%B4%E6%8E%92%E5%90%8D%E7%AC%AC%E4%BA%8C%E5%A4%9A%E7%9A%84%E5%91%98%E5%B7%A5%E7%BC%96%E5%8F%B7%20%E4%B8%8D%E8%83%BD%E4%BD%BF%E7%94%A8order%20by/" target="_self">
+        <a href="/2021/08/21/%E7%BB%9F%E8%AE%A1salary%E7%9A%84%E7%B4%AF%E8%AE%A1%E5%92%8C%EF%BC%88%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%89/" target="_self">
+          
+          
+            
+          
+          统计salary的累计和running_total按照salary的累计和running_total，其中running_total为前N个当前( to_date = ‘9999-01-01’)员工的salary累计和，其他以此类推。
+12345CREATE TABLE `salaries` ( `emp_no` int(11) NOT NULL,`salary` int(11) NOT NULL
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-08-21 11:34" pubdate>
+              2021-08-21
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/MySQL/">MySQL</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/08/13/%E8%96%AA%E6%B0%B4%E6%8E%92%E5%90%8D%E9%97%AE%E9%A2%98%EF%BC%88%E8%87%AA%E8%BF%9E%E6%8E%A5%E5%92%8C%E5%B0%8F%E4%BA%8E%E7%AD%89%E4%BA%8E%E5%8F%B7%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%89/" target="_self">
+          薪水排名问题（自连接 &amp; &lt;=的使用）
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/08/13/%E8%96%AA%E6%B0%B4%E6%8E%92%E5%90%8D%E9%97%AE%E9%A2%98%EF%BC%88%E8%87%AA%E8%BF%9E%E6%8E%A5%E5%92%8C%E5%B0%8F%E4%BA%8E%E7%AD%89%E4%BA%8E%E5%8F%B7%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%89/" target="_self">
           
           
             
@@ -596,55 +640,6 @@ Class 与 Style 绑定
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
             <time datetime="2021-07-24 23:32" pubdate>
-              2021-07-24
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/LeetCode/">LeetCode</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/07/24/4%20median-of-two-sorted-arrays/" target="_self">
-          LeetCode TOP 145：4 median-of-two-sorted-arrays
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/07/24/4%20median-of-two-sorted-arrays/" target="_self">
-          
-          
-            
-          
-          题目链接4. 寻找两个正序数组的中位数 - 力扣（LeetCode） (leetcode-cn.com)
-解题思路时间复杂度要求O(log(m+n))，只能考虑二分搜索
-
-题目是求中位数，其实就是求第 k 小数的一种特殊情况
-我们可以每次循环排除掉 k/2 个数
-递归出口就是当 k=1 或者其中一个数组长度是 0 了
-每进行一次循环，我们就减少 k/2 个元素，所以时间复杂度是 O(log(k))
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-07-24 22:54" pubdate>
               2021-07-24
             </time>
           </div>
