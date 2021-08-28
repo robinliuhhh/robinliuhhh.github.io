@@ -1,0 +1,510 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/laptop.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+  <title>二叉树的DFS - Robin Liu&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Robin Liu's Blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/blade%20runner.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="二叉树的DFS">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-08-26 19:04" pubdate>
+        2021年8月26日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      35
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">二叉树的DFS</h1>
+            
+            <div class="markdown-body">
+              <h3 id="1-二叉树剪枝"><a href="#1-二叉树剪枝" class="headerlink" title="1. 二叉树剪枝"></a>1. 二叉树剪枝</h3><p>一棵二叉树的所有节点的值要么是0要么是1，请剪除该二叉树中所有节点的值全都是0的子树。例如，在剪除图8.2（a）中二叉树中所有节点值都为0的子树之后的结果如图8.2（b）所示。</p>
+<p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20210826180113.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><ul>
+<li>后序遍历最适合用来解决这个问题。每遍历到一个节点，就要确定它是否有左右子树，<strong>如果左右子树都是空的，并且节点的值是0，那么就可以删除这个节点</strong>。</li>
+<li>所谓删除一个节点，就是<strong>返回null给它的父节点</strong>，这样这个节点就从这棵二叉树中消失。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> JZOfferTest.Tree_DFS;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">pruneTree</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> TreeNode <span class="hljs-title">pruneTree</span><span class="hljs-params">(TreeNode root)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (root == <span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span> root;<br><br>        root.left = pruneTree(root.left);<br>        root.right = pruneTree(root.right);<br>        <span class="hljs-keyword">if</span> (root.left == <span class="hljs-keyword">null</span> &amp;&amp; root.right == <span class="hljs-keyword">null</span> &amp;&amp; root.val == <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> root;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        pruneTree pruneTree = <span class="hljs-keyword">new</span> pruneTree();<br>        <span class="hljs-comment">// [1,0,1,0,0,0,1]</span><br>        TreeNode treeNode = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">1</span>);<br>        treeNode.left = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">0</span>);<br>        treeNode.right = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">1</span>);<br>        treeNode.left.left = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">0</span>);<br>        treeNode.left.right = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">0</span>);<br>        treeNode.right.left = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">0</span>);<br>        treeNode.right.right = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">1</span>);<br><br>        TreeNode res = pruneTree.pruneTree(treeNode);<br>        System.out.println(res.toString()); <span class="hljs-comment">// [1,null,1,null,1]</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h4><ul>
+<li>时间复杂度：O(n)</li>
+<li>空间复杂度：O(h) h为树高</li>
+</ul>
+<h3 id="2-序列化和反序列化二叉树"><a href="#2-序列化和反序列化二叉树" class="headerlink" title="2. 序列化和反序列化二叉树"></a>2. 序列化和反序列化二叉树</h3><p>请设计一个算法将二叉树序列化成一个字符串，并能将该字符串反序列化出原来二叉树的算法。</p>
+<h4 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h4><ul>
+<li>先考虑如何将二叉树序列化为一个字符串。需要逐个遍历二叉树的每个节点，每遍历到一个节点就将节点的值序列化到字符串中。以<strong>前序遍历的顺序遍历二叉树最适合序列化</strong>。<strong>这样做的好处是在反序列化时最方便，从字符串中读出的第1个数值一定是根节点的值</strong>。</li>
+<li>只把节点的值序列化到字符串中是不够的。首先，要用一个分隔符（如逗号）把不同的节点分隔开。其次，还要考虑如何才能在反序列化的时候构建不同结构的二叉树（即，空为”#“，保持结构）。</li>
+<li>我们需要一个下标去扫描字符串数组nodeStrs中的每个字符串。通常用一个整数值来表示数组的下标，但在上述代码中却定义了一个长度为1的整数数组i。这是因为递归函数dfs每反序列化一个节点时下标就会增加1，并且函数的调用者需要知道下标增加了。如果函数dfs的第2个参数i是整数类型，那么即使在函数体内修改i的值，修改之后的值也不能传递给它的调用者。但把i定义为整数数组之后，可以修改整数数组中的数字，修改之后的数值就能传给它的调用者。<ul>
+<li><strong>基本数据类型：值传递（传递拷贝 原值不变）</strong></li>
+<li><strong>对象类型：引用传递（传递地址 修改原值）</strong></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> JZOfferTest.Tree_DFS;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">serialize_deserialize</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">serialize</span><span class="hljs-params">(TreeNode root)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (root == <span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;#&quot;</span>;<br><br>        String left = serialize(root.left);<br>        String right = serialize(root.right);<br>        <span class="hljs-keyword">return</span> String.valueOf(root.val) + <span class="hljs-string">&quot;,&quot;</span> + left + <span class="hljs-string">&quot;,&quot;</span> + right;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> TreeNode <span class="hljs-title">deserialize</span><span class="hljs-params">(String data)</span> </span>&#123;<br>        String[] nodeStrs = data.split(<span class="hljs-string">&quot;,&quot;</span>); <span class="hljs-comment">// 分隔之后的所有节点</span><br>        <span class="hljs-keyword">int</span>[] i = &#123;<span class="hljs-number">0</span>&#125;; <span class="hljs-comment">// 若传递整型 修改后调用者接收不到 值传递（传递拷贝 原值不变）</span><br>        <span class="hljs-keyword">return</span> dfs(nodeStrs, i);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> TreeNode <span class="hljs-title">dfs</span><span class="hljs-params">(String[] strs, <span class="hljs-keyword">int</span>[] i)</span> </span>&#123;<br>        String str = strs[i[<span class="hljs-number">0</span>]]; <span class="hljs-comment">// 只有一个值</span><br>        i[<span class="hljs-number">0</span>]++; <span class="hljs-comment">// 数组值+1 引用传递（传递地址 修改原值）</span><br><br>        <span class="hljs-keyword">if</span> (str.equals(<span class="hljs-string">&quot;#&quot;</span>)) <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;<br><br>        TreeNode node = <span class="hljs-keyword">new</span> TreeNode(Integer.valueOf(str));<br>        node.left = dfs(strs, i);<br>        node.right = dfs(strs, i);<br>        <span class="hljs-keyword">return</span> node;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="复杂度-1"><a href="#复杂度-1" class="headerlink" title="复杂度"></a>复杂度</h4><ul>
+<li>时间复杂度：O(n) 只访问每个节点一次</li>
+<li>空间复杂度：O(n)  递归使用的栈空间</li>
+</ul>
+<h3 id="3-从根节点到叶节点的路径数字之和"><a href="#3-从根节点到叶节点的路径数字之和" class="headerlink" title="3. 从根节点到叶节点的路径数字之和"></a>3. 从根节点到叶节点的路径数字之和</h3><p>在一棵二叉树中所有节点都在0～9的范围之内，从根节点到叶节点的路径表示一个数字。求二叉树中所有路径表示的数字之和。例如，图中的二叉树有3条从根节点到叶节点的路径，它们分别表示数字395、391和302，这3个数字之和是1088。</p>
+<p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20210826214110.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="分析-2"><a href="#分析-2" class="headerlink" title="分析"></a>分析</h4><ul>
+<li>首先考虑<strong>如何计算路径表示的数字</strong>。顺着指向子节点的指针路径向下遍历二叉树，每到达一个节点，相当于在路径表示的数字末尾添加一位数字。例如，在最开始到达根节点时，它表示数字3。然后到达节点9，此时路径表示数字39（3×10+9=39）。然后向下到达节点5，此时路径表示数字395（39×10+5=395）。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> JZOfferTest.Tree_DFS;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">sumNumbers</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">sumNumbers</span><span class="hljs-params">(TreeNode root)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> dfs(root, <span class="hljs-number">0</span>);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> <span class="hljs-title">dfs</span><span class="hljs-params">(TreeNode root, <span class="hljs-keyword">int</span> path)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (root == <span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>        <br>        path = path * <span class="hljs-number">10</span> + root.val;<br>        <span class="hljs-keyword">if</span> (root.left == <span class="hljs-keyword">null</span> &amp;&amp; root.right == <span class="hljs-keyword">null</span>) &#123;<br>            <span class="hljs-keyword">return</span> path;<br>        &#125;<br>        <span class="hljs-keyword">return</span> dfs(root.left, path) + dfs(root.right, path);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="复杂度-2"><a href="#复杂度-2" class="headerlink" title="复杂度"></a>复杂度</h4><ul>
+<li>时间复杂度：O(n) 前序遍历</li>
+<li>空间复杂度：O(1)  path</li>
+</ul>
+<h3 id="4-向下的路径节点值之和"><a href="#4-向下的路径节点值之和" class="headerlink" title="4. 向下的路径节点值之和"></a>4. 向下的路径节点值之和</h3><p>给定一棵二叉树和一个值sum，求二叉树中节点值之和等于sum的路径的数目。路径的定义为二叉树中顺着指向子节点的指针向下移动所经过的节点，但不一定从根节点开始，也不一定到叶节点结束。例如，在如图所示中的二叉树中有两条路径的节点值之和等于8，其中，第1条路径从节点5开始经过节点2到达节点1，第2条路径从节点2开始到节点6。</p>
+<p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20210826215743.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="分析-3"><a href="#分析-3" class="headerlink" title="分析"></a>分析</h4><ul>
+<li><p>在这个题目中，二叉树的路径的定义发生了改变，它<strong>不一定从根节点开始，也不一定到叶节点结束</strong>。路径的起止节点的不确定性给计算路径经过的节点值之和带来了很大的难度。</p>
+</li>
+<li><p>如果在路径上移动时把所有累加的节点值之和都保存下来，就容易知道是否存在从任意节点出发的值为给定sum的路径。</p>
+<ul>
+<li>例如，当到达图中二叉树的根节点5时，从根节点开始的路径节点值之和是5。当到达节点2时，从根节点开始的路径经过的节点值之和是7。当到达节点6时，从根节点出发到当前节点的路径经过的节点值之和为13。由于要找出节点值之和为8的路径，而13与5的差值是8，这就说明从节点5的下一个节点（即节点2）开始到节点6结束的路径经过的节点值之和为8。</li>
+</ul>
+</li>
+<li><p>可以采用二叉树深度优先搜索来解决与路径相关的问题。<strong>当遍历到一个节点时，先累加从根节点开始的路径上的节点值之和，再计算到它的左右子节点的路径的节点值之和</strong>。这就是典型的前序遍历的顺序。</p>
+<ul>
+<li>用参数path表示从根节点开始的路径已经累加的节点值之和，并保存到哈希表map中。哈希表的键是累加的节点值之和，哈希表的值是每个节点值之和出现的次数。当遍历到一个节点时，就把当前的节点值累加到参数path。如果这个和之前出现过，则将出现的次数加1；如果这个和之前没有出现过，那么这是它第1次出现。然后更新哈希表map保存累加节点值之和path及出现的次数。</li>
+<li>辅助函数dfs实现了递归的前序遍历，该函数遍历到二叉树的一个节点时将递归地遍历它的子节点。因此，<strong>当该函数结束时，程序将回到节点的父节点</strong>，也就是说，<strong>在函数结束之前需要将当前节点从路径中删除，从根节点到当前节点累加的节点值之和也要从哈希表map中删除</strong>。这是在函数dfs返回之前更新哈希表map把参数path出现的次数减1的原因。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> JZOfferTest.Tree_DFS;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">pathNum</span> </span>&#123;<br>    <br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">pathNum</span><span class="hljs-params">(TreeNode root, <span class="hljs-keyword">int</span> sum)</span> </span>&#123;<br>        Map&lt;Integer, Integer&gt; map = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();<br>        map.put(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>); <span class="hljs-comment">// path - sum == 0 -&gt; path == sum 初始为1</span><br>        <span class="hljs-keyword">return</span> dfs(root, sum, map, <span class="hljs-number">0</span>);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> <span class="hljs-title">dfs</span><span class="hljs-params">(TreeNode root, <span class="hljs-keyword">int</span> sum, Map&lt;Integer, Integer&gt; map, <span class="hljs-keyword">int</span> path)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (root == <span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br><br>        path += root.val;<br>        <span class="hljs-comment">// 若 path - sum 差值不在map中 则返回 0</span><br>        <span class="hljs-comment">// 若 path - sum 差值在map中 则获取次数 在这个次数基础上递归左右子树</span><br>        <span class="hljs-comment">// 若 path - sum == 0 -&gt; path == sum 初始map.put(0, 1); 值为1</span><br>        <span class="hljs-keyword">int</span> count = map.getOrDefault(path - sum, <span class="hljs-number">0</span>); <br>        <span class="hljs-comment">// 如果这个和之前出现过 则在原有次数上+1 </span><br>        <span class="hljs-comment">// 若没出现过 则0+1 表示第一次出现</span><br>        map.put(path, map.getOrDefault(path, <span class="hljs-number">0</span>) + <span class="hljs-number">1</span>);<br><br>        count += dfs(root.left, sum, map, path);<br>        count += dfs(root.right, sum, map, path);<br><br>        <span class="hljs-comment">// 在函数结束之前需要将当前节点从路径中删除</span><br>        <span class="hljs-comment">// 从根节点到当前节点累加的节点值之和也要从哈希表map中删除</span><br>        map.put(path, map.get(path) - <span class="hljs-number">1</span>);<br><br>        <span class="hljs-keyword">return</span> count;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="复杂度-3"><a href="#复杂度-3" class="headerlink" title="复杂度"></a>复杂度</h4><ul>
+<li>时间复杂度：O(n) 前序遍历</li>
+<li>空间复杂度：O(n)  HashMap</li>
+</ul>
+<h3 id="5-节点值之和最大的路径"><a href="#5-节点值之和最大的路径" class="headerlink" title="5. 节点值之和最大的路径"></a>5. 节点值之和最大的路径</h3><p>在二叉树中将路径定义为顺着节点之间的连接<strong>从任意一个节点开始到达任意一个节点所经过的所有节点</strong>。路径中至少包含一个节点，不一定经过二叉树的根节点，也不一定经过叶节点。给定非空的一棵二叉树，请求出二叉树所有路径上节点值之和的最大值。例如，在如图8.6所示的二叉树中，从节点15开始经过节点20到达节点7的路径的节点值之和为42，是节点值之和最大的路径。</p>
+<p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20210827212711.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="分析-4"><a href="#分析-4" class="headerlink" title="分析"></a>分析</h4><ul>
+<li>这个题目中二叉树路径的定义又和前面的不同。这里的路径最主要的特点是<strong>路径有可能同时经过一个节点的左右子节点</strong>。<ul>
+<li>例如，在图中，一条路径可以经过节点-9、节点20、节点15和节点-3；一条路径也可以经过节点15、节点20和节点7。</li>
+</ul>
+</li>
+<li>值得注意的是，如果一条路径同时经过某个节点的左右子节点，那么该路径一定不能经过它的父节点。<ul>
+<li>例如，在图中，经过节点20、节点15、节点7的路径不能经过节点-9。</li>
+</ul>
+</li>
+<li>对于任意一个节点，如果最大和路径包含该节点，那么只可能是两种情况：<ol>
+<li>其左右子树中所构成的和路径值较大的那个加上该节点的值后向父节点回溯构成最大路径</li>
+<li>左右子树都在最大路径中，加上该节点的值构成了最终的最大路径</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> JZOfferTest.Tree_DFS;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">maxPathSum</span> </span>&#123;<br>    <br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> maxSum = Integer.MIN_VALUE;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">maxPathSum</span><span class="hljs-params">(TreeNode root)</span> </span>&#123;<br>        dfs(root);<br>        <span class="hljs-keyword">return</span> maxSum;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> <span class="hljs-title">dfs</span><span class="hljs-params">(TreeNode root)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (root == <span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br><br>        <span class="hljs-comment">// 如果子树路径和为负则置0 表示最大路径不包含该子树</span><br>        <span class="hljs-keyword">int</span> left = Math.max(<span class="hljs-number">0</span>, dfs(root.left));<br>        <span class="hljs-keyword">int</span> right = Math.max(<span class="hljs-number">0</span>, dfs(root.right));<br>        <span class="hljs-comment">// maxSum可能为 左+根 右+根 左+右+根</span><br>        maxSum = Math.max(maxSum, root.val + left + right);<br><br>        <span class="hljs-comment">// 回溯父节点继续比较</span><br>        <span class="hljs-comment">// 由于同时经过左右子树的路径不能经过父节点</span><br>        <span class="hljs-comment">// 因此返回值是变量left与right的较大值加上当前节点root的值</span><br>        <span class="hljs-keyword">return</span> root.val + Math.max(left, right);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="复杂度-4"><a href="#复杂度-4" class="headerlink" title="复杂度"></a>复杂度</h4><ul>
+<li>时间复杂度：O(n) 后序遍历</li>
+<li>空间复杂度：O(1)  maxSum</li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/JZOffer/">JZOffer</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/08/25/%E5%8F%8C%E6%8C%87%E9%92%88%E4%B9%8B%E6%95%B0%E7%BB%84/">
+                        <span class="hidden-mobile">双指针之数组</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
