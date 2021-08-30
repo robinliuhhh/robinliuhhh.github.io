@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>Git常用命令</title>
+    <link href="/2021/08/30/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <url>/2021/08/30/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    
+    <content type="html"><![CDATA[<h3 id="提交代码"><a href="#提交代码" class="headerlink" title="提交代码"></a>提交代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">git init <span class="hljs-comment"># 初始化本地库</span><br>git status <span class="hljs-comment"># 查看本地库状态</span><br>git add 文件名 <span class="hljs-comment"># 添加暂存区</span><br>git commit -m <span class="hljs-string">&quot;日志信息&quot;</span> <span class="hljs-comment"># 提交本地库</span><br></code></pre></td></tr></table></figure><h3 id="版本穿梭"><a href="#版本穿梭" class="headerlink" title="版本穿梭"></a>版本穿梭</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">git reflog <span class="hljs-comment"># 查看版本信息</span><br>git <span class="hljs-built_in">log</span> <span class="hljs-comment"># 查看版本详细信息</span><br>git reset --hard 版本号 <span class="hljs-comment"># 版本穿梭</span><br></code></pre></td></tr></table></figure><h3 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">git branch -v <span class="hljs-comment"># 查看分支</span><br>git branch 分支名 <span class="hljs-comment"># 创建分支</span><br>git checkout 分支名 <span class="hljs-comment"># 切换分支</span><br>git merge 分支名 <span class="hljs-comment"># 把指定的分支合并到当前分支上</span><br></code></pre></td></tr></table></figure><p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20210828205527.png"></p><h4 id="分支冲突"><a href="#分支冲突" class="headerlink" title="分支冲突"></a>分支冲突</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">git status <span class="hljs-comment"># 查看本地库状态 定位冲突文件</span><br><span class="hljs-comment"># 特殊符号: &lt;&lt;&lt;&lt;&lt;&lt;&lt; 当前分支 当前分支的代码 ======= 合并过来的代码 &gt;&gt;&gt;&gt;&gt;&gt;&gt; 其他分支</span><br><span class="hljs-comment"># 编辑有冲突的文件 删除特殊符号</span><br>git add<br>git commit -m <span class="hljs-string">&quot;xxx&quot;</span><br></code></pre></td></tr></table></figure><h3 id="远程仓库操作"><a href="#远程仓库操作" class="headerlink" title="远程仓库操作"></a>远程仓库操作</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">git remote add 别名 远程地址 <span class="hljs-comment"># 起别名 eg. git remote add origin 远程地址</span><br>git remote -v <span class="hljs-comment"># 查看当前所有远程地址别名</span><br>git <span class="hljs-built_in">clone</span> 远程地址<br>git pull 别名 远程分支名 <span class="hljs-comment"># 将远程仓库对应分支最新内容拉下来后与当前本地分支直接合并</span><br>git push 别名 本地分支名:远程分支名 <span class="hljs-comment"># 若如果本地分支名与远程分支名相同 则可以省略冒号和远程分支名</span><br></code></pre></td></tr></table></figure><h4 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">git pull origin main    <span class="hljs-comment"># 将远程仓库里面的项目拉下来</span><br>dir                       <span class="hljs-comment"># 查看有哪些文件夹</span><br>git rm -r --cached .idea <span class="hljs-comment"># 删除.idea文件夹</span><br>git commit -m <span class="hljs-string">&#x27;delete .idea&#x27;</span>    <span class="hljs-comment"># 提交 添加操作说明</span><br>git push origin main <span class="hljs-comment"># 将本次更改更新到github项目上去</span><br></code></pre></td></tr></table></figure><h3 id="IDEA-集成-Git"><a href="#IDEA-集成-Git" class="headerlink" title="IDEA 集成 Git"></a>IDEA 集成 Git</h3><h4 id="配置-Git-忽略文件"><a href="#配置-Git-忽略文件" class="headerlink" title="配置 Git 忽略文件"></a>配置 Git 忽略文件</h4><p>为什么要忽略他们？ </p><ul><li>与项目的实际功能无关，不参与服务器上部署运行，把它们忽略掉能够屏蔽 IDE 工具之间的差异。</li></ul><p>怎么忽略？</p><ol><li><p>创建git.ignore文件</p><ul><li><p>这个文件的存放位置原则上在哪里都可以，为了便于让~/.gitconfig 文件引用，建议也放在用户家目录下</p></li><li><p>git.ignore 文件模版内容如下：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Compiled class file</span><br>*.class<br><span class="hljs-comment"># Log file</span><br>*.<span class="hljs-built_in">log</span><br><span class="hljs-comment"># BlueJ files</span><br>*.ctxt<br><span class="hljs-comment"># Mobile Tools for Java (J2ME)</span><br>.mtj.tmp/<br><span class="hljs-comment"># Package Files #</span><br>*.jar<br>*.war<br>*.nar<br>*.ear<br>*.zip<br>*.tar.gz<br>*.rar<br><span class="hljs-comment"># virtual machine crash logs, see </span><br>http://www.java.com/en/download/<span class="hljs-built_in">help</span>/error_hotspot.xml<br>hs_err_pid*<br>.classpath<br>.project<br>.settings<br>target<br>.idea<br>*.iml<br></code></pre></td></tr></table></figure></li></ul></li><li><p>在.gitconfig 文件中引用忽略配置文件</p><p>注意：这里要使用“正斜线（/）”，不要使用“反斜线（\）”</p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-section">[core]</span><br><span class="hljs-attr">excludesfile</span> = C:/Users/robin/git.ignore<br></code></pre></td></tr></table></figure></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>Git</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>二叉树的DFS</title>
     <link href="/2021/08/27/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84DFS/"/>
     <url>/2021/08/27/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84DFS/</url>
@@ -109,25 +128,6 @@
     <categories>
       
       <category>LeetCode</category>
-      
-    </categories>
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>解决：git commit后本地代码丢失</title>
-    <link href="/2021/08/02/git%20commit%E5%90%8E%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%A0%81%E4%B8%A2%E5%A4%B1/"/>
-    <url>/2021/08/02/git%20commit%E5%90%8E%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%A0%81%E4%B8%A2%E5%A4%B1/</url>
-    
-    <content type="html"><![CDATA[<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs angelscript">git <span class="hljs-built_in">ref</span>log<br></code></pre></td></tr></table></figure><p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20210802173753.png"></p><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs perl">git <span class="hljs-keyword">reset</span> --hard HEAD@&#123;7&#125;<br></code></pre></td></tr></table></figure><p><strong>注意</strong>：reset后HEAD值会变，需要再次执行 <code>git reflog</code> 查看最新的HEAD值</p><ul><li>看我的6789，找了好几次才找到想要的那个版本</li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>Git</category>
       
     </categories>
     
