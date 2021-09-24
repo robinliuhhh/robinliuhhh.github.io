@@ -182,6 +182,50 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2021/09/07/equals%E4%B8%8Ehashcode/" target="_self">
+          equals与hashcode
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/09/07/equals%E4%B8%8Ehashcode/" target="_self">
+          
+          
+            
+          
+          equals作用判断两个对象是否相等。
+Java对 equals() 的要求123456789101112131415// 自反性 x.equals(x); // true  // 对称性 x.equals(y) == y.equals(x); // true  // 传递性 if (x.equals(y) &amp;&amp; y.equals(z))    x.equals(z); // tr
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-07 22:03" pubdate>
+              2021-09-07
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Java/">Java</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2021/09/02/TreeSet%E5%92%8CTreeMap%E7%9A%84%E5%BA%94%E7%94%A8/" target="_self">
           TreeSet和TreeMap的应用
         </a>
@@ -584,50 +628,6 @@
             <i class="iconfont icon-category"></i>
             
               <a href="/categories/MyBatis/">MyBatis</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/08/02/%E5%8F%8C%E5%B1%82%E9%94%81%E9%98%B2%E6%AD%A2Redis%E7%BC%93%E5%AD%98%E5%87%BB%E7%A9%BF/" target="_self">
-          实现：双层锁防止Redis缓存击穿
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/08/02/%E5%8F%8C%E5%B1%82%E9%94%81%E9%98%B2%E6%AD%A2Redis%E7%BC%93%E5%AD%98%E5%87%BB%E7%A9%BF/" target="_self">
-          
-          
-            
-          
-          假设情景高并发下，若干人同时进入getAllCourse方法查询课程信息，若在缓存中没找到结果，则这些人将同时访问数据库，Redis做缓存失去了应有的作用。
-模拟20个线程高并发123456789101112131415@GetMapping(&quot;getAllCourse&quot;)public List&lt;Course&gt; getAllCourse() &#123;    //
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-08-02 16:31" pubdate>
-              2021-08-02
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Redis/">Redis</a>
             
           </div>
         
