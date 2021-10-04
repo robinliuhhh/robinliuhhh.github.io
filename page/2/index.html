@@ -182,6 +182,55 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2021/08/02/Parameter/" target="_self">
+          解决：org.apache.ibatis.binding.BindingException
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/08/02/Parameter/" target="_self">
+          
+          
+            
+          
+          报错信息org.apache.ibatis.binding.BindingException: Parameter &#39;courseId&#39; not found.
+解决思路Mybatis传递参数是按位置传递的，如果想要按值传递，需要加 @Param 注解
+
+参数通过@Param内的字段名称注入到sql语句对应位置
+
+
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-08-02 17:18" pubdate>
+              2021-08-02
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/MyBatis/">MyBatis</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2021/08/02/%E5%8F%8C%E5%B1%82%E9%94%81%E9%98%B2%E6%AD%A2Redis%E7%BC%93%E5%AD%98%E5%87%BB%E7%A9%BF/" target="_self">
           实现：双层锁防止Redis缓存击穿
         </a>
@@ -592,58 +641,6 @@ Class 与 Style 绑定
             <i class="iconfont icon-category"></i>
             
               <a href="/categories/LeetCode/">LeetCode</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/07/16/gitee%E6%8C%87%E7%BA%B9%E7%94%9F%E6%88%90%E5%A4%B1%E8%B4%A5/" target="_self">
-          解决：gitee添加SSH公钥 指纹生成失败
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/07/16/gitee%E6%8C%87%E7%BA%B9%E7%94%9F%E6%88%90%E5%A4%B1%E8%B4%A5/" target="_self">
-          
-          
-            
-          
-          前提已生成id_rsa.pub文件，且github配置ssh公钥成功
-问题gitee添加ssh公钥，输完密码后弹出：指纹生成失败
-
-解决我去看了.ssh文件夹
-
-发现known_hosts里面已经有了gitee.com
-
-于是我把它删除了，然后再次添加，显示成功
-
-
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-07-16 14:06" pubdate>
-              2021-07-16
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Git/">Git</a>
             
           </div>
         
