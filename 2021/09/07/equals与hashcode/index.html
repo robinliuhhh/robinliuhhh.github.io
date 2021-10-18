@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      893 字
+      899 字
     </span>
   
 
@@ -239,7 +239,7 @@
 <li><p>重写<code>equals()</code>方法：手动覆盖 <code>equals()</code>方法来比较两个对象是否等价，若相等则返回 true。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 例：String类的equals方法</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">equals</span><span class="hljs-params">(Object anObject)</span> </span>&#123;<br>    <span class="hljs-comment">// 如果是同一个对象返回true</span><br>    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span> == anObject) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (anObject <span class="hljs-keyword">instanceof</span> String) &#123;<br>        String anotherString = (String)anObject;<br>        <span class="hljs-keyword">int</span> n = value.length;<br>        <span class="hljs-keyword">if</span> (n == anotherString.value.length) &#123;<br>            <span class="hljs-keyword">char</span> v1[] = value;<br>            <span class="hljs-keyword">char</span> v2[] = anotherString.value;<br>            <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;<br>            <span class="hljs-keyword">while</span> (n-- != <span class="hljs-number">0</span>) &#123;<br>                <span class="hljs-keyword">if</span> (v1[i] != v2[i])<br>                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>                i++;<br>            &#125;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>&#125;<br></code></pre></td></tr></table></figure></li>
 </ul>
-<h4 id="Java只有值传递"><a href="#Java只有值传递" class="headerlink" title="Java只有值传递"></a>Java只有值传递</h4><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/bjweimengshu/article/details/79799485">为什么说Java中只有值传递</a></p>
+<h4 id="Java只有值传递"><a href="#Java只有值传递" class="headerlink" title="Java只有值传递"></a>Java只有值传递</h4><p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/31203609">Java 到底是值传递还是引用传递？ - 知乎 (zhihu.com)</a></p>
 <p><strong>值传递</strong>：指在调用函数时<strong>将实际参数复制一份</strong>传递到函数中，这样在函数中如果对参数进行修改，将不会影响到实际参数。</p>
 <p><strong>引用传递</strong>：指在调用函数时<strong>将实际参数的地址直接传递</strong>到函数中，那么在函数中对参数所进行的修改，将影响到实际参数。</p>
 <p>值传递和引用传递的区别并不是传递的内容，而是<strong>实参</strong>到底有没有<strong>被复制</strong>一份给形参。</p>
