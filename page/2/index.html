@@ -182,6 +182,52 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2021/08/13/%E8%96%AA%E6%B0%B4%E6%8E%92%E5%90%8D%E9%97%AE%E9%A2%98%EF%BC%88%E8%87%AA%E8%BF%9E%E6%8E%A5%E5%92%8C%E5%B0%8F%E4%BA%8E%E7%AD%89%E4%BA%8E%E5%8F%B7%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%89/" target="_self">
+          薪水排名问题（自连接 &amp; &lt;=的使用）
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/08/13/%E8%96%AA%E6%B0%B4%E6%8E%92%E5%90%8D%E9%97%AE%E9%A2%98%EF%BC%88%E8%87%AA%E8%BF%9E%E6%8E%A5%E5%92%8C%E5%B0%8F%E4%BA%8E%E7%AD%89%E4%BA%8E%E5%8F%B7%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%89/" target="_self">
+          
+          
+            
+          
+          查找薪水排名第二多的员工编号emp_no、薪水salary、last_name以及first_name，不能使用order by
+
+
+123456789select e.emp_no, s.salary, e.last_name, e.first_namefrom employees e join salaries s on e.emp_no = s.emp_no and s.salary = (
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-08-13 20:07" pubdate>
+              2021-08-13
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/MySQL/">MySQL</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2021/08/06/%E5%85%A8%E6%8E%92%E5%88%97%E4%B8%8EN%E7%9A%87%E5%90%8E/" target="_self">
           回溯：全排列与N皇后
         </a>
@@ -477,19 +523,27 @@ Class 与 Style 绑定
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/07/24/5%20longest-palindromic-substring/" target="_self">
-          LeetCode TOP 145：5 longest-palindromic-substring
+        <a href="/2021/07/16/gitee%E6%8C%87%E7%BA%B9%E7%94%9F%E6%88%90%E5%A4%B1%E8%B4%A5/" target="_self">
+          解决：gitee添加SSH公钥 指纹生成失败
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/07/24/5%20longest-palindromic-substring/" target="_self">
+        <a href="/2021/07/16/gitee%E6%8C%87%E7%BA%B9%E7%94%9F%E6%88%90%E5%A4%B1%E8%B4%A5/" target="_self">
           
           
             
           
-          题目链接5. 最长回文子串 - 力扣（LeetCode） (leetcode-cn.com)
-解题思路12345678910111213141516171819202122232425262728293031323334class Solution &#123;    public String longestPalindrome(String s) &#123;        // 动态规划  
+          前提已生成id_rsa.pub文件，且github配置ssh公钥成功
+问题gitee添加ssh公钥，输完密码后弹出：指纹生成失败
+
+解决我去看了.ssh文件夹
+
+发现known_hosts里面已经有了gitee.com
+
+于是我把它删除了，然后再次添加，显示成功
+
+
         </a>
       </p>
 
@@ -497,8 +551,8 @@ Class 与 Style 绑定
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-07-24 23:32" pubdate>
-              2021-07-24
+            <time datetime="2021-07-16 14:06" pubdate>
+              2021-07-16
             </time>
           </div>
         
@@ -506,7 +560,7 @@ Class 与 Style 绑定
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/LeetCode/">LeetCode</a>
+              <a href="/categories/Git/">Git</a>
             
           </div>
         
@@ -521,24 +575,23 @@ Class 与 Style 绑定
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/07/24/4%20median-of-two-sorted-arrays/" target="_self">
-          LeetCode TOP 145：4 median-of-two-sorted-arrays
+        <a href="/2021/07/14/%E5%90%AF%E5%8A%A8CentOS7%20A%20problem%20has%20occurred%20and%20the%20system%20can't%20recover%20Please%20contact%20a%20system%20administrator/" target="_self">
+          解决：启动CentOS7图形界面报错
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/07/24/4%20median-of-two-sorted-arrays/" target="_self">
+        <a href="/2021/07/14/%E5%90%AF%E5%8A%A8CentOS7%20A%20problem%20has%20occurred%20and%20the%20system%20can't%20recover%20Please%20contact%20a%20system%20administrator/" target="_self">
           
           
             
           
-          题目链接4. 寻找两个正序数组的中位数 - 力扣（LeetCode） (leetcode-cn.com)
-解题思路时间复杂度要求O(log(m+n))，只能考虑二分搜索
+          环境Windows 10 家庭中文版
+VMware-workstation-full-15.0.2-10952284.exe
+CentOS-7-x86_64-DVD-1503-01
+问题安装完后出现如下画面：
 
-题目是求中位数，其实就是求第 k 小数的一种特殊情况
-我们可以每次循环排除掉 k/2 个数
-递归出口就是当 k=1 或者其中一个数组长度是 0 了
-每进行一次循环，我们就减少 k/2 个元素，所以时间复杂度是 O(log(k))
+解决思路1. 上网搜索，据说是图形界面崩溃，需要执行如下操作：1.1 ctrl + alt + f2进入命令行123sudo yum history package-list gjssud
         </a>
       </p>
 
@@ -546,8 +599,8 @@ Class 与 Style 绑定
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-07-24 22:54" pubdate>
-              2021-07-24
+            <time datetime="2021-07-14 17:17" pubdate>
+              2021-07-14
             </time>
           </div>
         
@@ -555,7 +608,7 @@ Class 与 Style 绑定
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/LeetCode/">LeetCode</a>
+              <a href="/categories/Linux/">Linux</a>
             
           </div>
         
@@ -570,19 +623,23 @@ Class 与 Style 绑定
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/07/22/3%20longest-substring-without-repeating-characters/" target="_self">
-          LeetCode TOP 145：3 longest-substring-without-repeating-characters
+        <a href="/2021/07/14/16GRAM%20+%20Windows10%E5%AE%B6%E5%BA%AD%E7%89%88%E5%90%AF%E5%8A%A8CentOS7%E8%93%9D%E5%B1%8F/" target="_self">
+          解决：16GRAM + Windows10家庭版启动CentOS7蓝屏
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/07/22/3%20longest-substring-without-repeating-characters/" target="_self">
+        <a href="/2021/07/14/16GRAM%20+%20Windows10%E5%AE%B6%E5%BA%AD%E7%89%88%E5%90%AF%E5%8A%A8CentOS7%E8%93%9D%E5%B1%8F/" target="_self">
           
           
             
           
-          题目链接3. 无重复字符的最长子串 - 力扣（LeetCode） (leetcode-cn.com)
-解题思路1234567891011121314151617181920class Solution &#123;    public int lengthOfLongestSubstring(String s) &#123;        // 滑动窗口        Map&lt;Charact
+          前言16GRAM是想说，肯定不是内存不够的问题。
+Windows10家庭版是想说，一些解决方法里提到的关闭Hyper-V、关闭Device/Credenti，家庭版没有这两个选项。
+我的解决方法1. 启动虚拟机平台1.1 启用或关闭Windows功能
+1.2 启动虚拟机平台
+1.3 重启电脑即可进入2. 新蓝屏bug：在该系统上全局禁用了虚拟机打印功能，不会为该虚拟机启用此功能
+2.1 开启打印功
         </a>
       </p>
 
@@ -590,8 +647,8 @@ Class 与 Style 绑定
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-07-22 06:49" pubdate>
-              2021-07-22
+            <time datetime="2021-07-14 16:20" pubdate>
+              2021-07-14
             </time>
           </div>
         
@@ -599,51 +656,7 @@ Class 与 Style 绑定
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/LeetCode/">LeetCode</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/07/17/2%20add-two-numbers/" target="_self">
-          LeetCode TOP 145：2 add-two-numbers
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/07/17/2%20add-two-numbers/" target="_self">
-          
-          
-            
-          
-          题目链接2. 两数相加 - 力扣（LeetCode） (leetcode-cn.com)
-解题思路12345678910111213141516171819202122232425262728293031323334353637383940/** * Definition for singly-linked list. * public class ListNode &#123; *     in
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-07-17 13:11" pubdate>
-              2021-07-17
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/LeetCode/">LeetCode</a>
+              <a href="/categories/Linux/">Linux</a>
             
           </div>
         

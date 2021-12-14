@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>LeetCode TOP 145：2 add-two-numbers - Robin Liu&#39;s Blog</title>
+  <title>LeetCode &amp; Python3 起步 - Robin Liu&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="LeetCode TOP 145：2 add-two-numbers">
+            <span class="h2" id="subtitle" title="LeetCode & Python3 起步">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-07-17 13:11" pubdate>
-        2021年7月17日 下午
+      <time datetime="2021-12-07 06:40" pubdate>
+        2021年12月7日 早上
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      274 字
+      601 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4
+      6
        分钟
     </span>
   
@@ -225,14 +225,40 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">LeetCode TOP 145：2 add-two-numbers</h1>
+            <h1 style="display: none">LeetCode &amp; Python3 起步</h1>
             
             <div class="markdown-body">
-              <h2 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a>题目链接</h2><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/add-two-numbers/">2. 两数相加 - 力扣（LeetCode） (leetcode-cn.com)</a></p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Definition for singly-linked list.</span><br><span class="hljs-comment"> * public class ListNode &#123;</span><br><span class="hljs-comment"> *     int val;</span><br><span class="hljs-comment"> *     ListNode next;</span><br><span class="hljs-comment"> *     ListNode() &#123;&#125;</span><br><span class="hljs-comment"> *     ListNode(int val) &#123; this.val = val; &#125;</span><br><span class="hljs-comment"> *     ListNode(int val, ListNode next) &#123; this.val = val; this.next = next; &#125;</span><br><span class="hljs-comment"> * &#125;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> ListNode <span class="hljs-title">addTwoNumbers</span><span class="hljs-params">(ListNode l1, ListNode l2)</span> </span>&#123;<br>        ListNode head = <span class="hljs-keyword">null</span>, tail = <span class="hljs-keyword">null</span>; <span class="hljs-comment">// tail相当于游标</span><br>        <span class="hljs-keyword">int</span> carry = <span class="hljs-number">0</span>; <span class="hljs-comment">// 初始进位位</span><br>        <span class="hljs-keyword">while</span>(l1 != <span class="hljs-keyword">null</span> || l2 != <span class="hljs-keyword">null</span>) &#123;<br>            <span class="hljs-keyword">int</span> n1 = l1 != <span class="hljs-keyword">null</span> ? l1.val : <span class="hljs-number">0</span>;<br>            <span class="hljs-keyword">int</span> n2 = l2 != <span class="hljs-keyword">null</span> ? l2.val : <span class="hljs-number">0</span>;<br>            <span class="hljs-comment">// 对应位置相加 别忘了进位</span><br>            <span class="hljs-keyword">int</span> sum = n1 + n2 + carry;<br>            carry = sum / <span class="hljs-number">10</span>;<br><br>            <span class="hljs-keyword">if</span>(head == <span class="hljs-keyword">null</span>) &#123; <span class="hljs-comment">// 头节点</span><br>                head = tail = <span class="hljs-keyword">new</span> ListNode(sum % <span class="hljs-number">10</span>);<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                tail.next = <span class="hljs-keyword">new</span> ListNode(sum % <span class="hljs-number">10</span>); <span class="hljs-comment">// 结果链表向后延伸</span><br>                tail = tail.next; <span class="hljs-comment">// 游标向后移动</span><br>            &#125;                <br><br>            <span class="hljs-comment">// 输入链表向后移动</span><br>            <span class="hljs-keyword">if</span>(l1 != <span class="hljs-keyword">null</span>) l1 = l1.next; <br>            <span class="hljs-keyword">if</span>(l2 != <span class="hljs-keyword">null</span>) l2 = l2.next;<br>        &#125;<br><br>        <span class="hljs-comment">// l1 l2均为空 相加完毕</span><br>        <span class="hljs-keyword">if</span>(carry &gt; <span class="hljs-number">0</span>) <span class="hljs-comment">// 最后的进位落下</span><br>            tail.next = <span class="hljs-keyword">new</span> ListNode(carry);<br><br>        <span class="hljs-keyword">return</span> head; <br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>时间复杂度：O(max(m,n))（线性增长），m 和 n 分别为两个链表的长度。</p>
-<p>空间复杂度：O(1)，每次使用一个节点的空间，注意返回值不计入空间复杂度。</p>
+              <h2 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a>题目链接</h2><p>[Top 100 Liked Questions](<a target="_blank" rel="noopener" href="https://leetcode.com/problem-list/79h8rn6/">Problems - LeetCode</a>)</p>
+<h2 id="Python3上手"><a href="#Python3上手" class="headerlink" title="Python3上手"></a>Python3上手</h2><p>最初是用Java刷题的，因为比较熟悉，后来逛豆瓣看到了一篇文章<a target="_blank" rel="noopener" href="https://www.douban.com/group/topic/198471155/#86979479iXdmPf">随便聊聊编程语言 </a>，里面有一个案例感觉很受启发：</p>
+<p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20211212160958.png" srcset="/img/loading.gif" lazyload></p>
+<p>确实，Java很依赖IDE，第一次在牛客笔试，差点连main函数都敲不出来。而且看题解，JavaScript、Python等语言都很清晰，Java就是一大坨堆在那里，一些基本的输入输出语句也很冗杂。正好毕设需要用Python做可视化，就想着趁着这个机会练一下Python语法，用它来刷题巩固一下。</p>
+<h3 id="函数定义"><a href="#函数定义" class="headerlink" title="函数定义"></a>函数定义</h3><p><code>def twoSum(self, nums: List[int], target: int) -&gt; List[int]:</code></p>
+<p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20211212155740.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="self"><a href="#self" class="headerlink" title="self"></a>self</h4><p>表示创建的类的<strong>实例本身</strong>。</p>
+<ul>
+<li>在Python里，要想使instance.method()这个格式可以正常工作，在class里面编写method的时候，就必须把变量的第一个位子留出来，<strong>用来指代未来call这个method的instance</strong></li>
+<li><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20211214225857.png" srcset="/img/loading.gif" lazyload></li>
+<li>留出来的这个位子，可以叫任何名字，只不过为了代码的优美，大部分人选择使用self，来指代使用这个method的instance他自己</li>
+<li>如果在method里面要改变instance的属性，可以用self.xxx来指代这个属性进行修改</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/95788606">python里面的self，是谁啊？ - 知乎 (zhihu.com)</a></p>
+<h4 id="nums-List-int"><a href="#nums-List-int" class="headerlink" title="nums: List[int]"></a>nums: List[int]</h4><p>说明参数的数据类型</p>
+<h4 id="gt-List-int"><a href="#gt-List-int" class="headerlink" title="-&gt; List[int]"></a>-&gt; List[int]</h4><p>说明函数的返回类型</p>
+<h2 id="Sublime测试"><a href="#Sublime测试" class="headerlink" title="Sublime测试"></a>Sublime测试</h2><p><code>ctrl + b</code> 即可运行程序。</p>
+<p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20211212160045.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="from-typing-import-List"><a href="#from-typing-import-List" class="headerlink" title="from typing import List"></a>from typing import List</h3><p><code>typing</code> 是从<code>python3.6</code>开始新增的专用于类型注解(type hints)的模块，为Python程序提供静态类型检查，防止运行时出现参数和返回值类型不符合的情况。</p>
+<ul>
+<li>静态类型检查是基于对程序<strong>源代码</strong>的分析来验证程序的类型安全性的过程</li>
+<li>动态类型检查是在<strong>运行时</strong>验证程序的类型安全性的过程</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://docs.python.org/3.6/library/typing.html">官方文档：26.1. typing — Support for type hints — Python 3.6.15 documentation</a></p>
+<h3 id="if-name-‘-main-’"><a href="#if-name-‘-main-’" class="headerlink" title="if _name_ == ‘__main__’"></a>if _<em>name</em>_ == ‘__main__’</h3><p><code>__name__</code>属性是Python的一个内置属性，记录了一个字符串。</p>
+<ul>
+<li>若是在当前文件，<code>__name__ </code>是<code> __main__</code></li>
+<li>若是导入的文件，<code>__name__</code> 是模块名</li>
+</ul>
+<p>因此<code>__name__ == &#39;__main__&#39;</code>就表示在当前文件中，可以在<code>if __name__ == &#39;__main__&#39;  :</code>条件下写入测试代码，<strong>如此可以避免测试代码在模块被导入后执行</strong>。</p>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/49136398/answer/1654722335"><code>if __name__ == &#39;__main__&#39; </code>如何正确理解? - 初识CV的回答 - 知乎</a></p>
 
             </div>
             <hr>
@@ -260,18 +286,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/07/22/3%20longest-substring-without-repeating-characters/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LeetCode TOP 145：3 longest-substring-without-repeating-characters</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/07/17/1%20two-sum/">
-                        <span class="hidden-mobile">LeetCode TOP 145：1 two-sum</span>
+                      <a href="/2021/10/10/%E5%B8%B8%E7%94%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B8%80%E5%8F%A5%E8%AF%9D%E6%80%BB%E7%BB%93/">
+                        <span class="hidden-mobile">常用设计模式一句话总结</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
