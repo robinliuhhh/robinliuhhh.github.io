@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>算法题的一些tricks - Robin Liu&#39;s Blog</title>
+  <title>git clone项目到本地之后要做哪些事 - Robin Liu&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -34,6 +34,8 @@
     
   
 
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
   
 
 
@@ -62,7 +64,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -161,9 +163,46 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="算法题的一些tricks">
+            <span class="h2" id="subtitle" title="git clone项目到本地之后要做哪些事">
               
             </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-12-16 10:11" pubdate>
+        2021年12月16日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      392 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      5
+       分钟
+    </span>
+  
+
+  
+  
+</div>
 
             
           </div>
@@ -176,51 +215,170 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
+      
 
-<article class="page-content">
-  <blockquote>
-<p>首先声明：时间复杂度主要是看<strong>每一个元素被操作的次数</strong>，不要以为for里放一个while就觉得是O(n^2)啊。</p>
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">git clone项目到本地之后要做哪些事</h1>
+            
+            <div class="markdown-body">
+              <h3 id="1-选择合适的分支checkout"><a href="#1-选择合适的分支checkout" class="headerlink" title="1. 选择合适的分支checkout"></a>1. 选择合适的分支checkout</h3><p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/67C7CDB9-7566-4C92-8D6F-F6BCBA9F4246.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="2-gradle"><a href="#2-gradle" class="headerlink" title="2. gradle"></a>2. gradle</h3><p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/F21BBC94-2E45-48BC-8A26-AB1836F74E5E.png" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li>Build and run using选择IDEA<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_27579471/article/details/113764405">原因：xxx.war not found for the web module</a></li>
+</ul>
+</li>
+<li>选择适宜的gradle版本<ul>
+<li>主要是版本别太高，否则以前的gradle项目可能启动失败</li>
+<li><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/F4388B49-EF11-43E3-AC35-BC84889377D9.png" srcset="/img/loading.gif" lazyload></li>
+</ul>
+</li>
+<li>buildDependents<ul>
+<li>导入依赖，解决代码爆红问题</li>
+<li><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/6B78ADD5-1330-4B31-AFC5-2AB35F00CAAE.png" srcset="/img/loading.gif" lazyload></li>
+</ul>
+</li>
+</ul>
+<h3 id="3-拷贝配置文件"><a href="#3-拷贝配置文件" class="headerlink" title="3. 拷贝配置文件"></a>3. 拷贝配置文件</h3><blockquote>
+<p>简易版（注意 <code>pwd</code> 查看当前文件夹）：</p>
+<ul>
+<li>不同服务器：<code>scp -q -r root@192.168.4.117:/var/kingdee/ .</code><ul>
+<li>将 <code>192.168.4.117</code> 服务器中 <code>/var/kingdee/</code> 这个目录下的所有文件和文件夹 <code>-r</code> 安全拷贝到当前目录，不显示传输进度条 <code>-q</code></li>
+</ul>
+</li>
+<li>同一服务器：<code>sudo cp -r /var/kingdee/. /opt/kingdee</code><ul>
+<li><code>.</code> 表示包含隐藏文件</li>
+</ul>
+</li>
+</ul>
 </blockquote>
-<h3 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h3><h4 id="要不要加"><a href="#要不要加" class="headerlink" title="要不要加="></a>要不要加=</h4><h5 id="while-left-lt-right"><a href="#while-left-lt-right" class="headerlink" title="while (left &lt;= right)"></a>while (left &lt;= right)</h5><p>定义 target 是在一个在左闭右闭的区间里，<strong>也就是[left, right]</strong> </p>
-<p>if (nums[middle] &gt; target) ，right 更新为 middle - 1（**右闭，能取到nums[middle - 1]**）</p>
-<h5 id="while-left-lt-right-1"><a href="#while-left-lt-right-1" class="headerlink" title="while (left &lt; right)"></a>while (left &lt; right)</h5><p>这里使用 &lt;，因为left == right在区间[left, right)是没有意义的</p>
-<p>定义 target 是在一个在左闭右开的区间里，<strong>也就是[left, right)</strong> </p>
-<p>if (nums[middle] &gt; target) ，right 更新为 middle（<strong>右开，取不到nums[middle]，还是从nums[middle - 1]开始</strong>）</p>
-<h3 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h3><p>常用于需要<strong>排序</strong>的场景：</p>
 <ul>
-<li>最大值在数组的两端，双指针比较后排序</li>
+<li>登陆配置文件服务器 <code>ssh root@192.168.4.117</code><ul>
+<li><code>cd /var</code></li>
+<li><code>zip -q -r kingdee.zip kingdee/</code><ul>
+<li>将 <code>kingdee/</code> 这个目录下的所有文件和文件夹 <code>-r</code> 打包为当前目录下的 <code>kingdee.zip</code>，不显示指令执行过程 <code>-q</code></li>
+<li><a target="_blank" rel="noopener" href="http://test.runoob.com/linux/linux-comm-zip.html">Linux zip命令</a></li>
 </ul>
-<h4 id="快慢指针"><a href="#快慢指针" class="headerlink" title="快慢指针"></a>快慢指针</h4><p>通过一个快指针和一个慢指针<strong>在一个for循环下完成两个for循环的工作</strong>。</p>
-<p>常用于：</p>
-<ul>
-<li>不使用额外的数组空间，<strong>原地</strong>修改输入数组</li>
+</li>
 </ul>
-<h4 id="滑动窗口"><a href="#滑动窗口" class="headerlink" title="滑动窗口"></a>滑动窗口</h4><h3 id="螺旋数组"><a href="#螺旋数组" class="headerlink" title="螺旋数组"></a>螺旋数组</h3><p>顺时针打印数组，边界条件非常多，要找到固定的规则来遍历：每一圈<strong>左闭右开</strong>或<strong>左开右闭</strong>。</p>
-<h3 id="用数组来做哈希"><a href="#用数组来做哈希" class="headerlink" title="用数组来做哈希"></a>用数组来做哈希</h3><p>用数组来做哈希，是因为<strong>题目都限制了数值的大小</strong>，比如字符相关的题目，一般只需要26个下标。</p>
-<p>而如果哈希值比较少、特别分散、跨度非常大，使用数组就造成空间的极大浪费。这时需要用set，但set比数组慢，因为要做hash计算。</p>
-<p>常用于：</p>
+</li>
+<li><code>command + alt</code> 打开新窗口<ul>
+<li><code>cd /var</code></li>
+<li><code>scp root@192.168.4.117:/var/kingdee.zip .</code><ul>
+<li><code>scp</code> 是 secure copy 的缩写, <code>scp</code> 是 linux 系统之间基于 ssh 登陆进行安全的远程文件拷贝命令</li>
+<li><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-scp.html">Linux scp命令</a></li>
+</ul>
+</li>
+<li><code>unzip kingdee.zip</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="4-给文件夹及文件配置权限"><a href="#4-给文件夹及文件配置权限" class="headerlink" title="4. 给文件夹及文件配置权限"></a>4. 给文件夹及文件配置权限</h3><ul>
+<li><p><code>sudo chmod -R 777 /opt/genechem/kingdee</code> </p>
 <ul>
-<li>字母异位词</li>
-<li>查找共用字符</li>
+<li><p>谨慎777，一般666就够用了</p>
+</li>
+<li><p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20220116013005.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+<li><p>第一个字符显示文件类型，它可以是常规文件(-)、目录(d)、符号链接(l)等</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-启动项目"><a href="#5-启动项目" class="headerlink" title="5. 启动项目"></a>5. 启动项目</h3><ul>
+<li><p>后端</p>
+<ul>
+<li>debug模式hotfix方式</li>
+</ul>
+</li>
+<li><p>vue前端</p>
+<ul>
+<li><p>进入<code>package.json</code>所在文件夹</p>
+<ul>
+<li><p><code>npm install</code>下载需要的模块</p>
+</li>
+<li><p>有<code>yarn.lock</code>则<code>yarn serve</code>，无<code>yarn.lock</code>则<code>npm run dev</code></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
-
-  
-</article>
-
-              </div>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Projects/">Projects</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/12/17/Python3%E5%88%B7%E9%A2%98%E8%B8%A9%E8%BF%87%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Python3刷题踩坑集锦（持续更新）</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/12/07/LeetCode%20&amp;%20Python3%20%E8%B5%B7%E6%AD%A5/">
+                        <span class="hidden-mobile">LeetCode & Python3 起步</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
 
     
@@ -300,7 +458,11 @@
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
 
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
 
 
 
