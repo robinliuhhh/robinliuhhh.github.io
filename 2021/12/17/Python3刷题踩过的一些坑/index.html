@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      693 字
+      772 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      10
+      12
        分钟
     </span>
   
@@ -228,7 +228,7 @@
             <h1 style="display: none">Python3刷题踩坑集锦（持续更新）</h1>
             
             <div class="markdown-body">
-              <h2 id="新建-amp-赋值"><a href="#新建-amp-赋值" class="headerlink" title="新建 &amp; 赋值"></a>新建 &amp; 赋值</h2><h3 id="同时赋值“，”隔开"><a href="#同时赋值“，”隔开" class="headerlink" title="同时赋值“，”隔开"></a>同时赋值“，”隔开</h3><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel"><span class="hljs-built_in">left</span>, <span class="hljs-built_in">right</span> = <span class="hljs-number">0</span>, <span class="hljs-built_in">n</span> - <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+              <h2 id="新建-amp-赋值"><a href="#新建-amp-赋值" class="headerlink" title="新建 &amp; 赋值"></a>新建 &amp; 赋值</h2><h3 id="同时赋值“，”隔开"><a href="#同时赋值“，”隔开" class="headerlink" title="同时赋值“，”隔开"></a>同时赋值“，”隔开</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">reverseString</span>(<span class="hljs-params">self, s: <span class="hljs-type">List</span>[<span class="hljs-built_in">str</span>]</span>) -&gt; <span class="hljs-literal">None</span>:</span><br>        <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">        Do not return anything, modify s in-place instead.</span><br><span class="hljs-string">        &quot;&quot;&quot;</span><br>        left, right = <span class="hljs-number">0</span>, <span class="hljs-built_in">len</span>(s) - <span class="hljs-number">1</span><br>        <span class="hljs-keyword">while</span> left &lt; right: <span class="hljs-comment"># 不用判断奇偶</span><br>        <span class="hljs-comment"># for i in range(len(s) // 2):</span><br>            <span class="hljs-comment"># 这三句太智障了</span><br>            <span class="hljs-comment"># tmp = s[left]</span><br>            <span class="hljs-comment"># s[left] = s[right]</span><br>            <span class="hljs-comment"># s[right] = tmp</span><br>            <span class="hljs-comment"># 直接一句话搞定</span><br>            s[left], s[right] = s[right], s[left]<br>            left += <span class="hljs-number">1</span><br>            right -= <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
 
 <h3 id="新建结果列表"><a href="#新建结果列表" class="headerlink" title="新建结果列表"></a>新建结果列表</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 空链表</span><br>empty_list = []<br><br><span class="hljs-comment"># 需要倒序添加元素的链表 需指定长度</span><br><span class="hljs-comment"># 否则报错 IndexError: list assignment index out of range</span><br>res = [-<span class="hljs-number">1</span>] * <span class="hljs-built_in">len</span>(nums)<br></code></pre></td></tr></table></figure>
 
@@ -301,6 +301,12 @@
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2021/12/28/%E7%AE%97%E6%B3%95%E9%A2%98%E7%9A%84%E4%B8%80%E4%BA%9Btricks/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">算法题的一些tricks</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
