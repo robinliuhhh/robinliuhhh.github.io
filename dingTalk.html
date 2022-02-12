@@ -1,0 +1,361 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/laptop.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+  <title>dingTalk - Robin Liu&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 60vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Robin Liu's Blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/zima%20blue.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="dingTalk">
+              
+            </span>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div class="py-5" id="board"
+          >
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+<article class="page-content">
+  <h2 id="未竟"><a href="#未竟" class="headerlink" title="未竟"></a>未竟</h2><p>项目调试常用命令：项目文件夹，内容待分类</p>
+<h3 id="实用网址"><a href="#实用网址" class="headerlink" title="实用网址"></a>实用网址</h3><p><a target="_blank" rel="noopener" href="https://howtodoinjava.com/java-concurrency-tutorial/">https://howtodoinjava.com/java-concurrency-tutorial/</a></p>
+<p><a target="_blank" rel="noopener" href="https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/index.html">https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest/index.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://vue3js.cn/interview/">https://vue3js.cn/interview/</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/random-forest-regression-in-python/">https://www.geeksforgeeks.org/random-forest-regression-in-python/</a></p>
+<h4 id="别人的blog"><a href="#别人的blog" class="headerlink" title="别人的blog"></a>别人的blog</h4><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/wade-luffy/category/899179.html">https://www.cnblogs.com/wade-luffy/category/899179.html</a></p>
+<p>不知道是啥：<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=ok2s1vV9XW0">https://www.youtube.com/watch?v=ok2s1vV9XW0</a></p>
+<h4 id="黑科技"><a href="#黑科技" class="headerlink" title="黑科技"></a>黑科技</h4><p><a target="_blank" rel="noopener" href="https://v2xtls.org/clash-for-windows%e9%85%8d%e7%bd%aejust-my-socks%e6%95%99%e7%a8%8b/">https://v2xtls.org/clash-for-windows%e9%85%8d%e7%bd%aejust-my-socks%e6%95%99%e7%a8%8b/</a></p>
+<p><a target="_blank" rel="noopener" href="https://v2raytech.com/clashx-config-just-my-socks-tutorial/">https://v2raytech.com/clashx-config-just-my-socks-tutorial/</a></p>
+<p>Clash for Windows：<a target="_blank" rel="noopener" href="https://docs.cfw.lbyczf.com/">https://docs.cfw.lbyczf.com/</a></p>
+<h3 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h3><p>debugger：<a target="_blank" rel="noopener" href="http://eslint.cn/docs/rules/no-debugger">http://eslint.cn/docs/rules/no-debugger</a></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span> eslint-disable-<span class="hljs-keyword">next</span>-line no-debugger<br><span class="hljs-regexp">//</span> debugger<br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="style"><a href="#style" class="headerlink" title="style"></a>style</h4><p>scope !important</p>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/css/css-important.html">https://www.runoob.com/css/css-important.html</a></p>
+<h4 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h4><p>js undefined和null的区别：在下载文件夹</p>
+<p>js === ==区别：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/yongzhu/p/14609757.html">https://www.cnblogs.com/yongzhu/p/14609757.html</a></p>
+<h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3><p>此处应有可跳转目录</p>
+<h4 id="Sublime"><a href="#Sublime" class="headerlink" title="Sublime"></a>Sublime</h4><h5 id="格式化json"><a href="#格式化json" class="headerlink" title="格式化json"></a>格式化json</h5><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/212584121">https://zhuanlan.zhihu.com/p/212584121</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ea2513f8778c">https://www.jianshu.com/p/ea2513f8778c</a></p>
+<h4 id="idea使用技巧"><a href="#idea使用技巧" class="headerlink" title="idea使用技巧"></a>idea使用技巧</h4><ul>
+<li><p>自定义用IDEA编程创建一个新的文件时自动产生的名字和时间 + 图片</p>
+</li>
+<li><p>```<br>/**<br> *</p>
+<ul>
+<li>@author pliu</li>
+<li>@date ${YEAR}-${MONTH}-${DAY} ${HOUR}:${MINUTE}</li>
+<li>/<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs llvm"><br>#### git<br><br>git stash：https://blog.csdn.net/misakaqunianxiatian/article/details/<span class="hljs-number">51103734</span>、https://blog.csdn.net/syousetu/article/details/<span class="hljs-number">107764123</span>?spm<span class="hljs-operator">=</span><span class="hljs-number">1001.2101</span>.<span class="hljs-number">3001.6650</span>.<span class="hljs-number">2</span>&amp;utm_medium<span class="hljs-operator">=</span>distribute.pc_relevant.none-task-blog<span class="hljs-number">-2</span><span class="hljs-variable">%7</span>Edefault<span class="hljs-variable">%7</span>ECTRLIST<span class="hljs-variable">%7</span>Edefault<span class="hljs-number">-2</span>.no_search_link&amp;depth_<span class="hljs-number">1</span>-utm_source<span class="hljs-operator">=</span>distribute.pc_relevant.none-task-blog<span class="hljs-number">-2</span><span class="hljs-variable">%7</span>Edefault<span class="hljs-variable">%7</span>ECTRLIST<span class="hljs-variable">%7</span>Edefault<span class="hljs-number">-2</span>.no_search_link、https://www.cnblogs.com/zndxall/archive/<span class="hljs-number">2018</span>/<span class="hljs-number">09</span>/<span class="hljs-number">04</span>/<span class="hljs-number">9586088</span>.html<br><br>#### typora<br><br>mac快捷键：https://zhuanlan.zhihu.com/p/<span class="hljs-number">354088977</span><br><br>### Java<br><br>数据库日期转换：https://blog.csdn.net/jimlong/article/details/<span class="hljs-number">7346970</span><br><span class="hljs-symbol"></span><br><span class="hljs-symbol">https:</span>//www.cnblogs.com/keeya/p/<span class="hljs-number">11563786</span>.html#:~:text<span class="hljs-operator">=</span><span class="hljs-variable">%E5</span><span class="hljs-variable">%88</span><span class="hljs-variable">%A9</span><span class="hljs-variable">%E7</span><span class="hljs-variable">%94</span><span class="hljs-variable">%A8Stream</span><span class="hljs-variable">%20</span>API<span class="hljs-variable">%20</span><span class="hljs-variable">%E4</span><span class="hljs-variable">%B8</span><span class="hljs-variable">%AD</span><span class="hljs-variable">%E7</span><span class="hljs-variable">%9</span>A<span class="hljs-variable">%84</span><span class="hljs-punctuation">,</span><span class="hljs-keyword">filter</span><span class="hljs-variable">%E5</span><span class="hljs-variable">%B0</span><span class="hljs-variable">%86</span><span class="hljs-variable">%E9</span><span class="hljs-variable">%98</span><span class="hljs-variable">%9</span>F<span class="hljs-variable">%E5</span><span class="hljs-variable">%88</span><span class="hljs-variable">%97</span><span class="hljs-variable">%E4</span><span class="hljs-variable">%B8</span><span class="hljs-variable">%AD</span><span class="hljs-variable">%E7</span><span class="hljs-variable">%9</span>A<span class="hljs-variable">%84</span><span class="hljs-variable">%E7</span><span class="hljs-variable">%A9</span><span class="hljs-variable">%BA</span><span class="hljs-variable">%E5</span><span class="hljs-variable">%AF</span><span class="hljs-variable">%B9</span><span class="hljs-variable">%E8</span><span class="hljs-variable">%B1</span><span class="hljs-variable">%A1</span><span class="hljs-variable">%E8</span><span class="hljs-variable">%BF</span><span class="hljs-variable">%87</span><span class="hljs-variable">%E6</span><span class="hljs-variable">%BB</span><span class="hljs-variable">%A4</span><span class="hljs-variable">%E6</span><span class="hljs-variable">%8</span>E<span class="hljs-variable">%89</span><span class="hljs-variable">%EF</span><span class="hljs-variable">%BC</span><span class="hljs-variable">%8</span>Cfilter<span class="hljs-variable">%20</span><span class="hljs-variable">%28</span>Objects<span class="hljs-variable">%3</span>A<span class="hljs-variable">%3</span>AnonNull<span class="hljs-variable">%29</span><span class="hljs-variable">%E7</span><span class="hljs-variable">%9</span>A<span class="hljs-variable">%84</span><span class="hljs-variable">%E6</span><span class="hljs-variable">%84</span><span class="hljs-variable">%8</span>F<span class="hljs-variable">%E6</span><span class="hljs-variable">%80</span><span class="hljs-variable">%9</span>D<span class="hljs-variable">%E6</span><span class="hljs-variable">%98</span><span class="hljs-variable">%AF</span><span class="hljs-variable">%EF</span><span class="hljs-variable">%BC</span><span class="hljs-variable">%8</span>Clist<span class="hljs-variable">%E4</span><span class="hljs-variable">%B8</span><span class="hljs-variable">%AD</span><span class="hljs-variable">%E7</span><span class="hljs-variable">%9</span>A<span class="hljs-variable">%84</span><span class="hljs-variable">%E6</span><span class="hljs-variable">%AF</span><span class="hljs-variable">%8</span>F<span class="hljs-variable">%E4</span><span class="hljs-variable">%B8</span><span class="hljs-variable">%AA</span><span class="hljs-variable">%E5</span><span class="hljs-variable">%85</span><span class="hljs-variable">%83</span><span class="hljs-variable">%E7</span><span class="hljs-variable">%B4</span><span class="hljs-variable">%A0</span><span class="hljs-variable">%E6</span><span class="hljs-variable">%89</span><span class="hljs-variable">%A7</span><span class="hljs-variable">%E8</span><span class="hljs-variable">%A1</span><span class="hljs-variable">%8</span>CObjects<span class="hljs-variable">%E7</span><span class="hljs-variable">%9</span>A<span class="hljs-variable">%84</span>nonNull<span class="hljs-variable">%20</span><span class="hljs-variable">%28</span><span class="hljs-variable">%29</span><span class="hljs-variable">%E6</span><span class="hljs-variable">%96</span><span class="hljs-variable">%B9</span><span class="hljs-variable">%E6</span><span class="hljs-variable">%B3</span><span class="hljs-variable">%95</span><span class="hljs-variable">%EF</span><span class="hljs-variable">%BC</span><span class="hljs-variable">%8</span>C<span class="hljs-variable">%E8</span><span class="hljs-variable">%BF</span><span class="hljs-variable">%94</span><span class="hljs-variable">%E5</span><span class="hljs-variable">%9</span>B<span class="hljs-variable">%9</span>Efalse<span class="hljs-variable">%E7</span><span class="hljs-variable">%9</span>A<span class="hljs-variable">%84</span><span class="hljs-variable">%E5</span><span class="hljs-variable">%85</span><span class="hljs-variable">%83</span><span class="hljs-variable">%E7</span><span class="hljs-variable">%B4</span><span class="hljs-variable">%A0</span><span class="hljs-variable">%E8</span><span class="hljs-variable">%A2</span><span class="hljs-variable">%AB</span><span class="hljs-variable">%E8</span><span class="hljs-variable">%BF</span><span class="hljs-variable">%87</span><span class="hljs-variable">%E6</span><span class="hljs-variable">%BB</span><span class="hljs-variable">%A4</span><span class="hljs-variable">%E6</span><span class="hljs-variable">%8</span>E<span class="hljs-variable">%89</span><span class="hljs-variable">%EF</span><span class="hljs-variable">%BC</span><span class="hljs-variable">%8</span>C<span class="hljs-variable">%E4</span><span class="hljs-variable">%BF</span><span class="hljs-variable">%9</span>D<span class="hljs-variable">%E7</span><span class="hljs-variable">%95</span><span class="hljs-variable">%99</span><span class="hljs-variable">%E8</span><span class="hljs-variable">%BF</span><span class="hljs-variable">%94</span><span class="hljs-variable">%E5</span><span class="hljs-variable">%9</span>B<span class="hljs-variable">%9</span>Etrue<span class="hljs-variable">%E7</span><span class="hljs-variable">%9</span>A<span class="hljs-variable">%84</span><span class="hljs-variable">%E5</span><span class="hljs-variable">%85</span><span class="hljs-variable">%83</span><span class="hljs-variable">%E7</span><span class="hljs-variable">%B4</span><span class="hljs-variable">%A0</span><span class="hljs-variable">%E3</span><span class="hljs-variable">%80</span><span class="hljs-variable">%82</span><br><br>foreach：https://www.twle.cn/<span class="hljs-keyword">c</span>/yufei/java<span class="hljs-number">8</span>/java<span class="hljs-number">8</span>-basic-iterator-foreach.html<br><br>字符串拼接：https://www.html.cn/softprog/java/<span class="hljs-number">190778</span>.html<br><br>json list格式转换：https://blog.csdn.net/xialong_<span class="hljs-number">927</span>/article/details/<span class="hljs-number">81872422</span><br><br>创建文件夹：https://cloud.tencent.com/developer/article/<span class="hljs-number">1703460</span><br><br>spi机制：https://www.jianshu.com/p/<span class="hljs-number">46</span>b<span class="hljs-number">42</span>f<span class="hljs-number">7</span>f<span class="hljs-number">593</span><span class="hljs-keyword">c</span>、https://blog.csdn.net/Love<span class="hljs-number">667767</span>/article/details/<span class="hljs-number">106422787</span>、https://www.jianshu.com/p/<span class="hljs-number">3</span>a<span class="hljs-number">3</span>edbcd<span class="hljs-number">8</span>f<span class="hljs-number">24</span>、https://zhuanlan.zhihu.com/p/<span class="hljs-number">84337883</span><br><br>apt：https://blog.csdn.net/qq_<span class="hljs-number">20521573</span>/article/details/<span class="hljs-number">82321755</span>、https://liuyehcf.github.io/<span class="hljs-number">2018</span>/<span class="hljs-number">02</span>/<span class="hljs-number">02</span>/Java-JSR<span class="hljs-number">-269</span>-<span class="hljs-variable">%E6</span><span class="hljs-variable">%8</span>F<span class="hljs-variable">%92</span><span class="hljs-variable">%E5</span><span class="hljs-variable">%85</span><span class="hljs-variable">%A5</span><span class="hljs-variable">%E5</span><span class="hljs-variable">%BC</span><span class="hljs-variable">%8</span>F<span class="hljs-variable">%E6</span><span class="hljs-variable">%B3</span><span class="hljs-variable">%A8</span><span class="hljs-variable">%E8</span><span class="hljs-variable">%A7</span><span class="hljs-variable">%A3</span><span class="hljs-variable">%E5</span><span class="hljs-variable">%A4</span><span class="hljs-variable">%84</span><span class="hljs-variable">%E7</span><span class="hljs-variable">%90</span><span class="hljs-variable">%86</span><span class="hljs-variable">%E5</span><span class="hljs-variable">%99</span><span class="hljs-variable">%A8</span>/、https://blog.csdn.net/doc_sgl/article/details/<span class="hljs-number">50367083</span><br><br>### 数据库<br><br></code></pre></td></tr></table></figure>
+SELECT name FROM sysobjects WHERE id IN (SELECT id FROM syscolumns WHERE name = ‘destroyDT’)<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><code class="hljs swift"><br>https:<span class="hljs-comment">//stackoverflow.com/questions/41695440/java-hibernate-createsqlquery-using-addentity</span><br><br>调用setter异常：https:<span class="hljs-comment">//www.itbaoku.cn/post/741580/How-do-I-cure-the-cause-of-Hibernate-exception-quotIllegalArgumentException-occurred-while-calling-setterquot</span><br><br>```java<br><span class="hljs-type">String</span> resSql <span class="hljs-operator">=</span> <span class="hljs-string">&quot;select ir.invoiceRequestGuid,<span class="hljs-subst">\n</span>&quot;</span> <span class="hljs-operator">+</span><br>                    <span class="hljs-string">&quot;       invoiceRequestNo,<span class="hljs-subst">\n</span>&quot;</span> <span class="hljs-operator">+</span><br>                    <span class="hljs-string">&quot;       invoiceNo,<span class="hljs-subst">\n</span>&quot;</span> <span class="hljs-operator">+</span><br>                    <span class="hljs-string">&quot;       ir.requestMoney,<span class="hljs-subst">\n</span>&quot;</span> <span class="hljs-operator">+</span><br>                    <span class="hljs-string">&quot;       requestStatus,<span class="hljs-subst">\n</span>&quot;</span> <span class="hljs-operator">+</span><br>                    <span class="hljs-string">&quot;       ir.companyGuid,<span class="hljs-subst">\n</span>&quot;</span> <span class="hljs-operator">+</span><br>                    <span class="hljs-string">&quot;       invoiceType,<span class="hljs-subst">\n</span>&quot;</span> <span class="hljs-operator">+</span><br>                    <span class="hljs-string">&quot;       invoiceTaxType,<span class="hljs-subst">\n</span>&quot;</span> <span class="hljs-operator">+</span><br>                    <span class="hljs-string">&quot;       invoiceTitleGuid,<span class="hljs-subst">\n</span>&quot;</span> <span class="hljs-operator">+</span><br>                    <span class="hljs-string">&quot;       ir.invoiceTitle,<span class="hljs-subst">\n</span>&quot;</span> <span class="hljs-operator">+</span><br>                    <span class="hljs-string">&quot;       invoiceTaxNo,<span class="hljs-subst">\n</span>&quot;</span> <span class="hljs-operator">+</span><br>                    <span class="hljs-string">&quot;       convert(varchar(20), ir.expectDT, 20)         as expectDT,<span class="hljs-subst">\n</span>&quot;</span> <span class="hljs-operator">+</span><br>                    <span class="hljs-string">&quot;       needValidation,<span class="hljs-subst">\n</span>&quot;</span> <span class="hljs-operator">+</span><br>                    <span class="hljs-string">&quot;       notContinuity,<span class="hljs-subst">\n</span>&quot;</span> <span class="hljs-operator">+</span><br>                    <span class="hljs-string">&quot;       skipNum,<span class="hljs-subst">\n</span>&quot;</span> <span class="hljs-operator">+</span><br>                    <span class="hljs-string">&quot;       cast(needInvMemo as int) as needInvMemo,<span class="hljs-subst">\n</span>&quot;</span> <span class="hljs-operator">+</span><br>                    <span class="hljs-string">&quot;       memo,<span class="hljs-subst">\n</span>&quot;</span> <span class="hljs-operator">+</span><br>                    <span class="hljs-string">&quot;       convert(varchar(20), ir.createDT, 20)         as createDT,<span class="hljs-subst">\n</span>&quot;</span> <span class="hljs-operator">+</span><br>                    <span class="hljs-string">&quot;       ir.creator,<span class="hljs-subst">\n</span>&quot;</span> <span class="hljs-operator">+</span><br>                    <span class="hljs-string">&quot;       convert(varchar(20), ir.updateDT, 20)         as updateDT,<span class="hljs-subst">\n</span>&quot;</span> <span class="hljs-operator">+</span><br>                    <span class="hljs-string">&quot;       updater,<span class="hljs-subst">\n</span>&quot;</span> <span class="hljs-operator">+</span><br>                    <span class="hljs-string">&quot;       convert(varchar(20), ir.submitDT, 20)         as submitDT,<span class="hljs-subst">\n</span>&quot;</span> <span class="hljs-operator">+</span><br>                    <span class="hljs-string">&quot;       submitter,<span class="hljs-subst">\n</span>&quot;</span> <span class="hljs-operator">+</span><br>                    <span class="hljs-string">&quot;       convert(varchar(20), ir.invoiceBillingDT, 20)         as invoiceBillingDT,<span class="hljs-subst">\n</span>&quot;</span> <span class="hljs-operator">+</span><br>                    <span class="hljs-string">&quot;       needInvoice,<span class="hljs-subst">\n</span>&quot;</span> <span class="hljs-operator">+</span><br>                    <span class="hljs-string">&quot;       eInvoiceUrl,<span class="hljs-subst">\n</span>&quot;</span> <span class="hljs-operator">+</span><br>                    <span class="hljs-string">&quot;       cast(needInvoiceCheckList as int) as needInvoiceCheckList,<span class="hljs-subst">\n</span>&quot;</span> <span class="hljs-operator">+</span><br>                    <span class="hljs-string">&quot;       dingTalkApprovalNo,<span class="hljs-subst">\n</span>&quot;</span> <span class="hljs-operator">+</span><br>                    <span class="hljs-string">&quot;       cast(invoiceTitleType as int) as invoiceTitleType,<span class="hljs-subst">\n</span>&quot;</span> <span class="hljs-operator">+</span><br>                    <span class="hljs-string">&quot;       syncK3Status,<span class="hljs-subst">\n</span>&quot;</span> <span class="hljs-operator">+</span><br>                    <span class="hljs-string">&quot;       syncK3Message,<span class="hljs-subst">\n</span>&quot;</span> <span class="hljs-operator">+</span><br>                    <span class="hljs-string">&quot;       cast(isSupportElectronicInvoice as int) as isSupportElectronicInvoice<span class="hljs-subst">\n</span>&quot;</span> <span class="hljs-operator">+</span><br>                    <span class="hljs-string">&quot;from tbInvoiceRequest ir with (nolock)<span class="hljs-subst">\n</span>&quot;</span> <span class="hljs-operator">+</span><br>                    <span class="hljs-string">&quot;         left join tbEnterprise ep with (nolock) on ep.enterpriseGuid = ir.InvoiceTitleGuid<span class="hljs-subst">\n</span>&quot;</span> <span class="hljs-operator">+</span><br>                    <span class="hljs-string">&quot;where ir.invoiceRequestGuid in (:ids) order by createDT desc&quot;</span>;<br>            <span class="hljs-type">List</span>&lt;<span class="hljs-type">BInvoiceRequest</span>&gt; requests <span class="hljs-operator">=</span> (<span class="hljs-type">List</span>&lt;<span class="hljs-type">BInvoiceRequest</span>&gt;) session.createSQLQuery(resSql)<br>                    .setResultTransformer(new <span class="hljs-type">AliasToBeanResultTransformer</span>(<span class="hljs-type">BInvoiceRequest</span>.class))<br>                    .setParameterList(<span class="hljs-string">&quot;ids&quot;</span>, requestGuids)<br>                    .list();<br></code></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+
+
+  
+</article>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
