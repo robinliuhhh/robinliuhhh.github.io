@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>工具 &amp;&amp; 它们的格式化 || 快捷键</title>
+    <link href="/2022/02/17/%E5%B7%A5%E5%85%B7%20%E6%A0%BC%E5%BC%8F%E5%8C%96&amp;%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+    <url>/2022/02/17/%E5%B7%A5%E5%85%B7%20%E6%A0%BC%E5%BC%8F%E5%8C%96&amp;%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
+    
+    <content type="html"><![CDATA[<h2 id="Sublime"><a href="#Sublime" class="headerlink" title="Sublime"></a>Sublime</h2><h3 id="格式化json"><a href="#格式化json" class="headerlink" title="格式化json"></a>格式化json</h3><p>打开 Sublime，<code>command + shift + p</code> -&gt; Install package -&gt; Pretty JSON</p><p>Mac：<code>command + ctrl + j</code><br>Windows：<code>ctrl + alt + j</code></p><h2 id="IDEA"><a href="#IDEA" class="headerlink" title="IDEA"></a>IDEA</h2><h3 id="创建新文件时自动生成自定义名字和时间"><a href="#创建新文件时自动生成自定义名字和时间" class="headerlink" title="创建新文件时自动生成自定义名字和时间"></a>创建新文件时自动生成自定义名字和时间</h3><p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/898586B8-5C3F-418A-BAC5-1E4A3E743670.png"></p><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs elixir">/**<br> *<br> * <span class="hljs-variable">@author</span> pliu<br> * <span class="hljs-variable">@date</span> <span class="hljs-variable">$&#123;</span>YEAR&#125;-<span class="hljs-variable">$&#123;</span>MONTH&#125;-<span class="hljs-variable">$&#123;</span>DAY&#125; <span class="hljs-variable">$&#123;</span>HOUR&#125;<span class="hljs-symbol">:</span><span class="hljs-variable">$&#123;</span>MINUTE&#125;<br> *<span class="hljs-regexp">/</span><br></code></pre></td></tr></table></figure><h2 id="Typora"><a href="#Typora" class="headerlink" title="Typora"></a>Typora</h2><p>Mac快捷键：<a href="https://zhuanlan.zhihu.com/p/354088977">https://zhuanlan.zhihu.com/p/354088977</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Tools</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>《程序是怎样跑起来的》阅读笔记</title>
     <link href="/2022/02/02/%E3%80%8A%E7%A8%8B%E5%BA%8F%E6%98%AF%E6%80%8E%E6%A0%B7%E8%B7%91%E8%B5%B7%E6%9D%A5%E7%9A%84%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     <url>/2022/02/02/%E3%80%8A%E7%A8%8B%E5%BA%8F%E6%98%AF%E6%80%8E%E6%A0%B7%E8%B7%91%E8%B5%B7%E6%9D%A5%E7%9A%84%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</url>
@@ -14,6 +33,25 @@
     <categories>
       
       <category>Books</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>实用网址传送门</title>
+    <link href="/2022/01/01/%E5%AE%9E%E7%94%A8%E7%BD%91%E5%9D%80%E4%BC%A0%E9%80%81%E9%97%A8/"/>
+    <url>/2022/01/01/%E5%AE%9E%E7%94%A8%E7%BD%91%E5%9D%80%E4%BC%A0%E9%80%81%E9%97%A8/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>主站下的子链接是我当时决定留下主站的原因。</p></blockquote><h2 id="Tutorials"><a href="#Tutorials" class="headerlink" title="Tutorials"></a>Tutorials</h2><p>HowToDoInJava：<a href="https://howtodoinjava.com/">https://howtodoinjava.com/</a></p><ul><li><a href="https://howtodoinjava.com/java-concurrency-tutorial/">https://howtodoinjava.com/java-concurrency-tutorial/</a></li></ul><p>Web前端面试：<a href="https://vue3js.cn/interview/">https://vue3js.cn/interview/</a></p><h2 id="Communities"><a href="#Communities" class="headerlink" title="Communities"></a>Communities</h2><p>GeeksforGeeks：<a href="https://www.geeksforgeeks.org/">https://www.geeksforgeeks.org/</a></p><ul><li><a href="https://www.geeksforgeeks.org/random-forest-regression-in-python/">https://www.geeksforgeeks.org/random-forest-regression-in-python/</a></li></ul><h2 id="Black-Tech"><a href="#Black-Tech" class="headerlink" title="Black Tech"></a>Black Tech</h2><p>Mac  v2ray：<a href="https://bwgbus.com/1558.html">https://bwgbus.com/1558.html</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Tools</category>
       
     </categories>
     

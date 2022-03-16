@@ -1,0 +1,353 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/laptop.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+  <title>dingTalk - Robin Liu&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 60vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Robin Liu's Blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/zima%20blue.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="dingTalk">
+              
+            </span>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div class="py-5" id="board"
+          >
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+<article class="page-content">
+  <h2 id="未竟"><a href="#未竟" class="headerlink" title="未竟"></a>未竟</h2><p>项目调试常用命令：项目文件夹，内容待分类</p>
+<h3 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h3><p>debugger：<a target="_blank" rel="noopener" href="http://eslint.cn/docs/rules/no-debugger">http://eslint.cn/docs/rules/no-debugger</a></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span> eslint-disable-<span class="hljs-keyword">next</span>-line no-debugger<br><span class="hljs-regexp">//</span> debugger<br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="style"><a href="#style" class="headerlink" title="style"></a>style</h4><p>scope !important</p>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/css/css-important.html">https://www.runoob.com/css/css-important.html</a></p>
+<h4 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h4><p>js undefined和null的区别：在下载文件夹</p>
+<p>js === ==区别：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/yongzhu/p/14609757.html">https://www.cnblogs.com/yongzhu/p/14609757.html</a></p>
+<h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3><p>此处应有可跳转目录</p>
+<h4 id="git"><a href="#git" class="headerlink" title="git"></a>git</h4><p>git stash：<a target="_blank" rel="noopener" href="https://blog.csdn.net/misakaqunianxiatian/article/details/51103734%E3%80%81https://blog.csdn.net/syousetu/article/details/107764123?spm=1001.2101.3001.6650.2&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-2.no_search_link&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-2.no_search_link%E3%80%81https://www.cnblogs.com/zndxall/archive/2018/09/04/9586088.html">https://blog.csdn.net/misakaqunianxiatian/article/details/51103734、https://blog.csdn.net/syousetu/article/details/107764123?spm=1001.2101.3001.6650.2&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-2.no_search_link&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-2.no_search_link、https://www.cnblogs.com/zndxall/archive/2018/09/04/9586088.html</a></p>
+<h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><p>数据库日期转换：<a target="_blank" rel="noopener" href="https://blog.csdn.net/jimlong/article/details/7346970">https://blog.csdn.net/jimlong/article/details/7346970</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/keeya/p/11563786.html#:~:text=%E5%88%A9%E7%94%A8Stream%20API%20%E4%B8%AD%E7%9A%84,filter%E5%B0%86%E9%98%9F%E5%88%97%E4%B8%AD%E7%9A%84%E7%A9%BA%E5%AF%B9%E8%B1%A1%E8%BF%87%E6%BB%A4%E6%8E%89%EF%BC%8Cfilter%20%28Objects%3A%3AnonNull%29%E7%9A%84%E6%84%8F%E6%80%9D%E6%98%AF%EF%BC%8Clist%E4%B8%AD%E7%9A%84%E6%AF%8F%E4%B8%AA%E5%85%83%E7%B4%A0%E6%89%A7%E8%A1%8CObjects%E7%9A%84nonNull%20%28%29%E6%96%B9%E6%B3%95%EF%BC%8C%E8%BF%94%E5%9B%9Efalse%E7%9A%84%E5%85%83%E7%B4%A0%E8%A2%AB%E8%BF%87%E6%BB%A4%E6%8E%89%EF%BC%8C%E4%BF%9D%E7%95%99%E8%BF%94%E5%9B%9Etrue%E7%9A%84%E5%85%83%E7%B4%A0%E3%80%82">https://www.cnblogs.com/keeya/p/11563786.html#:~:text=%E5%88%A9%E7%94%A8Stream%20API%20%E4%B8%AD%E7%9A%84,filter%E5%B0%86%E9%98%9F%E5%88%97%E4%B8%AD%E7%9A%84%E7%A9%BA%E5%AF%B9%E8%B1%A1%E8%BF%87%E6%BB%A4%E6%8E%89%EF%BC%8Cfilter%20%28Objects%3A%3AnonNull%29%E7%9A%84%E6%84%8F%E6%80%9D%E6%98%AF%EF%BC%8Clist%E4%B8%AD%E7%9A%84%E6%AF%8F%E4%B8%AA%E5%85%83%E7%B4%A0%E6%89%A7%E8%A1%8CObjects%E7%9A%84nonNull%20%28%29%E6%96%B9%E6%B3%95%EF%BC%8C%E8%BF%94%E5%9B%9Efalse%E7%9A%84%E5%85%83%E7%B4%A0%E8%A2%AB%E8%BF%87%E6%BB%A4%E6%8E%89%EF%BC%8C%E4%BF%9D%E7%95%99%E8%BF%94%E5%9B%9Etrue%E7%9A%84%E5%85%83%E7%B4%A0%E3%80%82</a></p>
+<p>foreach：<a target="_blank" rel="noopener" href="https://www.twle.cn/c/yufei/java8/java8-basic-iterator-foreach.html">https://www.twle.cn/c/yufei/java8/java8-basic-iterator-foreach.html</a></p>
+<p>字符串拼接：<a target="_blank" rel="noopener" href="https://www.html.cn/softprog/java/190778.html">https://www.html.cn/softprog/java/190778.html</a></p>
+<p>json list格式转换：<a target="_blank" rel="noopener" href="https://blog.csdn.net/xialong_927/article/details/81872422">https://blog.csdn.net/xialong_927/article/details/81872422</a></p>
+<p>创建文件夹：<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1703460">https://cloud.tencent.com/developer/article/1703460</a></p>
+<p>spi机制：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/46b42f7f593c%E3%80%81https://blog.csdn.net/Love667767/article/details/106422787%E3%80%81https://www.jianshu.com/p/3a3edbcd8f24%E3%80%81https://zhuanlan.zhihu.com/p/84337883">https://www.jianshu.com/p/46b42f7f593c、https://blog.csdn.net/Love667767/article/details/106422787、https://www.jianshu.com/p/3a3edbcd8f24、https://zhuanlan.zhihu.com/p/84337883</a></p>
+<p>apt：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_20521573/article/details/82321755%E3%80%81https://liuyehcf.github.io/2018/02/02/Java-JSR-269-%E6%8F%92%E5%85%A5%E5%BC%8F%E6%B3%A8%E8%A7%A3%E5%A4%84%E7%90%86%E5%99%A8/%E3%80%81https://blog.csdn.net/doc_sgl/article/details/50367083">https://blog.csdn.net/qq_20521573/article/details/82321755、https://liuyehcf.github.io/2018/02/02/Java-JSR-269-%E6%8F%92%E5%85%A5%E5%BC%8F%E6%B3%A8%E8%A7%A3%E5%A4%84%E7%90%86%E5%99%A8/、https://blog.csdn.net/doc_sgl/article/details/50367083</a></p>
+<h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">SELECT</span> <span class="hljs-type">name</span> <span class="hljs-keyword">FROM</span> sysobjects <span class="hljs-keyword">WHERE</span> id <span class="hljs-keyword">IN</span> (<span class="hljs-keyword">SELECT</span> id <span class="hljs-keyword">FROM</span> syscolumns <span class="hljs-keyword">WHERE</span> <span class="hljs-type">name</span> = <span class="hljs-string">&#x27;destroyDT&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/41695440/java-hibernate-createsqlquery-using-addentity">https://stackoverflow.com/questions/41695440/java-hibernate-createsqlquery-using-addentity</a></p>
+<p>调用setter异常：<a target="_blank" rel="noopener" href="https://www.itbaoku.cn/post/741580/How-do-I-cure-the-cause-of-Hibernate-exception-quotIllegalArgumentException-occurred-while-calling-setterquot">https://www.itbaoku.cn/post/741580/How-do-I-cure-the-cause-of-Hibernate-exception-quotIllegalArgumentException-occurred-while-calling-setterquot</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs java">String resSql = <span class="hljs-string">&quot;select ir.invoiceRequestGuid,\n&quot;</span> +<br>                    <span class="hljs-string">&quot;       invoiceRequestNo,\n&quot;</span> +<br>                    <span class="hljs-string">&quot;       invoiceNo,\n&quot;</span> +<br>                    <span class="hljs-string">&quot;       ir.requestMoney,\n&quot;</span> +<br>                    <span class="hljs-string">&quot;       requestStatus,\n&quot;</span> +<br>                    <span class="hljs-string">&quot;       ir.companyGuid,\n&quot;</span> +<br>                    <span class="hljs-string">&quot;       invoiceType,\n&quot;</span> +<br>                    <span class="hljs-string">&quot;       invoiceTaxType,\n&quot;</span> +<br>                    <span class="hljs-string">&quot;       invoiceTitleGuid,\n&quot;</span> +<br>                    <span class="hljs-string">&quot;       ir.invoiceTitle,\n&quot;</span> +<br>                    <span class="hljs-string">&quot;       invoiceTaxNo,\n&quot;</span> +<br>                    <span class="hljs-string">&quot;       convert(varchar(20), ir.expectDT, 20)         as expectDT,\n&quot;</span> +<br>                    <span class="hljs-string">&quot;       needValidation,\n&quot;</span> +<br>                    <span class="hljs-string">&quot;       notContinuity,\n&quot;</span> +<br>                    <span class="hljs-string">&quot;       skipNum,\n&quot;</span> +<br>                    <span class="hljs-string">&quot;       cast(needInvMemo as int) as needInvMemo,\n&quot;</span> +<br>                    <span class="hljs-string">&quot;       memo,\n&quot;</span> +<br>                    <span class="hljs-string">&quot;       convert(varchar(20), ir.createDT, 20)         as createDT,\n&quot;</span> +<br>                    <span class="hljs-string">&quot;       ir.creator,\n&quot;</span> +<br>                    <span class="hljs-string">&quot;       convert(varchar(20), ir.updateDT, 20)         as updateDT,\n&quot;</span> +<br>                    <span class="hljs-string">&quot;       updater,\n&quot;</span> +<br>                    <span class="hljs-string">&quot;       convert(varchar(20), ir.submitDT, 20)         as submitDT,\n&quot;</span> +<br>                    <span class="hljs-string">&quot;       submitter,\n&quot;</span> +<br>                    <span class="hljs-string">&quot;       convert(varchar(20), ir.invoiceBillingDT, 20)         as invoiceBillingDT,\n&quot;</span> +<br>                    <span class="hljs-string">&quot;       needInvoice,\n&quot;</span> +<br>                    <span class="hljs-string">&quot;       eInvoiceUrl,\n&quot;</span> +<br>                    <span class="hljs-string">&quot;       cast(needInvoiceCheckList as int) as needInvoiceCheckList,\n&quot;</span> +<br>                    <span class="hljs-string">&quot;       dingTalkApprovalNo,\n&quot;</span> +<br>                    <span class="hljs-string">&quot;       cast(invoiceTitleType as int) as invoiceTitleType,\n&quot;</span> +<br>                    <span class="hljs-string">&quot;       syncK3Status,\n&quot;</span> +<br>                    <span class="hljs-string">&quot;       syncK3Message,\n&quot;</span> +<br>                    <span class="hljs-string">&quot;       cast(isSupportElectronicInvoice as int) as isSupportElectronicInvoice\n&quot;</span> +<br>                    <span class="hljs-string">&quot;from tbInvoiceRequest ir with (nolock)\n&quot;</span> +<br>                    <span class="hljs-string">&quot;         left join tbEnterprise ep with (nolock) on ep.enterpriseGuid = ir.InvoiceTitleGuid\n&quot;</span> +<br>                    <span class="hljs-string">&quot;where ir.invoiceRequestGuid in (:ids) order by createDT desc&quot;</span>;<br>            List&lt;BInvoiceRequest&gt; requests = (List&lt;BInvoiceRequest&gt;) session.createSQLQuery(resSql)<br>                    .setResultTransformer(<span class="hljs-keyword">new</span> AliasToBeanResultTransformer(BInvoiceRequest.class))<br>                    .setParameterList(<span class="hljs-string">&quot;ids&quot;</span>, requestGuids)<br>                    .list();<br></code></pre></td></tr></table></figure>
+
+
+
+  
+</article>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
