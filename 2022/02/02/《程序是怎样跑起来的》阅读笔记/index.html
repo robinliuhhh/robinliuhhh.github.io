@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.4k 字
+      3.3k 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      25
+      35
        分钟
     </span>
   
@@ -272,20 +272,25 @@
 <p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20220212150243.png" srcset="/img/loading.gif" lazyload alt="浮点数的表现形式"></p>
 <p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20220212150307.png" srcset="/img/loading.gif" lazyload alt="浮点数的内部构造（IEEE的规定）"></p>
 <ul>
-<li><strong>符号部分</strong>是指使用一个数据位来表示数值的符号<ul>
+<li><p><strong>符号部分</strong>是指使用一个数据位来表示数值的符号</p>
+<ul>
 <li>该数据位是1时表示负，为0时则表示“正或者0”</li>
 </ul>
 </li>
-<li><strong>尾数部分</strong>用的是“将小数点前面的值固定为1的正则表达式”<ul>
+<li><p><strong>尾数部分</strong>用的是“将小数点前面的值固定为1的正则表达式”</p>
+<ul>
 <li>具体来讲，就是将二进制数表示的小数左移或右移（这里是逻辑移位，因为符号位是独立的）数次后，整数部分的第1位变为1，第2位之后都变为0（这样是为了消除第2位以上的数位）</li>
 <li>而且，第1位的1在实际的数据中不保存</li>
 <li>由于第1位必须是1，因此，省略该部分后就节省了一个数据位，从而也就可以表示更多的数据范围（虽不算太多）</li>
 </ul>
 </li>
-<li><strong>指数部分</strong>用的是“EXCESS系统表现”<ul>
-<li>使用这种方法主要是为了表示负数时不使用符号位</li>
-<li>通过将指数部分<strong>表示范围的中间值设为0</strong>，使得负数不需要用符号来表示</li>
-<li><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20220212151826.png" srcset="/img/loading.gif" lazyload alt="单精度浮点数指数部分的EXCESS系统表现"></li>
+<li><p><strong>指数部分</strong>用的是“EXCESS系统表现”</p>
+<ul>
+<li><p>使用这种方法主要是为了表示负数时不使用符号位</p>
+</li>
+<li><p>通过将指数部分<strong>表示范围的中间值设为0</strong>，使得负数不需要用符号来表示</p>
+<p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20220212151826.png" srcset="/img/loading.gif" lazyload alt="单精度浮点数指数部分的EXCESS系统表现"></p>
+</li>
 </ul>
 </li>
 </ul>
@@ -299,6 +304,30 @@
 <p>因此，0-01111110-10000000000000000000000这个单精度浮点数，表示的就是“+ 1.5 × 2的-1次幂”。2的-1次幂是0.5，+ 1.5 × 0.5 = + 0.75。</p>
 <h3 id="3-7-如何避免计算机计算出错"><a href="#3-7-如何避免计算机计算出错" class="headerlink" title="3.7 如何避免计算机计算出错"></a>3.7 如何避免计算机计算出错</h3><p>把小数转换成整数来计算。计算机在进行小数计算时可能会出错，但进行整数计算（只要不超过可处理的数值范围）时一定不会出现问题。因此，进行小数的计算时可以暂时使用整数，然后再把计算结果用小数表示出来即可。</p>
 <p>例如，将0.1相加100次这一计算，就可以转换为将0.1扩大10倍后再将1相加100次的计算，最后把结果除以10就可以了。</p>
+<h3 id="4-2-内存的逻辑模型是楼房"><a href="#4-2-内存的逻辑模型是楼房" class="headerlink" title="4.2 内存的逻辑模型是楼房"></a>4.2 内存的逻辑模型是楼房</h3><p>通过使用变量，即便不指定物理地址，也可以在程序中对内存进行读写。这是因为，在程序运行时，Windows等操作系统会自动决定变量的物理地址。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">char</span> a = <span class="hljs-number">123</span>;<br><span class="hljs-keyword">short</span> b = <span class="hljs-number">123</span>;<br><span class="hljs-keyword">long</span> c = <span class="hljs-number">123</span>;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20220227182539.png" srcset="/img/loading.gif" lazyload alt="变量的数据类型不同，所占用的内存大小也不一样"></p>
+<h4 id="int-4字节-amp-tinyint-1字节"><a href="#int-4字节-amp-tinyint-1字节" class="headerlink" title="int 4字节 &amp; tinyint 1字节"></a>int 4字节 &amp; tinyint 1字节</h4><p>看了上面的图，突然懂了为什么Java的boolean型在数据库里会使用tinyint。</p>
+<h3 id="4-3-简单的指针"><a href="#4-3-简单的指针" class="headerlink" title="4.3 简单的指针"></a>4.3 简单的指针</h3><p>在32位内存地址的环境中，指针变量的长度是多少位？</p>
+<ul>
+<li>32位</li>
+<li>指针指的是<strong>用于存储内存地址的变量</strong></li>
+</ul>
+<h4 id="为什么指针也有数据类型？"><a href="#为什么指针也有数据类型？" class="headerlink" title="为什么指针也有数据类型？"></a>为什么指针也有数据类型？</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">// 在定义指针时，我们通常会在变量名前加一个*</span><br><span class="hljs-keyword">char</span> *d<br><span class="hljs-keyword">short</span> *e<br><span class="hljs-keyword">long</span> *f<br></code></pre></td></tr></table></figure>
+
+<p>我们知道，d、e、f都是用来存储地址的变量。然而，为什么这里又用来指定char （1字节）、short（2字节）、long（4字节）这些数据类型呢？实际上，这些数据类型表示的是<strong>从指针存储的地址中一次能够读写的数据字节数</strong>。</p>
+<p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20220227185558.png" srcset="/img/loading.gif" lazyload alt="指针的数据类型表示一次可以读写的长度"></p>
+<h3 id="5-1-不读入内存就无法运行"><a href="#5-1-不读入内存就无法运行" class="headerlink" title="5.1 不读入内存就无法运行"></a>5.1 不读入内存就无法运行</h3><p>程序保存在存储设备中，通过有序地被读出来实现运行，这一点大家都很清楚。这一机制称为<strong>存储程序方式</strong>（程序内置方式），现在看来这是理所当然的，但在当时它的提出可以说是一个里程碑。为什么这么说呢？因为在此以前的程序都是通过改变计算机的布线等来变更程序的。</p>
+<p>磁盘中存储的程序，必须要加载到内存后才能运行。在磁盘中保存的原始程序是无法直接运行的。这是因为，<strong>负责解析和运行程序内容的CPU，需要通过内部程序计数器来指定内存地址，然后才能读出程序。</strong></p>
+<h3 id="5-2-磁盘缓存加快了磁盘访问速度"><a href="#5-2-磁盘缓存加快了磁盘访问速度" class="headerlink" title="5.2 磁盘缓存加快了磁盘访问速度"></a>5.2 磁盘缓存加快了磁盘访问速度</h3><p>磁盘缓存指的是<strong>把从磁盘中读出的数据存储到内存空间中</strong>的方式。</p>
+<p>这样一来，当接下来需要读取同一数据时，就不用通过实际的磁盘，而是从磁盘缓存中把内容读出。使用磁盘缓存可以大大改善磁盘数据的访问速度。</p>
+<p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20220227192642.png" srcset="/img/loading.gif" lazyload alt="磁盘缓存提高访问速度的机制"></p>
+<p><strong>把低速设备的数据保存在高速设备中，需要时可以直接将其从高速设备中读出</strong>，这种<strong>缓存</strong>的方式在其他情况下也会用到。</p>
+<p>其中的一个实例就是在Web浏览器中的使用。由于Web浏览器是通过网络来获取远程Web服务器的数据并将其显示出来的。因此，在显示较大的图片等文件时，会花费不少时间。于是，Web浏览器就可以把获取的数据暂时保存在磁盘中，然后在需要时再显示磁盘中的数据。也就是说，<strong>把低速的网络数据保存到相对高速的磁盘中。</strong></p>
+<h3 id="5-3-虚拟内存把磁盘作为部分内存来使用"><a href="#5-3-虚拟内存把磁盘作为部分内存来使用" class="headerlink" title="5.3 虚拟内存把磁盘作为部分内存来使用"></a>5.3 虚拟内存把磁盘作为部分内存来使用</h3><p>虚拟内存是指把磁盘的一部分作为假想的内存来使用。这与磁盘缓存是假想的磁盘（实际上是内存）相对，虚拟内存是假想的内存（实际上是磁盘）。</p>
+<p>虚拟内存的方法有<strong>分页式</strong>和<strong>分段式</strong>两种。Windows采用的是分页式。该方式是指，在不考虑程序构造的情况下，把运行的程序按照一定大小的页（page）进行分割，并以页为单位在内存和磁盘间进行置换。分段式则把程序分割成以处理数据集合等为单位的段落，以段落为单位进行置换。</p>
+<p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20220227212513.png" srcset="/img/loading.gif" lazyload alt="分页式虚拟内存的机制"></p>
 
             </div>
             <hr>
