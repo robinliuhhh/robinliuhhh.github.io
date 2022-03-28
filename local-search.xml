@@ -4,25 +4,6 @@
   
   
   <entry>
-    <title>a</title>
-    <link href="/2022/03/17/a/"/>
-    <url>/2022/03/17/a/</url>
-    
-    <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title">readableFileSize</span><span class="hljs-params">(<span class="hljs-keyword">long</span> size)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (size &lt;= <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;0&quot;</span>;<br>    <span class="hljs-keyword">final</span> String[] units = <span class="hljs-keyword">new</span> String[]&#123;<span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;KB&quot;</span>, <span class="hljs-string">&quot;MB&quot;</span>, <span class="hljs-string">&quot;GB&quot;</span>, <span class="hljs-string">&quot;TB&quot;</span>&#125;;<br>    <span class="hljs-keyword">int</span> digitGroups = (<span class="hljs-keyword">int</span>) (Math.log10(size) / Math.log10(<span class="hljs-number">1024</span>));<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> DecimalFormat(<span class="hljs-string">&quot;#,##0.#&quot;</span>)<br>        .format(size / Math.pow(<span class="hljs-number">1024</span>, digitGroups)) + <span class="hljs-string">&quot; &quot;</span> + units[digitGroups];<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
-    
-    
-    <categories>
-      
-      <category>Projects</category>
-      
-    </categories>
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>工具 &amp;&amp; 它们的格式化 || 快捷键</title>
     <link href="/2022/02/17/%E5%B7%A5%E5%85%B7%20%E6%A0%BC%E5%BC%8F%E5%8C%96&amp;%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
     <url>/2022/02/17/%E5%B7%A5%E5%85%B7%20%E6%A0%BC%E5%BC%8F%E5%8C%96&amp;%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
