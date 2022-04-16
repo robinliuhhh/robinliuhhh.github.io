@@ -228,49 +228,49 @@
             <h1 style="display: none">《程序是怎样跑起来的》阅读笔记</h1>
             
             <div class="markdown-body">
-              <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20220212091653.png" srcset="/img/loading.gif" lazyload></p>
+              <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/20220212091653.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>只读了感兴趣的部分，解答了一些感兴趣的问题。</p>
 <h2 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h2><h3 id="1-4-条件分支和循环机制"><a href="#1-4-条件分支和循环机制" class="headerlink" title="1.4 条件分支和循环机制"></a>1.4 条件分支和循环机制</h3><h4 id="条件分支如何跳转？"><a href="#条件分支如何跳转？" class="headerlink" title="条件分支如何跳转？"></a>条件分支如何跳转？</h4><p>CPU在进行运算时，标志寄存器的数值会根据运算结果自动设定。<strong>条件分支在跳转指令前会进行比较运算。至于是否执行跳转指令，则由CPU在参考标志寄存器的数值后进行判断。</strong></p>
-<p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20220212105743.png" srcset="/img/loading.gif" lazyload alt="运算结果的正、零、负三种状态由标志寄存器的三个位表示"></p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/20220212105743.png" srcset="/img/loading.gif" lazyload alt="运算结果的正、零、负三种状态由标志寄存器的三个位表示"></p>
 <p>CPU执行比较的机制很有意思，例如，假设要比较累加寄存器中存储的XXX值和通用寄存器中存储的YYY值，执行比较的指令后，CPU的运算装置就会在内部（暗中）进行XXX-YYY的减法运算。而无论减法运算的结果是正数、零还是负数，都会保存到标志寄存器中。结果为正表示XXX比YYY大，零表示XXX和YYY相等，负表示XXX比YYY小。<strong>程序中的比较指令，就是在CPU内部做减法运算。</strong></p>
 <h3 id="1-5-函数的调用机制"><a href="#1-5-函数的调用机制" class="headerlink" title="1.5 函数的调用机制"></a>1.5 函数的调用机制</h3><p>哪怕是高级语言编写的程序，函数调用处理也是通过把程序计数器的值设定成函数的存储地址来实现的。不过，这和条件分支、循环的机制有所不同，因为单纯的跳转指令无法实现函数的调用。<strong>函数的调用需要在完成函数内部的处理后，处理流程再返回到函数调用点（函数调用指令的下一个地址）。</strong>因此，如果只是跳转到函数的入口地址，处理流程就不知道应该返回至哪里了。</p>
-<p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20220212120624.png" srcset="/img/loading.gif" lazyload alt="程序调用函数示例（这里直接展示了C语言的源代码，实际上各地址存储的应该是变换成机器语言后的程序）"></p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/20220212120624.png" srcset="/img/loading.gif" lazyload alt="程序调用函数示例（这里直接展示了C语言的源代码，实际上各地址存储的应该是变换成机器语言后的程序）"></p>
 <p>机器语言的call指令和return指令能够解决这个问题。函数调用使用的是call指令，而不是跳转指令。<strong>在将函数的入口地址设定到程序计数器之前，call指令会把调用函数后要执行的指令地址存储在名为栈的主存内。</strong>函数处理完毕后，再通过函数的出口来执行return命令。<strong>return命令的功能是把保存在栈中的地址设定到程序计数器中。</strong></p>
-<p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20220212120706.png" srcset="/img/loading.gif" lazyload alt="函数调用中程序计数器和栈的职能"></p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/20220212120706.png" srcset="/img/loading.gif" lazyload alt="函数调用中程序计数器和栈的职能"></p>
 <h3 id="2-1-用二进制数表示计算机信息的原因"><a href="#2-1-用二进制数表示计算机信息的原因" class="headerlink" title="2.1 用二进制数表示计算机信息的原因"></a>2.1 用二进制数表示计算机信息的原因</h3><p>计算机内部是由IC（Integrated Circuit，集成电路）这种电子部件构成的。<strong>IC的所有引脚，只有直流电压0V或5V两个状态。</strong>也就是说，<strong>IC的一个引脚，只能表示两个状态。</strong>IC的这个特性，决定了计算机的信息数据只能用二进制数来处理。</p>
-<p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20220212122535.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/20220212122535.png" srcset="/img/loading.gif" lazyload></p>
 <p>二进制数的位数一般是8位、16位、32位……也就是8的倍数，这是因为计算机所处理的信息的<strong>基本单位</strong>是8位二进制数（8bit）。</p>
 <p>位是最小单位，字节是基本单位。<strong>内存和磁盘都使用字节单位来存储和读写数据，使用位单位则无法读写数据。因此，字节是信息的基本单位。</strong></p>
 <h3 id="2-4-便于计算机处理的“补数”"><a href="#2-4-便于计算机处理的“补数”" class="headerlink" title="2.4 便于计算机处理的“补数”"></a>2.4 便于计算机处理的“补数”</h3><p>二进制数中表示负数值时，一般会把最高位作为符号来使用，因此我们把这个最高位称为符号位。符号位是0时表示正数，符号位是1时表示负数。那么-1用8位二进制数来表示的话是什么样的呢？可能很多人会认为“1的二进制数是00000001，因此-1就是10000001”，但这个答案是错的，正确答案是11111111。</p>
 <p><strong>计算机在做减法运算时，实际上内部是在做加法运算。</strong>为此，在表示负数时就需要使用“二进制的补数”。补数就是用正数来表示负数。</p>
 <p><strong>为了获得补数，我们需要将二进制数的各数位的数值全部取反，然后再将结果加1。</strong></p>
-<p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20220212141013.png" srcset="/img/loading.gif" lazyload alt="用8位二进制数表示-1时，只需求得1（也就是00000001）的补数即可"></p>
-<h4 id="为什么使用补数后就能正确地表示负数了呢？"><a href="#为什么使用补数后就能正确地表示负数了呢？" class="headerlink" title="为什么使用补数后就能正确地表示负数了呢？"></a>为什么使用补数后就能正确地表示负数了呢？</h4><p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20220212141743.png" srcset="/img/loading.gif" lazyload alt="负数表示有误时的情况"></p>
-<p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20220212141833.png" srcset="/img/loading.gif" lazyload alt="负数表示正确时的情况"></p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/20220212141013.png" srcset="/img/loading.gif" lazyload alt="用8位二进制数表示-1时，只需求得1（也就是00000001）的补数即可"></p>
+<h4 id="为什么使用补数后就能正确地表示负数了呢？"><a href="#为什么使用补数后就能正确地表示负数了呢？" class="headerlink" title="为什么使用补数后就能正确地表示负数了呢？"></a>为什么使用补数后就能正确地表示负数了呢？</h4><p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/20220212141743.png" srcset="/img/loading.gif" lazyload alt="负数表示有误时的情况"></p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/20220212141833.png" srcset="/img/loading.gif" lazyload alt="负数表示正确时的情况"></p>
 <p>牢记<strong>“将二进制数的值取反后加1的结果，和原来的值相加，结果为0”</strong>这一法则。</p>
 <p>需要注意，当运算结果为负数时，计算结果的值也是以补数的形式来表示的。</p>
 <p><strong>通过求解补数的补数，就可知该值的绝对值。</strong></p>
 <ul>
 <li>比如3- 5这个运算（3 + （-5）），用8位二进制数表示3时为00000011，而5=00000101的补数为11111011（-5）。因此3- 5其实就是00000011+ 11111011的运算。</li>
 <li>00000011 + 11111011的运算结果为11111110，最高位变成了1，这就表示结果是一个负数，11111110的补数为00000010。因此，11111110表示的就是- 2。</li>
-<li><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20220212142131.png" srcset="/img/loading.gif" lazyload></li>
+<li><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/20220212142131.png" srcset="/img/loading.gif" lazyload></li>
 </ul>
 <h4 id="像-32768～32767这样负数比正数多一个的原因"><a href="#像-32768～32767这样负数比正数多一个的原因" class="headerlink" title="像- 32768～32767这样负数比正数多一个的原因"></a>像- 32768～32767这样负数比正数多一个的原因</h4><p>仔细思考一下补数的机制，大家就会明白像- 32768～32767这样负数比正数多一个的原因了。</p>
 <p><strong>最高位是0</strong>的正数，有0～32767共32768个，这其中也包含0。<strong>最高位是1</strong>的负数，有- 1～- 32768共32768个，这其中不包含0。也就是说，<strong>0包含在正数范围内，所以负数就要比正数多1个。</strong>虽然0不是正数，但考虑到符号位，就将其划分到了正数中。</p>
 <h3 id="2-5-逻辑右移和算术右移的区别"><a href="#2-5-逻辑右移和算术右移的区别" class="headerlink" title="2.5 逻辑右移和算术右移的区别"></a>2.5 逻辑右移和算术右移的区别</h3><p>当二进制数的值<strong>表示图形模式</strong>而非数值时，移位后需要在最高位补0。类似于霓虹灯往右滚动的效果。这就称为逻辑右移。</p>
-<p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20220212142939.png" srcset="/img/loading.gif" lazyload alt="图形模式的右移（逻辑右移）"></p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/20220212142939.png" srcset="/img/loading.gif" lazyload alt="图形模式的右移（逻辑右移）"></p>
 <p>将二进制数<strong>作为带符号的数值进行运算</strong>时，移位后要在最高位填充移位前符号位的值（0或1）。这就称为算术右移。</p>
-<p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20220212143103.png" srcset="/img/loading.gif" lazyload alt="逻辑右移和算术右移的区别"></p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/20220212143103.png" srcset="/img/loading.gif" lazyload alt="逻辑右移和算术右移的区别"></p>
 <p>只有在右移时才必须区分逻辑位移和算术位移。左移时，无论是图形模式（逻辑左移）还是相乘运算（算术左移），都只需在空出来的低位补0即可。</p>
 <p>顺便介绍一下<strong>符号扩充</strong>。以8位二进制数为例，符号扩充就是指在保持值不变的前提下将其转换成16位和32位的二进制数。不管是正数还是用补数表示的负数，都<strong>只需用符号位的值（0或者1）填充高位即可。</strong>这就是符号扩充的方法。</p>
-<p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20220212143443.png" srcset="/img/loading.gif" lazyload alt="由8位转换成16位的符号扩充方法"></p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/20220212143443.png" srcset="/img/loading.gif" lazyload alt="由8位转换成16位的符号扩充方法"></p>
 <h3 id="3-3-计算机运算出错的原因"><a href="#3-3-计算机运算出错的原因" class="headerlink" title="3.3 计算机运算出错的原因"></a>3.3 计算机运算出错的原因</h3><p>二进制数小数转换成十进制数的方法：<strong>将各数位的数值和位权相乘的结果相加即可。</strong></p>
-<p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20220212143925.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/20220212143925.png" srcset="/img/loading.gif" lazyload></p>
 <p>计算机之所以会出现运算错误，是因为<strong>“有一些十进制数的小数无法转换成二进制数”（用连续的二进制数表示的十进制数是不连续的）</strong>。例如，十进制数0.1，就无法用二进制数正确表示，小数点后面即使有几百位也无法表示。</p>
-<p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20220212144126.png" srcset="/img/loading.gif" lazyload alt="小数点后4位能够用二进制数表示的数值二进制数是连续的，十进制数是非连贯的"></p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/20220212144126.png" srcset="/img/loading.gif" lazyload alt="小数点后4位能够用二进制数表示的数值二进制数是连续的，十进制数是非连贯的"></p>
 <h3 id="3-4-什么是浮点数"><a href="#3-4-什么是浮点数" class="headerlink" title="3.4 什么是浮点数"></a>3.4 什么是浮点数</h3><p>浮点数是指用<strong>符号、尾数、基数和指数</strong>这四部分来表示的小数。因为计算机内部使用的是二进制数，所以基数自然就是2。因此，实际的数据中往往不考虑基数，只用符号、尾数、指数这三部分即可表示浮点数。</p>
-<p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20220212150243.png" srcset="/img/loading.gif" lazyload alt="浮点数的表现形式"></p>
-<p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20220212150307.png" srcset="/img/loading.gif" lazyload alt="浮点数的内部构造（IEEE的规定）"></p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/20220212150243.png" srcset="/img/loading.gif" lazyload alt="浮点数的表现形式"></p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/20220212150307.png" srcset="/img/loading.gif" lazyload alt="浮点数的内部构造（IEEE的规定）"></p>
 <ul>
 <li><p><strong>符号部分</strong>是指使用一个数据位来表示数值的符号</p>
 <ul>
@@ -289,12 +289,12 @@
 <li><p>使用这种方法主要是为了表示负数时不使用符号位</p>
 </li>
 <li><p>通过将指数部分<strong>表示范围的中间值设为0</strong>，使得负数不需要用符号来表示</p>
-<p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20220212151826.png" srcset="/img/loading.gif" lazyload alt="单精度浮点数指数部分的EXCESS系统表现"></p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/20220212151826.png" srcset="/img/loading.gif" lazyload alt="单精度浮点数指数部分的EXCESS系统表现"></p>
 </li>
 </ul>
 </li>
 </ul>
-<h4 id="用单精度浮点数表示-0-75"><a href="#用单精度浮点数表示-0-75" class="headerlink" title="用单精度浮点数表示+0.75"></a>用单精度浮点数表示+0.75</h4><p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20220212151339.png" srcset="/img/loading.gif" lazyload alt="用单精度浮点数表示+0.75"></p>
+<h4 id="用单精度浮点数表示-0-75"><a href="#用单精度浮点数表示-0-75" class="headerlink" title="用单精度浮点数表示+0.75"></a>用单精度浮点数表示+0.75</h4><p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/20220212151339.png" srcset="/img/loading.gif" lazyload alt="用单精度浮点数表示+0.75"></p>
 <p>这里，符号部分为0，指数部分为01111110，尾数部分为10000000000000000000000。</p>
 <ul>
 <li>因为0.75是正数，所以符号位是0。</li>
@@ -307,7 +307,7 @@
 <h3 id="4-2-内存的逻辑模型是楼房"><a href="#4-2-内存的逻辑模型是楼房" class="headerlink" title="4.2 内存的逻辑模型是楼房"></a>4.2 内存的逻辑模型是楼房</h3><p>通过使用变量，即便不指定物理地址，也可以在程序中对内存进行读写。这是因为，在程序运行时，Windows等操作系统会自动决定变量的物理地址。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">char</span> a = <span class="hljs-number">123</span>;<br><span class="hljs-keyword">short</span> b = <span class="hljs-number">123</span>;<br><span class="hljs-keyword">long</span> c = <span class="hljs-number">123</span>;<br></code></pre></td></tr></table></figure>
 
-<p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20220227182539.png" srcset="/img/loading.gif" lazyload alt="变量的数据类型不同，所占用的内存大小也不一样"></p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/20220227182539.png" srcset="/img/loading.gif" lazyload alt="变量的数据类型不同，所占用的内存大小也不一样"></p>
 <h4 id="int-4字节-amp-tinyint-1字节"><a href="#int-4字节-amp-tinyint-1字节" class="headerlink" title="int 4字节 &amp; tinyint 1字节"></a>int 4字节 &amp; tinyint 1字节</h4><p>看了上面的图，突然懂了为什么Java的boolean型在数据库里会使用tinyint。</p>
 <h3 id="4-3-简单的指针"><a href="#4-3-简单的指针" class="headerlink" title="4.3 简单的指针"></a>4.3 简单的指针</h3><p>在32位内存地址的环境中，指针变量的长度是多少位？</p>
 <ul>
@@ -317,17 +317,17 @@
 <h4 id="为什么指针也有数据类型？"><a href="#为什么指针也有数据类型？" class="headerlink" title="为什么指针也有数据类型？"></a>为什么指针也有数据类型？</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">// 在定义指针时，我们通常会在变量名前加一个*</span><br><span class="hljs-keyword">char</span> *d<br><span class="hljs-keyword">short</span> *e<br><span class="hljs-keyword">long</span> *f<br></code></pre></td></tr></table></figure>
 
 <p>我们知道，d、e、f都是用来存储地址的变量。然而，为什么这里又用来指定char （1字节）、short（2字节）、long（4字节）这些数据类型呢？实际上，这些数据类型表示的是<strong>从指针存储的地址中一次能够读写的数据字节数</strong>。</p>
-<p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20220227185558.png" srcset="/img/loading.gif" lazyload alt="指针的数据类型表示一次可以读写的长度"></p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/20220227185558.png" srcset="/img/loading.gif" lazyload alt="指针的数据类型表示一次可以读写的长度"></p>
 <h3 id="5-1-不读入内存就无法运行"><a href="#5-1-不读入内存就无法运行" class="headerlink" title="5.1 不读入内存就无法运行"></a>5.1 不读入内存就无法运行</h3><p>程序保存在存储设备中，通过有序地被读出来实现运行，这一点大家都很清楚。这一机制称为<strong>存储程序方式</strong>（程序内置方式），现在看来这是理所当然的，但在当时它的提出可以说是一个里程碑。为什么这么说呢？因为在此以前的程序都是通过改变计算机的布线等来变更程序的。</p>
 <p>磁盘中存储的程序，必须要加载到内存后才能运行。在磁盘中保存的原始程序是无法直接运行的。这是因为，<strong>负责解析和运行程序内容的CPU，需要通过内部程序计数器来指定内存地址，然后才能读出程序。</strong></p>
 <h3 id="5-2-磁盘缓存加快了磁盘访问速度"><a href="#5-2-磁盘缓存加快了磁盘访问速度" class="headerlink" title="5.2 磁盘缓存加快了磁盘访问速度"></a>5.2 磁盘缓存加快了磁盘访问速度</h3><p>磁盘缓存指的是<strong>把从磁盘中读出的数据存储到内存空间中</strong>的方式。</p>
 <p>这样一来，当接下来需要读取同一数据时，就不用通过实际的磁盘，而是从磁盘缓存中把内容读出。使用磁盘缓存可以大大改善磁盘数据的访问速度。</p>
-<p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20220227192642.png" srcset="/img/loading.gif" lazyload alt="磁盘缓存提高访问速度的机制"></p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/20220227192642.png" srcset="/img/loading.gif" lazyload alt="磁盘缓存提高访问速度的机制"></p>
 <p><strong>把低速设备的数据保存在高速设备中，需要时可以直接将其从高速设备中读出</strong>，这种<strong>缓存</strong>的方式在其他情况下也会用到。</p>
 <p>其中的一个实例就是在Web浏览器中的使用。由于Web浏览器是通过网络来获取远程Web服务器的数据并将其显示出来的。因此，在显示较大的图片等文件时，会花费不少时间。于是，Web浏览器就可以把获取的数据暂时保存在磁盘中，然后在需要时再显示磁盘中的数据。也就是说，<strong>把低速的网络数据保存到相对高速的磁盘中。</strong></p>
 <h3 id="5-3-虚拟内存把磁盘作为部分内存来使用"><a href="#5-3-虚拟内存把磁盘作为部分内存来使用" class="headerlink" title="5.3 虚拟内存把磁盘作为部分内存来使用"></a>5.3 虚拟内存把磁盘作为部分内存来使用</h3><p>虚拟内存是指把磁盘的一部分作为假想的内存来使用。这与磁盘缓存是假想的磁盘（实际上是内存）相对，虚拟内存是假想的内存（实际上是磁盘）。</p>
 <p>虚拟内存的方法有<strong>分页式</strong>和<strong>分段式</strong>两种。Windows采用的是分页式。该方式是指，在不考虑程序构造的情况下，把运行的程序按照一定大小的页（page）进行分割，并以页为单位在内存和磁盘间进行置换。分段式则把程序分割成以处理数据集合等为单位的段落，以段落为单位进行置换。</p>
-<p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20220227212513.png" srcset="/img/loading.gif" lazyload alt="分页式虚拟内存的机制"></p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/20220227212513.png" srcset="/img/loading.gif" lazyload alt="分页式虚拟内存的机制"></p>
 
             </div>
             <hr>

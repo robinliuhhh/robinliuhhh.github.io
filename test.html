@@ -18,9 +18,23 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>归档 - Robin Liu&#39;s Blog</title>
+  <title>test - Robin Liu&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
 
 
 
@@ -147,7 +161,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="归档">
+            <span class="h2" id="subtitle" title="test">
               
             </span>
 
@@ -171,37 +185,38 @@
               <div class="col-12 col-md-10 m-auto">
                 
 
-<div class="list-group">
-  <p class="h4">共计 26 篇文章</p>
-  <hr>
-  
-  
-    
-      
-      <p class="h5">2021</p>
-    
-    <a href="/2021/09/27/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">二叉树的层序遍历</span>
-      <time style="float: right;">09-27</time>
-    </a>
-  
-    
-    <a href="/2021/09/07/equals%E4%B8%8Ehashcode/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">equals与hashcode</span>
-      <time style="float: right;">09-07</time>
-    </a>
-  
-    
-    <a href="/2021/09/02/TreeSet%E5%92%8CTreeMap%E7%9A%84%E5%BA%94%E7%94%A8/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">TreeSet和TreeMap的应用</span>
-      <time style="float: right;">09-02</time>
-    </a>
-  
-</div>
+<article class="page-content">
+  <h2 id="面试"><a href="#面试" class="headerlink" title="面试"></a>面试</h2><h3 id="初级到高级要注意哪些方面？"><a href="#初级到高级要注意哪些方面？" class="headerlink" title="初级到高级要注意哪些方面？"></a>初级到高级要注意哪些方面？</h3><ul>
+<li>工具的使用比较6 <a target="_blank" rel="noopener" href="https://www.coderutil.com/">coderutil</a><ul>
+<li>比如日志打印，用插件把sql打印清楚，便于调试</li>
+<li>快捷键的使用，正反馈</li>
+</ul>
+</li>
+</ul>
+<h3 id="阿里P6-看重哪些？"><a href="#阿里P6-看重哪些？" class="headerlink" title="阿里P6+看重哪些？"></a>阿里P6+看重哪些？</h3><ul>
+<li>一面看基础</li>
+<li>二面三面看设计能力，<strong>以架构师的身份去拆解项目</strong></li>
+</ul>
+<h2 id="高并发"><a href="#高并发" class="headerlink" title="高并发"></a>高并发</h2><h3 id="秒杀场景"><a href="#秒杀场景" class="headerlink" title="秒杀场景"></a>秒杀场景</h3><h2 id="数据同步"><a href="#数据同步" class="headerlink" title="数据同步"></a>数据同步</h2><p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20220407093510.png" srcset="/img/loading.gif" lazyload alt="外卖系统全局架构"></p>
+<p>业务后台系统在系统实现上可以分为读业务、写业务、扣减业务。</p>
+<h3 id="不同场景的技术特征"><a href="#不同场景的技术特征" class="headerlink" title="不同场景的技术特征"></a>不同场景的技术特征</h3><h4 id="读业务"><a href="#读业务" class="headerlink" title="读业务"></a>读业务</h4><ul>
+<li>资讯类业务，如微博、知乎</li>
+<li>越快越好</li>
+</ul>
+<h4 id="写业务"><a href="#写业务" class="headerlink" title="写业务"></a>写业务</h4><ul>
+<li>发布及购买类业务</li>
+<li>数据都是由用户提交表单，从前台传过来的，接口只需要存数据</li>
+<li>需要 100% 高可用</li>
+</ul>
+<h4 id="扣减业务"><a href="#扣减业务" class="headerlink" title="扣减业务"></a>扣减业务</h4><ul>
+<li>库存及支付类业务</li>
+<li>数据依赖于后台当前的数据存储情况，要考虑并发扣减，保证扣减接口的稳定性</li>
+<li>要抗住并发和保障数据一致性</li>
+</ul>
 
 
-
-
+  
+</article>
 
               </div>
             </div>
@@ -290,6 +305,8 @@
 
 
 
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
 
 
 
