@@ -232,14 +232,14 @@
 <p>VMware-workstation-full-15.0.2-10952284.exe</p>
 <p>CentOS-7-x86_64-DVD-1503-01</p>
 <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>安装完后出现如下画面：</p>
-<p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/image-20210707135940197.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20210707135940197.png" srcset="/img/loading.gif" lazyload></p>
 <h3 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h3><h4 id="1-上网搜索，据说是图形界面崩溃，需要执行如下操作："><a href="#1-上网搜索，据说是图形界面崩溃，需要执行如下操作：" class="headerlink" title="1. 上网搜索，据说是图形界面崩溃，需要执行如下操作："></a>1. 上网搜索，据说是图形界面崩溃，需要执行如下操作：</h4><h5 id="1-1-ctrl-alt-f2进入命令行"><a href="#1-1-ctrl-alt-f2进入命令行" class="headerlink" title="1.1 ctrl + alt + f2进入命令行"></a>1.1 <code>ctrl + alt + f2</code>进入命令行</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo yum history package-list gjs<br>sudo yum history package-list gnome-shell<br>sudo yum update --skip-broken<br></code></pre></td></tr></table></figure>
 
-<h5 id="1-2-执行第三句后报错：Cannot-find-a-valid-baseurl-for-repo-base-7-x86-64"><a href="#1-2-执行第三句后报错：Cannot-find-a-valid-baseurl-for-repo-base-7-x86-64" class="headerlink" title="1.2 执行第三句后报错：Cannot find a valid baseurl for repo: base/7/x86_64"></a>1.2 执行第三句后报错：Cannot find a valid baseurl for repo: base/7/x86_64</h5><p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/image-20210707154454894.png" srcset="/img/loading.gif" lazyload></p>
+<h5 id="1-2-执行第三句后报错：Cannot-find-a-valid-baseurl-for-repo-base-7-x86-64"><a href="#1-2-执行第三句后报错：Cannot-find-a-valid-baseurl-for-repo-base-7-x86-64" class="headerlink" title="1.2 执行第三句后报错：Cannot find a valid baseurl for repo: base/7/x86_64"></a>1.2 执行第三句后报错：Cannot find a valid baseurl for repo: base/7/x86_64</h5><p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20210707154454894.png" srcset="/img/loading.gif" lazyload></p>
 <h6 id="1-2-1-修改配置文件ifcfg-eno16777736"><a href="#1-2-1-修改配置文件ifcfg-eno16777736" class="headerlink" title="1.2.1 修改配置文件ifcfg-eno16777736"></a>1.2.1 修改配置文件<code>ifcfg-eno16777736</code></h6><p>进入<code>/etc/sysconfig/network-scripts</code>目录，查找<code>ifcfg</code>开头的文件，将配置<code>ONBOOT=no</code>，改为<code>ONBOOT=yes</code></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd /etc/sysconfig/network-scripts<br>ls<br><span class="hljs-meta">#</span><span class="bash"> 我的centos7 有ifcfg-eno16777736  ifcfg-lo两个文件 修改ifcfg-eno16777736文件中的配置即可</span><br>vi ifcfg-eno16777736<br></code></pre></td></tr></table></figure>
 
-<p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/image-20210707140945428.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20210707140945428.png" srcset="/img/loading.gif" lazyload></p>
 <h6 id="1-2-2-重启网络"><a href="#1-2-2-重启网络" class="headerlink" title="1.2.2 重启网络"></a>1.2.2 重启网络</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">service network restart<br></code></pre></td></tr></table></figure>
 
 <h5 id="1-3-重新执行第三句"><a href="#1-3-重新执行第三句" class="headerlink" title="1.3 重新执行第三句"></a>1.3 重新执行第三句</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo yum update --skip-broken<br></code></pre></td></tr></table></figure>
@@ -247,7 +247,7 @@
 <p>进入漫长的下载过程，期间会有询问，都输入 <code>y</code></p>
 <h4 id="2-重启CentOS7"><a href="#2-重启CentOS7" class="headerlink" title="2. 重启CentOS7"></a>2. 重启CentOS7</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo shutdown -r now<br></code></pre></td></tr></table></figure>
 
-<h4 id="3-问题解决"><a href="#3-问题解决" class="headerlink" title="3. 问题解决"></a>3. 问题解决</h4><p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/image-20210707160449424.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="3-问题解决"><a href="#3-问题解决" class="headerlink" title="3. 问题解决"></a>3. 问题解决</h4><p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20210707160449424.png" srcset="/img/loading.gif" lazyload></p>
 
             </div>
             <hr>

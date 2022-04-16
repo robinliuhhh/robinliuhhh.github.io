@@ -229,7 +229,7 @@
             
             <div class="markdown-body">
               <h3 id="1-二叉树剪枝"><a href="#1-二叉树剪枝" class="headerlink" title="1. 二叉树剪枝"></a>1. 二叉树剪枝</h3><p>一棵二叉树的所有节点的值要么是0要么是1，请剪除该二叉树中所有节点的值全都是0的子树。例如，在剪除图8.2（a）中二叉树中所有节点值都为0的子树之后的结果如图8.2（b）所示。</p>
-<p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20210826180113.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/20210826180113.png" srcset="/img/loading.gif" lazyload></p>
 <h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><ul>
 <li>后序遍历最适合用来解决这个问题。每遍历到一个节点，就要确定它是否有左右子树，<strong>如果左右子树都是空的，并且节点的值是0，那么就可以删除这个节点</strong>。</li>
 <li>所谓删除一个节点，就是<strong>返回null给它的父节点</strong>，这样这个节点就从这棵二叉树中消失。</li>
@@ -257,7 +257,7 @@
 <li>空间复杂度：O(n)  递归使用的栈空间</li>
 </ul>
 <h3 id="3-从根节点到叶节点的路径数字之和"><a href="#3-从根节点到叶节点的路径数字之和" class="headerlink" title="3. 从根节点到叶节点的路径数字之和"></a>3. 从根节点到叶节点的路径数字之和</h3><p>在一棵二叉树中所有节点都在0～9的范围之内，从根节点到叶节点的路径表示一个数字。求二叉树中所有路径表示的数字之和。例如，图中的二叉树有3条从根节点到叶节点的路径，它们分别表示数字395、391和302，这3个数字之和是1088。</p>
-<p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20210826214110.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/20210826214110.png" srcset="/img/loading.gif" lazyload></p>
 <h4 id="分析-2"><a href="#分析-2" class="headerlink" title="分析"></a>分析</h4><ul>
 <li>首先考虑<strong>如何计算路径表示的数字</strong>。顺着指向子节点的指针路径向下遍历二叉树，每到达一个节点，相当于在路径表示的数字末尾添加一位数字。例如，在最开始到达根节点时，它表示数字3。然后到达节点9，此时路径表示数字39（3×10+9=39）。然后向下到达节点5，此时路径表示数字395（39×10+5=395）。</li>
 </ul>
@@ -268,7 +268,7 @@
 <li>空间复杂度：O(1)  path</li>
 </ul>
 <h3 id="4-向下的路径节点值之和"><a href="#4-向下的路径节点值之和" class="headerlink" title="4. 向下的路径节点值之和"></a>4. 向下的路径节点值之和</h3><p>给定一棵二叉树和一个值sum，求二叉树中节点值之和等于sum的路径的数目。路径的定义为二叉树中顺着指向子节点的指针向下移动所经过的节点，但不一定从根节点开始，也不一定到叶节点结束。例如，在如图所示中的二叉树中有两条路径的节点值之和等于8，其中，第1条路径从节点5开始经过节点2到达节点1，第2条路径从节点2开始到节点6。</p>
-<p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20210826215743.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/20210826215743.png" srcset="/img/loading.gif" lazyload></p>
 <h4 id="分析-3"><a href="#分析-3" class="headerlink" title="分析"></a>分析</h4><ul>
 <li><p>在这个题目中，二叉树的路径的定义发生了改变，它<strong>不一定从根节点开始，也不一定到叶节点结束</strong>。路径的起止节点的不确定性给计算路径经过的节点值之和带来了很大的难度。</p>
 </li>
@@ -291,7 +291,7 @@
 <li>空间复杂度：O(n)  HashMap</li>
 </ul>
 <h3 id="5-节点值之和最大的路径"><a href="#5-节点值之和最大的路径" class="headerlink" title="5. 节点值之和最大的路径"></a>5. 节点值之和最大的路径</h3><p>在二叉树中将路径定义为顺着节点之间的连接<strong>从任意一个节点开始到达任意一个节点所经过的所有节点</strong>。路径中至少包含一个节点，不一定经过二叉树的根节点，也不一定经过叶节点。给定非空的一棵二叉树，请求出二叉树所有路径上节点值之和的最大值。例如，在如图8.6所示的二叉树中，从节点15开始经过节点20到达节点7的路径的节点值之和为42，是节点值之和最大的路径。</p>
-<p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20210827212711.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/20210827212711.png" srcset="/img/loading.gif" lazyload></p>
 <h4 id="分析-4"><a href="#分析-4" class="headerlink" title="分析"></a>分析</h4><ul>
 <li>这个题目中二叉树路径的定义又和前面的不同。这里的路径最主要的特点是<strong>路径有可能同时经过一个节点的左右子节点</strong>。<ul>
 <li>例如，在图中，一条路径可以经过节点-9、节点20、节点15和节点-3；一条路径也可以经过节点15、节点20和节点7。</li>

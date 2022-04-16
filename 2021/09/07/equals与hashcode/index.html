@@ -257,9 +257,9 @@
 </ul>
 <h3 id="为什么要有-hashCode-？"><a href="#为什么要有-hashCode-？" class="headerlink" title="为什么要有 hashCode ？"></a>为什么要有 <code>hashCode</code> ？</h3><p>简而言之，<code>hashcode</code> 只是用来<strong>缩小查找成本</strong>。</p>
 <p>我们以“<code>HashSet</code> 如何检查重复”为例子来说明为什么要有 <code>hashCode</code> 。</p>
-<p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20210924002245.png" srcset="/img/loading.gif" lazyload alt="《Head First Java》第二版 p561"></p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/20210924002245.png" srcset="/img/loading.gif" lazyload alt="《Head First Java》第二版 p561"></p>
 <h3 id="为什么两个对象有相同的-hashcode-值，它们也不一定是相等的？"><a href="#为什么两个对象有相同的-hashcode-值，它们也不一定是相等的？" class="headerlink" title="为什么两个对象有相同的 hashcode 值，它们也不一定是相等的？"></a>为什么两个对象有相同的 <code>hashcode</code> 值，它们也不一定是相等的？</h3><p>简而言之，<code>hash</code> 算法不太行。</p>
-<p><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20210924090203.png" srcset="/img/loading.gif" lazyload alt="《Head First Java》第二版 p563"></p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/20210924090203.png" srcset="/img/loading.gif" lazyload alt="《Head First Java》第二版 p563"></p>
 <h3 id="为什么重写-equals-时必须重写-hashCode-方法？"><a href="#为什么重写-equals-时必须重写-hashCode-方法？" class="headerlink" title="为什么重写 equals() 时必须重写 hashCode() 方法？"></a>为什么重写 <code>equals()</code> 时必须重写 <code>hashCode()</code> 方法？</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/skywang12345/p/3324958.html">第4部分 hashCode() 和 equals() 的关系</a></p>
 <p>简单总结：如果不重写<code>hashCode()</code>方法，那么调用的仍是<code>Object</code>类的<code>hashCode()</code>方法，而<code>Object</code>类的<code>hashCode()</code>方法返回的<code>hash</code>值其实是对象的内存地址。</p>
 
