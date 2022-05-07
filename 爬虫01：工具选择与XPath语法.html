@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>a - Robin Liu&#39;s Blog</title>
+  <title>爬虫01：工具选择与XPath语法 - Robin Liu&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -161,7 +161,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="a">
+            <span class="h2" id="subtitle" title="爬虫01：工具选择与XPath语法">
               
             </span>
 
@@ -186,9 +186,18 @@
                 
 
 <article class="page-content">
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title">readableFileSize</span><span class="hljs-params">(<span class="hljs-keyword">long</span> size)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (size &lt;= <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;0&quot;</span>;<br>    <span class="hljs-keyword">final</span> String[] units = <span class="hljs-keyword">new</span> String[]&#123;<span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;KB&quot;</span>, <span class="hljs-string">&quot;MB&quot;</span>, <span class="hljs-string">&quot;GB&quot;</span>, <span class="hljs-string">&quot;TB&quot;</span>&#125;;<br>    <span class="hljs-keyword">int</span> digitGroups = (<span class="hljs-keyword">int</span>) (Math.log10(size) / Math.log10(<span class="hljs-number">1024</span>));<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> DecimalFormat(<span class="hljs-string">&quot;#,##0.#&quot;</span>)<br>        .format(size / Math.pow(<span class="hljs-number">1024</span>, digitGroups)) + <span class="hljs-string">&quot; &quot;</span> + units[digitGroups];<br>&#125;<br></code></pre></td></tr></table></figure>
+  <h2 id="工具选择"><a href="#工具选择" class="headerlink" title="工具选择"></a>工具选择</h2><h3 id="lxml-or-BeautifulSoup"><a href="#lxml-or-BeautifulSoup" class="headerlink" title="lxml or BeautifulSoup?"></a>lxml or BeautifulSoup?</h3><p>最开始的需求是从两个网站分别爬取一些文字信息。当时考虑两种实现方式，一个是lxml，一个是BeautifulSoup。</p>
+<h4 id="lxml"><a href="#lxml" class="headerlink" title="lxml"></a>lxml</h4><p>lxml是Python的一个解析库，支持HTML和XML的解析，支持XPath解析方式。简便之处在于，可以直接复制XPath路径进行解析。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><br></code></pre></td></tr></table></figure>
 
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_39471929/article/details/110084191">解决maven项目中，执行clean、compile、test、package等命令时控制台输出乱码问题_msg1_的博客-CSDN博客</a></p>
+
+
+<h4 id="BeautifulSoup"><a href="#BeautifulSoup" class="headerlink" title="BeautifulSoup"></a>BeautifulSoup</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><br></code></pre></td></tr></table></figure>
+
+
+
+<p>我一直力求以简单快速的方式完成需求，所以选了lxml。</p>
+<h3 id="from-lxml-to-selenium"><a href="#from-lxml-to-selenium" class="headerlink" title="from lxml to selenium"></a>from lxml to selenium</h3><p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220504182745869.png" srcset="/img/loading.gif" lazyload alt="image-20220504182745869"></p>
 
 
   
