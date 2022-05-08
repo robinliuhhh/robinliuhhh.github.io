@@ -80,12 +80,18 @@
   
   
   <entry>
-    <title>a</title>
+    <title>null、undefined的区别</title>
     <link href="/2022/01/06/a/"/>
     <url>/2022/01/06/a/</url>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<p>朋友布琳发过来这个meme，厕纸的例子很生动，看完有种恍然大悟的感觉。</p><p>网友评价：“后三个对于一个要上厕所的人来说完全没区别啊”，哈哈哈哈哈！</p><p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220507165411764.png" alt="厕纸例子 生动形象"></p><p>下面代码中的<code>&#39;&#39;</code>可以看作是上图的<code>0</code>，<strong>已赋值只是值为0或空字符串</strong>，和null未赋值的情况是不同的：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-show</span>=<span class="hljs-string">&quot;!item.enterpriseTaxRegNo || item.enterpriseTaxRegNo === &#x27;&#x27;&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;float: right; color: red&quot;</span>&gt;</span>&#123;&#123;  &#x27;（无税号）&#x27; &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br></code></pre></td></tr></table></figure><p>在线测试地址：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/null">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/null</a></p><p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220509004012749.png" alt="测试&#39;&#39;、null、undefined类型 取反结果"></p><p>可以看到<code>!&#39;&#39;</code>值为<code>true</code>，说明上述HTML代码中<code>!item.enterpriseTaxRegNo</code>可以过滤三种值，后面的判断是多余的。</p><p>理论上看是这样的，但是我看公司实际业务代码还是会把<code>&#39;&#39;</code>单拿出来写，搞不懂，有机会测试一下。</p>]]></content>
     
+    
+    <categories>
+      
+      <category>FrontEnd</category>
+      
+    </categories>
     
     
   </entry>
