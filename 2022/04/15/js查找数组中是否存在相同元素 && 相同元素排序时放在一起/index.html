@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>标记重复项 &amp;&amp; 重复项就近显示 - Robin Liu&#39;s Blog</title>
+  <title>js查找数组中是否存在相同元素 &amp;&amp; 相同元素排序时放在一起 - Robin Liu&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="标记重复项 && 重复项就近显示">
+            <span class="h2" id="subtitle" title="js查找数组中是否存在相同元素 && 相同元素排序时放在一起">
               
             </span>
 
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      615 字
+      628 字
     </span>
   
 
@@ -225,13 +225,13 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">标记重复项 &amp;&amp; 重复项就近显示</h1>
+            <h1 style="display: none">js查找数组中是否存在相同元素 &amp;&amp; 相同元素排序时放在一起</h1>
             
             <div class="markdown-body">
               <blockquote>
 <p>需求：发票抬头名称重复时，在发票抬头前显示“单位编号”进行区分，重复的发票抬头就近显示。</p>
 </blockquote>
-<h2 id="标记重复项"><a href="#标记重复项" class="headerlink" title="标记重复项"></a>标记重复项</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ol>
+<h2 id="js查找数组中是否存在相同元素"><a href="#js查找数组中是否存在相同元素" class="headerlink" title="js查找数组中是否存在相同元素"></a>js查找数组中是否存在相同元素</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ol>
 <li>遍历从后端拿出的发票抬头链表（映射到js就是数组），标记重复项<ul>
 <li>手动写<code>map</code>记录发票抬头出现次数</li>
 <li>次数&gt;1即为重复</li>
@@ -251,13 +251,13 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;float: left&quot;</span>&gt;</span>&#123;&#123; item.enterpriseInvoiceTitle &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <p>that’s horrible! 这会引发其他方法的传参异常！</p>
-<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220507111419903.png" srcset="/img/loading.gif" lazyload alt="image-20220507111419903"></p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220507111419903.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>谨慎修改原值</strong>，会引发连锁反应！应该新指定一个字段，然后在展示时拼接在原值前面。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">validTitles[i].enterpriseInvoiceTitlePrefix = validTitles[i].enterpriseNo + <span class="hljs-string">&#x27;, &#x27;</span><br></code></pre></td></tr></table></figure>
 
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;float: left&quot;</span>&gt;</span>&#123;&#123; item.enterpriseInvoiceTitlePrefix &#125;&#125;&#123;&#123; item.enterpriseInvoiceTitle &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
-<h2 id="重复项就近显示"><a href="#重复项就近显示" class="headerlink" title="重复项就近显示"></a>重复项就近显示</h2><p>本来我还为排序犯愁，没想到一行代码就解决了。很多时候不是不会，而是不知道还可以这么做，还是要多看前人代码呀！</p>
+<h2 id="相同元素排序时放在一起"><a href="#相同元素排序时放在一起" class="headerlink" title="相同元素排序时放在一起"></a>相同元素排序时放在一起</h2><p>本来我还为排序犯愁，没想到一行代码就解决了。很多时候不是不会，而是不知道还可以这么做，还是要多看前人代码呀！</p>
 <h3 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//for (let i = 0; i &lt; validTitles.length; i++) &#123;</span><br><span class="hljs-comment">//    if (titleMap[validTitles[i].enterpriseInvoiceTitle] &gt; 1) &#123;</span><br><span class="hljs-comment">//        validTitles[i].enterpriseInvoiceTitlePrefix = validTitles[i].enterpriseNo + &#x27;, &#x27;</span><br><span class="hljs-comment">//    &#125;</span><br><span class="hljs-comment">//&#125;</span><br><br>validTitles.sort(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a.enterpriseInvoiceTitle.localeCompare(b.enterpriseInvoiceTitle))<br></code></pre></td></tr></table></figure>
 
 <p><code>localeCompare()</code>返回一个数字，然后<code>sort()</code>按照数字升序排序。</p>
@@ -271,7 +271,7 @@
 <li><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/sort">sort()</a> 是原地算法，会改变原始数组，默认排序顺序是在将元素转换为字符串，然后比较它们的UTF-16代码单元值序列时构建的。</p>
 </li>
 </ul>
-<h4 id="测试排序过程"><a href="#测试排序过程" class="headerlink" title="测试排序过程"></a>测试排序过程</h4><p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220507124803020.png" srcset="/img/loading.gif" lazyload alt="image-20220507124803020"></p>
+<h4 id="测试排序过程"><a href="#测试排序过程" class="headerlink" title="测试排序过程"></a>测试排序过程</h4><p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220507124803020.png" srcset="/img/loading.gif" lazyload></p>
 
             </div>
             <hr>
