@@ -23,6 +23,25 @@
   
   
   <entry>
+    <title>下拉列表局部内容显示不同颜色</title>
+    <link href="/2022/04/13/%E4%B8%8B%E6%8B%89%E5%88%97%E8%A1%A8%E5%B1%80%E9%83%A8%E5%86%85%E5%AE%B9%E6%98%BE%E7%A4%BA%E4%B8%8D%E5%90%8C%E9%A2%9C%E8%89%B2/"/>
+    <url>/2022/04/13/%E4%B8%8B%E6%8B%89%E5%88%97%E8%A1%A8%E5%B1%80%E9%83%A8%E5%86%85%E5%AE%B9%E6%98%BE%E7%A4%BA%E4%B8%8D%E5%90%8C%E9%A2%9C%E8%89%B2/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>需求：若发票抬头没有税号，则在发票抬头后面显示“<font color='red'>（无税号）</font>”。</p></blockquote><h2 id="v-show一行代码实现"><a href="#v-show一行代码实现" class="headerlink" title="v-show一行代码实现"></a>v-show一行代码实现</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-show</span>=<span class="hljs-string">&quot;!item.enterpriseTaxRegNo || item.enterpriseTaxRegNo === &#x27;&#x27;&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;float: right; color: red&quot;</span>&gt;</span>&#123;&#123;  &#x27;（无税号）&#x27; &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br></code></pre></td></tr></table></figure><p>一个<code>el-option</code>中两个<code>span</code>配合，可以实现局部颜色变化：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">el-select</span> <span class="hljs-attr">v-else-if</span>=<span class="hljs-string">&quot;invoiceTitleChooseOnly &amp;&amp; !readonly&quot;</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;selectedTitle&quot;</span> <span class="hljs-attr">:disabled</span>=<span class="hljs-string">&quot;readonly&quot;</span></span><br><span class="hljs-tag">           <span class="hljs-attr">placeholder</span>=<span class="hljs-string">&quot;请选择发票抬头&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;company-width-inv&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">el-option</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;item in limitedInvoiceTitles&quot;</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">&quot;item.enterpriseGuid&quot;</span></span><br><span class="hljs-tag">               <span class="hljs-attr">:label</span>=<span class="hljs-string">&quot;item.enterpriseInvoiceTitle&quot;</span> <span class="hljs-attr">:value</span>=<span class="hljs-string">&quot;item.enterpriseGuid&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;float: left&quot;</span>&gt;</span>&#123;&#123;item.enterpriseInvoiceTitlePrefix &#125;&#125;&#123;&#123; item.enterpriseInvoiceTitle &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-show</span>=<span class="hljs-string">&quot;!item.enterpriseTaxRegNo || item.enterpriseTaxRegNo === &#x27;&#x27;&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;float: right; color: red&quot;</span>&gt;</span>&#123;&#123;  &#x27;（无税号）&#x27; &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">el-option</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">el-select</span>&gt;</span><br></code></pre></td></tr></table></figure><p>界面展示：</p><p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220508233008559.png"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>FrontEnd</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>工具 &amp;&amp; 它们的格式化 || 快捷键</title>
     <link href="/2022/02/17/%E5%B7%A5%E5%85%B7%20%E6%A0%BC%E5%BC%8F%E5%8C%96&amp;%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
     <url>/2022/02/17/%E5%B7%A5%E5%85%B7%20%E6%A0%BC%E5%BC%8F%E5%8C%96&amp;%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
