@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      628 字
+      638 字
     </span>
   
 
@@ -232,12 +232,12 @@
 <p>需求：发票抬头名称重复时，在发票抬头前显示“单位编号”进行区分，重复的发票抬头就近显示。</p>
 </blockquote>
 <h2 id="js查找数组中是否存在相同元素"><a href="#js查找数组中是否存在相同元素" class="headerlink" title="js查找数组中是否存在相同元素"></a>js查找数组中是否存在相同元素</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ol>
-<li>遍历从后端拿出的发票抬头链表（映射到js就是数组），标记重复项<ul>
+<li>遍历从后端拿出的发票抬头列表（映射到js就是数组），标记重复项<ul>
 <li>手动写<code>map</code>记录发票抬头出现次数</li>
-<li>次数&gt;1即为重复</li>
+<li>若之前未出现过，计数为1；若出现过，计数+1</li>
 </ul>
 </li>
-<li>第二次遍历发票抬头数组，若该发票抬头在<code>map</code>中的值&gt;1，则添加“单位编号”前缀</li>
+<li>第二次遍历发票抬头列表，若该发票抬头在<code>map</code>中的值&gt;1，则添加“单位编号”前缀</li>
 </ol>
 <h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>过滤逻辑</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> titleMap = &#123;&#125;<br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; validTitles.length; i++) &#123;<br>    <span class="hljs-keyword">let</span> title = validTitles[i].enterpriseInvoiceTitle<br>    <span class="hljs-keyword">if</span> (!titleMap[title]) &#123;<br>        titleMap[title] = <span class="hljs-number">1</span><br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        titleMap[title] += <span class="hljs-number">1</span><br>    &#125;<br>&#125;<br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; validTitles.length; i++) &#123;<br>    <span class="hljs-keyword">if</span> (titleMap[validTitles[i].enterpriseInvoiceTitle] &gt; <span class="hljs-number">1</span>) &#123;<br>        validTitles[i].enterpriseInvoiceTitlePrefix = validTitles[i].enterpriseNo + <span class="hljs-string">&#x27;, &#x27;</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
@@ -298,6 +298,12 @@
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2022/04/18/vue%E6%9C%80%E5%B0%8F%E4%BB%A3%E4%BB%B7%E6%8D%A2%E7%BB%91%E6%95%B0%E6%8D%AE/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">vue最小代价换绑数据</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">

@@ -182,6 +182,52 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2022/04/18/vue%E6%9C%80%E5%B0%8F%E4%BB%A3%E4%BB%B7%E6%8D%A2%E7%BB%91%E6%95%B0%E6%8D%AE/" target="_self">
+          vue最小代价换绑数据
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/04/18/vue%E6%9C%80%E5%B0%8F%E4%BB%A3%E4%BB%B7%E6%8D%A2%E7%BB%91%E6%95%B0%E6%8D%AE/" target="_self">
+          
+          
+            
+          
+          
+需求：原绑定方式为绑定id（item中的一个属性），现在需要在界面选择时同时拿到item里的其他属性，该属性作为﻿checkUseElectronicInvoice()方法的入参，进行业务逻辑判断。
+
+原绑定方式123456&lt;el-select v-else-if=&quot;invoiceTitleChooseOnly &amp;&amp; !readonly&quot; v-model
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-04-18 18:52" pubdate>
+              2022-04-18
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/FrontEnd/">FrontEnd</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2022/04/15/js%E6%9F%A5%E6%89%BE%E6%95%B0%E7%BB%84%E4%B8%AD%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E7%9B%B8%E5%90%8C%E5%85%83%E7%B4%A0%20&&%20%E7%9B%B8%E5%90%8C%E5%85%83%E7%B4%A0%E6%8E%92%E5%BA%8F%E6%97%B6%E6%94%BE%E5%9C%A8%E4%B8%80%E8%B5%B7/" target="_self">
           js查找数组中是否存在相同元素 &amp;&amp; 相同元素排序时放在一起
         </a>
@@ -197,15 +243,15 @@
 需求：发票抬头名称重复时，在发票抬头前显示“单位编号”进行区分，重复的发票抬头就近显示。
 
 js查找数组中是否存在相同元素思路
-遍历从后端拿出的发票抬头链表（映射到js就是数组），标记重复项
+遍历从后端拿出的发票抬头列表（映射到js就是数组），标记重复项
 手动写map记录发票抬头出现次数
-次数&gt;1即为重复
+若之前未出现过，计数为1；若出现过，计数+1
 
 
-第二次遍历发票抬头数组，若该发票抬头在map中的值&gt;1，则添加“单位编号”前缀
+第二次遍历发票抬头列表，若该发票抬头在map中的值&gt;1，则添加“单位编号”前缀
 
 实现过滤逻辑
-1234567891011121314le
+1234567891
         </a>
       </p>
 
@@ -251,7 +297,7 @@ js查找数组中是否存在相同元素思路
           
 需求：若发票抬头没有税号，则在发票抬头后面显示“（无税号）”。
 
-v-show一行代码实现1&lt;span v-show=&quot;!item.enterpriseTaxRegNo || item.enterpriseTaxRegNo === &#x27;&#x27;&quot; style=&quot;float: right; color: red&quot;&gt;&#123;&#12
+v-show一行代码实现12&lt;span v-show=&quot;!item.enterpriseTaxRegNo || item.enterpriseTaxRegNo === &#x27;&#x27;&quot;      style=&quot;float: right; color: red&quot;&gt;&#12
         </a>
       </p>
 
@@ -391,7 +437,7 @@ CPU执行比较的机制很有意思，例如，假设要比较累加寄存器�
 网友评价：“后三个对于一个要上厕所的人来说完全没区别啊”，哈哈哈哈哈！
 
 下面代码中的&#39;&#39;可以看作是上图的0，已赋值只是值为0或空字符串，和null未赋值的情况是不同的：
-1&lt;span v-show=&quot;!item.enterpriseTaxRegNo || item.enterpriseTaxR
+12&lt;span v-show=&quot;!item.enterpriseTaxRegNo || item.enterpriseTax
         </a>
       </p>
 
@@ -401,6 +447,52 @@ CPU执行比较的机制很有意思，例如，假设要比较累加寄存器�
             <i class="iconfont icon-date"></i>
             <time datetime="2022-01-06 02:38" pubdate>
               2022-01-06
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/FrontEnd/">FrontEnd</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/01/05/%E4%B8%8E%E6%88%96%E4%BC%98%E5%85%88%E7%BA%A7%20&&%20%E5%88%A9%E7%94%A8%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E7%BB%91%E5%AE%9Adisabled%E5%B1%9E%E6%80%A7%E6%9D%A5%E5%AE%9A%E4%B9%89%E6%8C%89%E9%92%AE%E6%98%AF%E5%90%A6%E5%8F%AF%E7%94%A8/" target="_self">
+          与或优先级 &amp;&amp; 利用计算属性绑定disabled属性来定义按钮是否可用
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/01/05/%E4%B8%8E%E6%88%96%E4%BC%98%E5%85%88%E7%BA%A7%20&&%20%E5%88%A9%E7%94%A8%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E7%BB%91%E5%AE%9Adisabled%E5%B1%9E%E6%80%A7%E6%9D%A5%E5%AE%9A%E4%B9%89%E6%8C%89%E9%92%AE%E6%98%AF%E5%90%A6%E5%8F%AF%E7%94%A8/" target="_self">
+          
+          
+            
+          
+          
+需求：添加【取消发票提交】按钮，当【发票申请状态】为【提交】且【同步至k3状态】为【未同步】或【同步失败】的开票申请可以取消发票提交。
+
+与或优先级配合1234567891011computed: &#123;        disabledCancel () &#123;        return !(this.currentRow                 &amp;&amp; th
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-01-05 22:52" pubdate>
+              2022-01-05
             </time>
           </div>
         
@@ -558,119 +650,11 @@ if (nums[middle] &gt; target) ，right 更新为 middle - 1（**右闭，能取�
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/12/16/git%20clone%E9%A1%B9%E7%9B%AE%E5%88%B0%E6%9C%AC%E5%9C%B0%E4%B9%8B%E5%90%8E%E8%A6%81%E5%81%9A%E5%93%AA%E4%BA%9B%E4%BA%8B/" target="_self">
-          git clone项目到本地之后要做哪些事
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/12/16/git%20clone%E9%A1%B9%E7%9B%AE%E5%88%B0%E6%9C%AC%E5%9C%B0%E4%B9%8B%E5%90%8E%E8%A6%81%E5%81%9A%E5%93%AA%E4%BA%9B%E4%BA%8B/" target="_self">
-          
-          
-            
-          
-          1. 选择合适的分支checkout
-2. gradle
-
-Build and run using选择IDEA
-原因：xxx.war not found for the web module
-
-
-选择适宜的gradle版本
-主要是版本别太高，否则以前的gradle项目可能启动失败
-
-
-
-buildDependents
-导入依赖，解决代码爆红问题
-
-
-
-
-3. 拷贝配置文件
-简易版（注意 pwd 查
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-12-16 10:11" pubdate>
-              2021-12-16
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Projects/">Projects</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/12/07/LeetCode%20&%20Python3%20%E8%B5%B7%E6%AD%A5/" target="_self">
-          LeetCode &amp; Python3 起步
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/12/07/LeetCode%20&%20Python3%20%E8%B5%B7%E6%AD%A5/" target="_self">
-          
-          
-            
-          
-          题目链接Top 100 Liked Questions
-Python3上手最初是用Java刷题的，因为比较熟悉，后来逛豆瓣看到了一篇文章随便聊聊编程语言 ，里面有一个案例感觉很受启发：
-
-确实，Java很依赖IDE，第一次在牛客笔试，差点连main函数都敲不出来。而且看题解，JavaScript、Python等语言都很清晰，Java就是一大坨堆在那里，一些基本的输入输出语句也很冗杂。正好毕设需要用
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-12-07 06:40" pubdate>
-              2021-12-07
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/LeetCode/">LeetCode</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
 
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><a class="page-number" href="/page/4/#board">4</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 

@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>实用网址传送门 - Robin Liu&#39;s Blog</title>
+  <title>与或优先级 &amp;&amp; 利用计算属性绑定disabled属性来定义按钮是否可用 - Robin Liu&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="实用网址传送门">
+            <span class="h2" id="subtitle" title="与或优先级 && 利用计算属性绑定disabled属性来定义按钮是否可用">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-01-01 05:28" pubdate>
-        2022年1月1日 凌晨
+      <time datetime="2022-01-05 22:52" pubdate>
+        2022年1月5日 晚上
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      61 字
+      274 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      3
        分钟
     </span>
   
@@ -225,22 +225,20 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">实用网址传送门</h1>
+            <h1 style="display: none">与或优先级 &amp;&amp; 利用计算属性绑定disabled属性来定义按钮是否可用</h1>
             
             <div class="markdown-body">
               <blockquote>
-<p>主站下的子链接是我当时决定留下主站的原因。</p>
+<p>需求：添加【取消发票提交】按钮，当【发票申请状态】为【提交】且【同步至k3状态】为【未同步】或【同步失败】的开票申请可以取消发票提交。</p>
 </blockquote>
-<h2 id="Tutorials"><a href="#Tutorials" class="headerlink" title="Tutorials"></a>Tutorials</h2><p>HowToDoInJava：<a target="_blank" rel="noopener" href="https://howtodoinjava.com/">https://howtodoinjava.com/</a></p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://howtodoinjava.com/java-concurrency-tutorial/">https://howtodoinjava.com/java-concurrency-tutorial/</a></li>
-</ul>
-<p>Web前端面试：<a target="_blank" rel="noopener" href="https://vue3js.cn/interview/">https://vue3js.cn/interview/</a></p>
-<h2 id="Communities"><a href="#Communities" class="headerlink" title="Communities"></a>Communities</h2><p>GeeksforGeeks：<a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/">https://www.geeksforgeeks.org/</a></p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/random-forest-regression-in-python/">https://www.geeksforgeeks.org/random-forest-regression-in-python/</a></li>
-</ul>
-<h2 id="Black-Tech"><a href="#Black-Tech" class="headerlink" title="Black Tech"></a>Black Tech</h2><p>Mac  v2ray：<a target="_blank" rel="noopener" href="https://bwgbus.com/1558.html">https://bwgbus.com/1558.html</a></p>
+<h2 id="与或优先级配合"><a href="#与或优先级配合" class="headerlink" title="与或优先级配合"></a>与或优先级配合</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs javascript">computed: &#123;    <br>    disabledCancel () &#123;<br>        <span class="hljs-keyword">return</span> !(<span class="hljs-built_in">this</span>.currentRow<br>                 &amp;&amp; <span class="hljs-built_in">this</span>.currentRow.requestStatus === util.InvoiceStatusMeta.submit<br>                 &amp;&amp; (<span class="hljs-built_in">this</span>.currentRow.syncK3Status === <span class="hljs-literal">undefined</span> <br>                     || <span class="hljs-built_in">this</span>.currentRow.syncK3Status === <span class="hljs-literal">null</span><br>                     <span class="hljs-comment">// 可以一步判断 this.currentRow.syncK3Status == undefined</span><br>                     || <span class="hljs-built_in">this</span>.currentRow.syncK3Status === util.SyncK3StatusMeta.not_sync<br>                     || <span class="hljs-built_in">this</span>.currentRow.syncK3Status === util.SyncK3StatusMeta.sync_failed))<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><code>||</code>的优先级低于<code>&amp;&amp;</code>，<strong>同一字段（如：<code>syncK3Status</code>）的“<code>||</code>判断”记得加括号</strong>！</p>
+<h2 id="利用计算属性绑定disabled属性来定义按钮是否可用"><a href="#利用计算属性绑定disabled属性来定义按钮是否可用" class="headerlink" title="利用计算属性绑定disabled属性来定义按钮是否可用"></a>利用计算属性绑定disabled属性来定义按钮是否可用</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">el-button</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;small&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;primary&quot;</span> <span class="hljs-attr">icon</span>=<span class="hljs-string">&quot;el-icon-close&quot;</span> <span class="hljs-attr">:disabled</span>=<span class="hljs-string">&quot;disabledCancel&quot;</span></span><br><span class="hljs-tag">           @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;cancelInvoice()&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>取消发票申请<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">el-button</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://element-plus.org/zh-CN/component/button.html#button-%E5%B1%9E%E6%80%A7">element-plus/component/button</a></p>
+<p><code>:disabled</code>绑定了一个属性“是否为禁用状态”，<code>disabledCancel</code>的值为<code>true</code>时按钮被禁用。</p>
+<p>上一节<code>disabledCancel()</code>返回的是满足条件的<strong>非运算</strong>，当满足【取消发票提交】的条件时，<code>disabledCancel()</code>返回<code>false</code>，此时<code>:disabled=&quot;disabledCancel&quot; == :disabled=&quot;false&quot; </code>，按钮不禁用，也即按钮可用。</p>
 
             </div>
             <hr>
@@ -250,7 +248,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Tools/">Tools</a>
+                      <a class="hover-with-bg" href="/categories/FrontEnd/">FrontEnd</a>
                     
                   </div>
                 
@@ -268,9 +266,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/01/05/%E4%B8%8E%E6%88%96%E4%BC%98%E5%85%88%E7%BA%A7%20&amp;&amp;%20%E5%88%A9%E7%94%A8%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E7%BB%91%E5%AE%9Adisabled%E5%B1%9E%E6%80%A7%E6%9D%A5%E5%AE%9A%E4%B9%89%E6%8C%89%E9%92%AE%E6%98%AF%E5%90%A6%E5%8F%AF%E7%94%A8/">
+                      <a href="/2022/01/06/%E6%B5%8B%E8%AF%95&#39;&#39;%E3%80%81null%E3%80%81undefined%E7%9A%84%E5%8C%BA%E5%88%AB/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">与或优先级 && 利用计算属性绑定disabled属性来定义按钮是否可用</span>
+                        <span class="hidden-mobile">测试''、null、undefined的区别</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -278,8 +276,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/12/28/%E7%AE%97%E6%B3%95%E9%A2%98%E7%9A%84%E4%B8%80%E4%BA%9Btricks/">
-                        <span class="hidden-mobile">算法题的一些tricks（持续更新）</span>
+                      <a href="/2022/01/01/%E5%AE%9E%E7%94%A8%E7%BD%91%E5%9D%80%E4%BC%A0%E9%80%81%E9%97%A8/">
+                        <span class="hidden-mobile">实用网址传送门</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

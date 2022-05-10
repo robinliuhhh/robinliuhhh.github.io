@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>实用网址传送门 - Robin Liu&#39;s Blog</title>
+  <title>vue最小代价换绑数据 - Robin Liu&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="实用网址传送门">
+            <span class="h2" id="subtitle" title="vue最小代价换绑数据">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-01-01 05:28" pubdate>
-        2022年1月1日 凌晨
+      <time datetime="2022-04-18 18:52" pubdate>
+        2022年4月18日 晚上
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      61 字
+      460 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      5
        分钟
     </span>
   
@@ -225,22 +225,37 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">实用网址传送门</h1>
+            <h1 style="display: none">vue最小代价换绑数据</h1>
             
             <div class="markdown-body">
               <blockquote>
-<p>主站下的子链接是我当时决定留下主站的原因。</p>
+<p>需求：原绑定方式为绑定<code>id</code>（<code>item</code>中的一个属性），现在需要在界面选择时<strong>同时</strong>拿到<code>item</code>里的其他属性，该属性作为﻿<code>checkUseElectronicInvoice()</code>方法的入参，进行业务逻辑判断。</p>
 </blockquote>
-<h2 id="Tutorials"><a href="#Tutorials" class="headerlink" title="Tutorials"></a>Tutorials</h2><p>HowToDoInJava：<a target="_blank" rel="noopener" href="https://howtodoinjava.com/">https://howtodoinjava.com/</a></p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://howtodoinjava.com/java-concurrency-tutorial/">https://howtodoinjava.com/java-concurrency-tutorial/</a></li>
-</ul>
-<p>Web前端面试：<a target="_blank" rel="noopener" href="https://vue3js.cn/interview/">https://vue3js.cn/interview/</a></p>
-<h2 id="Communities"><a href="#Communities" class="headerlink" title="Communities"></a>Communities</h2><p>GeeksforGeeks：<a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/">https://www.geeksforgeeks.org/</a></p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/random-forest-regression-in-python/">https://www.geeksforgeeks.org/random-forest-regression-in-python/</a></li>
-</ul>
-<h2 id="Black-Tech"><a href="#Black-Tech" class="headerlink" title="Black Tech"></a>Black Tech</h2><p>Mac  v2ray：<a target="_blank" rel="noopener" href="https://bwgbus.com/1558.html">https://bwgbus.com/1558.html</a></p>
+<h2 id="原绑定方式"><a href="#原绑定方式" class="headerlink" title="原绑定方式"></a>原绑定方式</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">el-select</span> <span class="hljs-attr">v-else-if</span>=<span class="hljs-string">&quot;invoiceTitleChooseOnly &amp;&amp; !readonly&quot;</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;selectedTitle&quot;</span> <span class="hljs-attr">:disabled</span>=<span class="hljs-string">&quot;readonly&quot;</span></span><br><span class="hljs-tag">           <span class="hljs-attr">placeholder</span>=<span class="hljs-string">&quot;请选择发票抬头&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;company-width-inv&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">el-option</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;item in limitedInvoiceTitles&quot;</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">&quot;item.enterpriseGuid&quot;</span></span><br><span class="hljs-tag">               <span class="hljs-attr">:label</span>=<span class="hljs-string">&quot;item.enterpriseInvoiceTitle&quot;</span> <span class="hljs-attr">:value</span>=<span class="hljs-string">&quot;item.enterpriseGuid&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">el-option</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">el-select</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p><code>:value=&quot;item.enterpriseGuid&quot;</code>意味着<code>v-model</code>绑定的<code>selectedTitle</code>的值是<code>item</code>的<code>enterpriseGuid</code>属性。</p>
+<h2 id="思路迭代"><a href="#思路迭代" class="headerlink" title="思路迭代"></a>思路迭代</h2><h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><p>不改绑定方式，拿到<code>v-model</code>绑定的<code>id</code>之后在﻿<code>checkUseElectronicInvoice()</code>里遍历，直到找到对应的合同对象，然后从合同对象拿到需要的﻿<code>supportElectronicInvoice</code>属性（此处﻿<code>contractList</code>是从父页面﻿<code>props</code>进来的）。</p>
+<p>此时<code>supportElectronicInvoice</code>属性，不是<strong>根据选择联动</strong>，而是手动判断：</p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220510160554292.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220510142910734.png" srcset="/img/loading.gif" lazyload></p>
+<p>﻿<code>contractList</code>从父页面﻿<code>props</code>进来：</p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220510161950941.png" srcset="/img/loading.gif" lazyload alt="父页面"></p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220510162111251.png" srcset="/img/loading.gif" lazyload alt="父页面引入子组件"></p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220510162417840.png" srcset="/img/loading.gif" lazyload alt="子组件拿到数据"></p>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><p>可能会出错，对应不上。</p>
+<h3 id="思路2"><a href="#思路2" class="headerlink" title="思路2"></a>思路2</h3><p>改绑定方式，直接把<code>item</code>绑定到<code>value</code>上，这样<code>selectedTitle</code>就是<code>item</code>对象，但是要检查代码里用到<code>selectedTitle</code>的地方，改成<code>item.enterpriseGuid</code>。</p>
+<h4 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h4><p>使用<code>selectedTitle</code>的地方太多了，且还被封装过，这样改容易引发连锁反应。</p>
+<h3 id="思路3"><a href="#思路3" class="headerlink" title="思路3"></a>思路3</h3><p>不改绑定方式，绑定一个<code>@change</code>事件，试图获取<code>item</code>的内容。</p>
+<p>但失败了，推测原因是<code>@change</code>事件和<code>v-model</code>有冲突。</p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220510144109556.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220510145638097.png" srcset="/img/loading.gif" lazyload alt="打印不出数据"></p>
+<h3 id="思路4（最小代价）"><a href="#思路4（最小代价）" class="headerlink" title="思路4（最小代价）"></a>思路4（最小代价）</h3><p>不改绑定方式，只在监听<code>selectedTitle</code>的时候，去重新遍历数组找到对应的<code>item</code>，做到监听<code>selectedTitle</code>变化时，<code>selectedObject</code>同步更新。</p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220510152717791.png" srcset="/img/loading.gif" lazyload></p>
+<p>前面<code>data</code>域新增<code>selectedObject</code>属性：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-title">data</span>(<span class="hljs-params"></span>)</span> &#123;<br>    <span class="hljs-keyword">return</span> &#123;<br>        <span class="hljs-attr">selectedObject</span>: &#123;&#125;, <span class="hljs-comment">// 新增</span><br>        <span class="hljs-attr">selectedTitle</span>: <span class="hljs-string">&#x27;&#x27;</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>调用﻿<code>checkUseElectronicInvoice()</code>方法，入参取<code>selectedObject</code>对象的﻿<code>supportElectronicInvoice</code>属性，做到<strong>根据选择联动</strong>：</p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220510160659292.png" srcset="/img/loading.gif" lazyload></p>
 
             </div>
             <hr>
@@ -250,7 +265,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Tools/">Tools</a>
+                      <a class="hover-with-bg" href="/categories/FrontEnd/">FrontEnd</a>
                     
                   </div>
                 
@@ -268,18 +283,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/01/05/%E4%B8%8E%E6%88%96%E4%BC%98%E5%85%88%E7%BA%A7%20&amp;&amp;%20%E5%88%A9%E7%94%A8%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E7%BB%91%E5%AE%9Adisabled%E5%B1%9E%E6%80%A7%E6%9D%A5%E5%AE%9A%E4%B9%89%E6%8C%89%E9%92%AE%E6%98%AF%E5%90%A6%E5%8F%AF%E7%94%A8/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">与或优先级 && 利用计算属性绑定disabled属性来定义按钮是否可用</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/12/28/%E7%AE%97%E6%B3%95%E9%A2%98%E7%9A%84%E4%B8%80%E4%BA%9Btricks/">
-                        <span class="hidden-mobile">算法题的一些tricks（持续更新）</span>
+                      <a href="/2022/04/15/js%E6%9F%A5%E6%89%BE%E6%95%B0%E7%BB%84%E4%B8%AD%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E7%9B%B8%E5%90%8C%E5%85%83%E7%B4%A0%20&amp;&amp;%20%E7%9B%B8%E5%90%8C%E5%85%83%E7%B4%A0%E6%8E%92%E5%BA%8F%E6%97%B6%E6%94%BE%E5%9C%A8%E4%B8%80%E8%B5%B7/">
+                        <span class="hidden-mobile">js查找数组中是否存在相同元素 && 相同元素排序时放在一起</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
