@@ -182,6 +182,145 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2021/08/27/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84DFS/" target="_self">
+          二叉树的DFS
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/08/27/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84DFS/" target="_self">
+          
+          
+            
+          
+          1. 二叉树剪枝一棵二叉树的所有节点的值要么是0要么是1，请剪除该二叉树中所有节点的值全都是0的子树。例如，在剪除图8.2（a）中二叉树中所有节点值都为0的子树之后的结果如图8.2（b）所示。
+
+分析
+后序遍历最适合用来解决这个问题。每遍历到一个节点，就要确定它是否有左右子树，如果左右子树都是空的，并且节点的值是0，那么就可以删除这个节点。
+所谓删除一个节点，就是返回null给它的父节点，这样这个
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-08-27 19:04" pubdate>
+              2021-08-27
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/JZOffer/">JZOffer</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/08/26/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%89%8D%E4%B8%AD%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%20%E9%80%92%E5%BD%92or%E8%BF%AD%E4%BB%A3/" target="_self">
+          二叉树的前中后序遍历 递归or迭代
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/08/26/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%89%8D%E4%B8%AD%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%20%E9%80%92%E5%BD%92or%E8%BF%AD%E4%BB%A3/" target="_self">
+          
+          
+            
+          
+          前序遍历（根左右）递归12345678910111213public List&lt;Integer&gt; preorderTraversal(TreeNode root) &#123;    List&lt;Integer&gt; nodes = new LinkedList&lt;&gt;();    dfs(root, nodes);    return nodes;&#125;priva
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-08-26 18:03" pubdate>
+              2021-08-26
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/JZOffer/">JZOffer</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/08/25/%E5%8F%8C%E6%8C%87%E9%92%88%E4%B9%8B%E6%95%B0%E7%BB%84/" target="_self">
+          双指针之数组
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/08/25/%E5%8F%8C%E6%8C%87%E9%92%88%E4%B9%8B%E6%95%B0%E7%BB%84/" target="_self">
+          
+          
+            
+          
+          解题思路方向相反的双指针经常用来求排序数组中的 两个数字 之和。
+
+一个指针P1指向数组的第1个数字，另一个指针P2指向数组的最后一个数字，然后比较两个指针指向的数字之和及一个目标值。如果两个指针指向的数字之和大于目标值，则向左移动指针P2；如果两个指针指向的数字之和小于目标值，则向右移动指针P1。此时两个指针的移动方向是相反的。
+
+方向相同的双指针通常用来求正数数组中 子数组 的和或乘积。
+
+初
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-08-25 14:46" pubdate>
+              2021-08-25
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/JZOffer/">JZOffer</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2021/08/21/%E7%BB%9F%E8%AE%A1salary%E7%9A%84%E7%B4%AF%E8%AE%A1%E5%92%8C%EF%BC%88%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%89/" target="_self">
           统计salary的累计和（窗口函数的使用）
         </a>
@@ -502,157 +641,6 @@ Class 与 Style 绑定
             <i class="iconfont icon-category"></i>
             
               <a href="/categories/FrontEnd/">FrontEnd</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/07/30/URL%E8%AE%BF%E9%97%AE%E4%B8%8D%E5%88%B0FastDFS%E5%9B%BE%E7%89%87/" target="_self">
-          解决：URL访问不到FastDFS图片
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/07/30/URL%E8%AE%BF%E9%97%AE%E4%B8%8D%E5%88%B0FastDFS%E5%9B%BE%E7%89%87/" target="_self">
-          
-          
-            
-          
-          环境在Linux系统中安装好Nginx和FastDFS
-教程：整合FastDFS与Nginx 使生成的文件URL能够通过浏览器访问
-出错原因server中server_name和location没配好，原因是以前配过Nginx集群，修改时没注意细节
-
-
-解决成功下图是调整好的
-
-
-
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-07-30 22:50" pubdate>
-              2021-07-30
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Nginx/">Nginx</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/07/16/gitee%E6%8C%87%E7%BA%B9%E7%94%9F%E6%88%90%E5%A4%B1%E8%B4%A5/" target="_self">
-          解决：gitee添加SSH公钥 指纹生成失败
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/07/16/gitee%E6%8C%87%E7%BA%B9%E7%94%9F%E6%88%90%E5%A4%B1%E8%B4%A5/" target="_self">
-          
-          
-            
-          
-          前提已生成id_rsa.pub文件，且github配置ssh公钥成功
-问题gitee添加ssh公钥，输完密码后弹出：指纹生成失败
-
-解决我去看了.ssh文件夹
-
-发现known_hosts里面已经有了gitee.com
-
-于是我把它删除了，然后再次添加，显示成功
-
-
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-07-16 14:06" pubdate>
-              2021-07-16
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Git/">Git</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/07/14/%E5%90%AF%E5%8A%A8CentOS7%20A%20problem%20has%20occurred%20and%20the%20system%20can't%20recover%20Please%20contact%20a%20system%20administrator/" target="_self">
-          解决：启动CentOS7图形界面报错
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/07/14/%E5%90%AF%E5%8A%A8CentOS7%20A%20problem%20has%20occurred%20and%20the%20system%20can't%20recover%20Please%20contact%20a%20system%20administrator/" target="_self">
-          
-          
-            
-          
-          环境Windows 10 家庭中文版
-VMware-workstation-full-15.0.2-10952284.exe
-CentOS-7-x86_64-DVD-1503-01
-问题安装完后出现如下画面：
-
-解决思路1. 上网搜索，据说是图形界面崩溃，需要执行如下操作：1.1 ctrl + alt + f2进入命令行123sudo yum history package-list gjssud
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-07-14 17:17" pubdate>
-              2021-07-14
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Linux/">Linux</a>
             
           </div>
         
