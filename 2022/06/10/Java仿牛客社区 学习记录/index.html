@@ -494,9 +494,9 @@
 
 <h4 id="云服务器部署"><a href="#云服务器部署" class="headerlink" title="云服务器部署"></a>云服务器部署</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># 解压项目</span><br>unzip -d /root/<span class="hljs-built_in">test</span> xxx.zip<br><span class="hljs-comment"># cd 到项目pom.xml文件所在目录</span><br><span class="hljs-comment"># 编译过要clean 然后跳过test</span><br>mvn clean package -Dmaven.test.skip=<span class="hljs-literal">true</span><br><br><span class="hljs-comment"># 部署项目</span><br><span class="hljs-built_in">cd</span> target <br>mv ROOT.war /opt/apache-tomcat/webapps/<br><br><span class="hljs-comment"># 启动项目</span><br><span class="hljs-built_in">cd</span> /opt/apache-tomcat/webapps/<br>startup.sh<br><br><span class="hljs-comment"># 查看日志</span><br><span class="hljs-built_in">cd</span> /opt/apache-tomcat/logs/<br>vim catalina.2022-06-27.log<br><br><span class="hljs-comment"># 有错误先关闭tomcat</span><br>shutdown.sh<br></code></pre></td></tr></table></figure>
 
-<h4 id="有用的链接"><a href="#有用的链接" class="headerlink" title="有用的链接"></a>有用的链接</h4><p><a href="">Linux服务器常用命令</a></p>
-<p><a href="">开发环境配置</a></p>
-<p><a href="">各服务启动命令</a></p>
+<h4 id="有用的链接"><a href="#有用的链接" class="headerlink" title="有用的链接"></a>有用的链接</h4><p><a target="_blank" rel="noopener" href="https://robinliuhhh.github.io/2022/06/23/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">Linux服务器常用命令</a></p>
+<p><a target="_blank" rel="noopener" href="https://robinliuhhh.github.io/2022/06/28/Nowcoder-Community%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">开发环境配置</a></p>
+<p><a target="_blank" rel="noopener" href="https://robinliuhhh.github.io/2022/06/23/Nowcoder-Community%E5%90%84%E6%9C%8D%E5%8A%A1%E5%90%AF%E5%8A%A8%E5%91%BD%E4%BB%A4/">各服务启动命令</a></p>
 
             </div>
             <hr>
