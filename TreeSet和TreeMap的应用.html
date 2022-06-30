@@ -35,8 +35,6 @@
   
 
   
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
-  
 
 
 
@@ -64,7 +62,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -168,43 +166,6 @@
             </span>
 
             
-              <div class="mt-3">
-  
-  
-    <span class="post-meta">
-      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-09-02 09:09" pubdate>
-        2021年9月2日 上午
-      </time>
-    </span>
-  
-</div>
-
-<div class="mt-1">
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      1.2k 字
-    </span>
-  
-
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
-      
-      
-      14
-       分钟
-    </span>
-  
-
-  
-  
-</div>
-
-            
           </div>
 
           
@@ -215,20 +176,17 @@
 
   <main>
     
-      
+      <div class="container nopadding-x-md">
+        <div class="py-5" id="board"
+          >
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
 
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div class="py-5" id="board">
-          <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">TreeSet和TreeMap的应用</h1>
-            
-            <div class="markdown-body">
-              <h3 id="非平衡二叉搜索树的缺点"><a href="#非平衡二叉搜索树的缺点" class="headerlink" title="非平衡二叉搜索树的缺点"></a>非平衡二叉搜索树的缺点</h3><p>二叉搜索树是一种很有用的数据结构。如果二叉搜索树有n个节点，深度为h，那么查找、添加和删除操作的时间复杂度都是O（h）。如果二叉搜索树是平衡的，那么深度h近似等于logn。但在极端情况下（如每个节点只有一个子节点），树的深度h等于n-1，此时二叉搜索树的查找、添加和删除操作的时间复杂度都退化成O（n）。二叉搜索树是否平衡对二叉搜索树的时间效率至关重要。</p>
+<article class="page-content">
+  <h3 id="非平衡二叉搜索树的缺点"><a href="#非平衡二叉搜索树的缺点" class="headerlink" title="非平衡二叉搜索树的缺点"></a>非平衡二叉搜索树的缺点</h3><p>二叉搜索树是一种很有用的数据结构。如果二叉搜索树有n个节点，深度为h，那么查找、添加和删除操作的时间复杂度都是O（h）。如果二叉搜索树是平衡的，那么深度h近似等于logn。但在极端情况下（如每个节点只有一个子节点），树的深度h等于n-1，此时二叉搜索树的查找、添加和删除操作的时间复杂度都退化成O（n）。二叉搜索树是否平衡对二叉搜索树的时间效率至关重要。</p>
 <h3 id="平衡的二叉搜索树"><a href="#平衡的二叉搜索树" class="headerlink" title="平衡的二叉搜索树"></a>平衡的二叉搜索树</h3><p>Java根据红黑树这种<strong>平衡的二叉搜索树</strong>实现TreeSet和TreeMap两种数据结构，如果应聘者在面试的时候需要使用平衡的二叉树来高效地解决问题，则可以直接引用。</p>
 <h4 id="TreeSet"><a href="#TreeSet" class="headerlink" title="TreeSet"></a>TreeSet</h4><p>TreeSet实现了接口Set，它内部的平衡二叉树中的<strong>每个节点只包含一个值</strong>，根据这个值的查找、添加和删除操作的时间复杂度都是O（logn）。</p>
 <p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/20210902091450.png" srcset="/img/loading.gif" lazyload alt="TreeSet的常用函数"></p>
@@ -263,73 +221,15 @@
 </ul>
 <p>参考：剑指Offer（专项突破版）</p>
 
-            </div>
-            <hr>
-            <div>
-              <div class="post-metas mb-3">
-                
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/JZOffer/">JZOffer</a>
-                    
-                  </div>
-                
-                
-              </div>
-              
-                <p class="note note-warning">
-                  
-                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
-                  
-                </p>
-              
-              
-                <div class="post-prevnext">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2021/09/07/equals%E4%B8%8Ehashcode/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">equals与hashcode</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2021/08/30/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
-                        <span class="hidden-mobile">Git常用命令</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
-            </div>
 
-            
-          </article>
+  
+</article>
+
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-      </div>
-    
-  </div>
-</div>
-
-<!-- Custom -->
-
-
     
 
     
@@ -409,11 +309,7 @@
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
 
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
 
 
 

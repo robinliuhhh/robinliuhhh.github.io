@@ -1,0 +1,496 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/laptop.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+  <title>Nowcoder-Community开发环境配置 - Robin Liu&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Robin Liu's Blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/Cover.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Nowcoder-Community开发环境配置">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-06-28 09:49" pubdate>
+        2022年6月28日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      930 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      14
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Nowcoder-Community开发环境配置</h1>
+            
+            <div class="markdown-body">
+              <h2 id="Windows开发"><a href="#Windows开发" class="headerlink" title="Windows开发"></a>Windows开发</h2><h3 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h3><p><a target="_blank" rel="noopener" href="https://maven.apache.org/download.cgi">Maven – Download Apache Maven</a></p>
+<p>下载<code>bin.zip</code>，选择合适位置解压。</p>
+<p>进入目录<code>apache-maven-$&#123;version&#125;\conf</code>，修改配置文件<code>settings.xml</code>：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--自定义maven local repository--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">localRepository</span>&gt;</span>D:\Software\apache\apache-maven-$&#123;version&#125;\repository<span class="hljs-tag">&lt;/<span class="hljs-name">localRepository</span>&gt;</span><br><span class="hljs-comment">&lt;!--配置阿里云镜像--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">mirrors</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">mirror</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>alimaven<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">mirrorOf</span>&gt;</span>central<span class="hljs-tag">&lt;/<span class="hljs-name">mirrorOf</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>aliyun maven<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">url</span>&gt;</span>https://maven.aliyun.com/repository/central<span class="hljs-tag">&lt;/<span class="hljs-name">url</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">mirror</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">mirrors</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h3><p><a target="_blank" rel="noopener" href="https://github.com/microsoftarchive/redis/releases">https://github.com/microsoftarchive/redis/releases</a></p>
+<ul>
+<li>msi：安装程序</li>
+<li>zip：直接解压</li>
+</ul>
+<p>配置环境变量：</p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220629203604159.png" srcset="/img/loading.gif" lazyload></p>
+<p>客户端访问：</p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220629203755364.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="Kafka"><a href="#Kafka" class="headerlink" title="Kafka"></a>Kafka</h3><p><a target="_blank" rel="noopener" href="https://kafka.apache.org/downloads">https://kafka.apache.org/downloads</a></p>
+<p>不分操作系统，都是tgz。</p>
+<p>解压后进入<code>conf</code>目录，修改配置文件，因为默认是Linux系统的地址写法，Windows无法识别。</p>
+<p><code>zookeeper.properties</code>：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">dataDir=D:/Self-Study/Major/Course/data/kafka/zookeeper<br></code></pre></td></tr></table></figure>
+
+<p><code>server.properties</code>：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">log.dirs=D:/Self-Study/Major/Course/data/kafka/kafka-logs<br></code></pre></td></tr></table></figure>
+
+<h3 id="Elasticsearch"><a href="#Elasticsearch" class="headerlink" title="Elasticsearch"></a>Elasticsearch</h3><p><a target="_blank" rel="noopener" href="https://www.elastic.co/cn/downloads/past-releases#elasticsearch">https://www.elastic.co/cn/downloads/past-releases#elasticsearch</a></p>
+<p>解压后进入<code>conf</code>目录，修改配置文件，<code>elasticsearch.yml</code>：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">cluster.name:</span> <span class="hljs-comment"># 集群名字</span><br><span class="hljs-attr">path.data:</span> <span class="hljs-string">D:/Self-Study/Major/Course/data/elasticsearch/data</span><br><span class="hljs-attr">path.logs:</span> <span class="hljs-string">D:/Self-Study/Major/Course/data/elasticsearch/logs</span><br></code></pre></td></tr></table></figure>
+
+<p>配置环境变量，见Redis。</p>
+<h4 id="ik分词器"><a href="#ik分词器" class="headerlink" title="ik分词器"></a>ik分词器</h4><p><a target="_blank" rel="noopener" href="https://github.com/medcl/elasticsearch-analysis-ik">https://github.com/medcl/elasticsearch-analysis-ik</a></p>
+<p>解压至<code>elasticsearch-$&#123;version&#125;\plugins\ik</code>目录</p>
+<h2 id="Linux部署"><a href="#Linux部署" class="headerlink" title="Linux部署"></a>Linux部署</h2><ul>
+<li>Tomcat是Java编写的程序，运行需要JRE</li>
+<li>装Maven是希望代码在云服务器上打包，本地发源码（clean target文件夹）到服务器就可以了</li>
+</ul>
+<h3 id="JRE"><a href="#JRE" class="headerlink" title="JRE"></a>JRE</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">cd</span> /<br>yum list java*<br>yum install -y java-lastest-openjdk.x86_64<br></code></pre></td></tr></table></figure>
+
+<h3 id="Maven-1"><a href="#Maven-1" class="headerlink" title="Maven"></a>Maven</h3><p><a target="_blank" rel="noopener" href="https://maven.apache.org/download.cgi">Maven – Download Apache Maven</a></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># 下载</span><br>wget -i -c <span class="hljs-comment"># bin.tar.gz下载地址</span><br><span class="hljs-comment"># 解压</span><br>tar -zvxf apache-maven-<span class="hljs-variable">$&#123;version&#125;</span>-bin.tar.gz -C /opt <br><br><span class="hljs-comment"># 配置环境变量</span><br>vim /etc/profile<br><span class="hljs-comment"># 找到 export PATH 追加</span><br><span class="hljs-built_in">export</span> PATH=<span class="hljs-variable">$PATH</span>:/opt/apache-maven-<span class="hljs-variable">$&#123;version&#125;</span>/bin<br><span class="hljs-comment"># :wq保存 source生效</span><br><span class="hljs-built_in">source</span> /etc/profile<br><br><span class="hljs-comment"># check</span><br><span class="hljs-built_in">echo</span> <span class="hljs-variable">$PATH</span><br>mvn -version<br></code></pre></td></tr></table></figure>
+
+<p>修改配置文件同Windows。</p>
+<h3 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h3><p><a target="_blank" rel="noopener" href="https://tomcat.apache.org/whichversion.html">Apache Tomcat® - Which Version Do I Want?</a></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sh">wget -i -c <span class="hljs-comment"># tar.gz下载地址</span><br>tar -zvxf apache-tomcat-<span class="hljs-variable">$&#123;version&#125;</span>.tar.gz -C /opt<br><br>vim /etc/profile<br><span class="hljs-built_in">export</span> PATH=<span class="hljs-variable">$PATH</span>:/opt/apache-tomcat-<span class="hljs-variable">$&#123;version&#125;</span>/bin<br><span class="hljs-comment"># :wq保存 source生效</span><br><span class="hljs-built_in">source</span> /etc/profile<br></code></pre></td></tr></table></figure>
+
+<h3 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h3><p><a target="_blank" rel="noopener" href="https://dev.mysql.com/downloads/repo/yum/">https://dev.mysql.com/downloads/repo/yum/</a></p>
+<p>CentOS8：<a target="_blank" rel="noopener" href="https://dev.mysql.com/downloads/file/?id=510577">https://dev.mysql.com/downloads/file/?id=510577</a></p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220629213802118.png" srcset="/img/loading.gif" lazyload></p>
+<p>服务器内部下载：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">cd</span> /<br>wget -i -c https://dev.mysql.com/get/mysql80-community-release-el8-4.noarch.rpm<br>yum install -y mysql80-community-release-el8-4.noarch.rpm<br>yum list mysql*<br>yum install -y mysql-community-server.x86_64<br></code></pre></td></tr></table></figure>
+
+<h4 id="初次启动MySQL"><a href="#初次启动MySQL" class="headerlink" title="初次启动MySQL"></a>初次启动MySQL</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 启动MySQL mysqld是MySQL后台服务器的名字</span><br>systemctl start mysqld<br><span class="hljs-meta">#</span><span class="bash"> 查询默认密码</span><br>grep &#x27;password&#x27; /var/log/mysqld.log<br><span class="hljs-meta">#</span><span class="bash"> 登录</span><br>mysql -u root -p<br><span class="hljs-meta">#</span><span class="bash"> Linux下的密码要有大写字母、符号和数字</span><br><span class="hljs-meta">mysql&gt;</span><span class="bash">alter user root@localhost identified by <span class="hljs-string">&#x27;R_123&#x27;</span>;</span><br><span class="hljs-meta">#</span><span class="bash"> 导入数据</span><br><span class="hljs-meta">mysql&gt;</span><span class="bash"><span class="hljs-built_in">source</span> /root/<span class="hljs-built_in">test</span>/init_schema.sql;</span><br><span class="hljs-meta">mysql&gt;</span><span class="bash"><span class="hljs-built_in">source</span> /root/<span class="hljs-built_in">test</span>/init_data.sql;</span><br><span class="hljs-meta">#</span><span class="bash"> 把原本地路径url改为固定路径 否则访问云服务器本地是找不到图片的</span><br>update user set header_url = &#x27;http://fixed.com/fix.png&#x27; where header_url like &#x27;%localhost%&#x27;;<br></code></pre></td></tr></table></figure>
+
+<h3 id="Redis-1"><a href="#Redis-1" class="headerlink" title="Redis"></a>Redis</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># https://redis.io/download/</span><br><span class="hljs-built_in">cd</span> /<br>yum list redis*<br>yum install -y <br>systemctl start redis<br>systemctl status redis<br></code></pre></td></tr></table></figure>
+
+<h3 id="Kafka-1"><a href="#Kafka-1" class="headerlink" title="Kafka"></a>Kafka</h3><p>下载见Windows。</p>
+<p>Linux系统内配置文件内的路径符合Linux路径规范，不需要改，除非想换一个地方存。</p>
+<h3 id="Elasticsearch-1"><a href="#Elasticsearch-1" class="headerlink" title="Elasticsearch"></a>Elasticsearch</h3><p>下载见Windows。</p>
+<p><code>elasticsearch.yml</code>：同Windows，文件存放路径写成Linux风格即可。</p>
+<p><code>jvm.options</code>：云服务器空间有限，需要调整JVM参数。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">-Xms256m # JVM初始分配的内存<br>-Xmx512m # JVM最大分配的内存<br></code></pre></td></tr></table></figure>
+
+<h3 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">cd</span> /<br>yum list nginx*<br>yum install -y nginx.x86_64<br></code></pre></td></tr></table></figure>
+
+<p>配置反向代理、负载均衡。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">vim /etc/nginx/nginx.conf<br></code></pre></td></tr></table></figure>
+
+<p><code>nginx.conf</code>：</p>
+<ul>
+<li>配server，实际上是配置虚拟服务器和真实服务器之间的关系，用Nginx代理Tomcat</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># upstream 	用来负载均衡 是tomcat所在服务器的ip地址</span><br><span class="hljs-comment"># server 	表示当前nginx所在服务器的ip地址或者域名</span><br>upstream myserver &#123;<br>        server 127.0.0.1:8080 max_fails=3 fail_timeout=30s;<br>&#125;<br><br><span class="hljs-comment"># 访问192.168.xx.xxx 80端口时 认为是/根路径 由myserver处理</span><br><span class="hljs-comment"># myserver目前只有一个server 所以分发给127.0.0.1:8080处理</span><br>server &#123;<br>        listen 80;<br>        server_name 192.168.xx.xxx; <span class="hljs-comment"># 或者写域名</span><br>        location / &#123;<br>        	proxy_pass http://myserver;<br>        &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Archive/">Archive</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/06/23/Nowcoder-Community%E5%90%84%E6%9C%8D%E5%8A%A1%E5%90%AF%E5%8A%A8%E5%91%BD%E4%BB%A4/">
+                        <span class="hidden-mobile">Nowcoder-Community各服务启动命令</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
