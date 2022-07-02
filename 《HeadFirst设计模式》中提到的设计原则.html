@@ -196,12 +196,12 @@
 </blockquote>
 <h5 id="把代码中会变化的部分取出并-封装起来，以便以后可以轻易地扩充此部分，而不影响不需要-变化的其他部分。"><a href="#把代码中会变化的部分取出并-封装起来，以便以后可以轻易地扩充此部分，而不影响不需要-变化的其他部分。" class="headerlink" title="把代码中会变化的部分取出并 封装起来，以便以后可以轻易地扩充此部分，而不影响不需要 变化的其他部分。"></a>把代码中会变化的部分取出并 封装起来，以便以后可以轻易地扩充此部分，而不影响不需要 变化的其他部分。</h5><ul>
 <li>换句话说，如果每次新的需求一来，都会变化到某方面的代 码，那么你就可以确定，这部分的代码需要被抽出来，和其 他闻风不动的代码有所区隔。</li>
-<li><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20211019092748.png" srcset="/img/loading.gif" lazyload></li>
+<li><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/20211019092748.png" srcset="/img/loading.gif" lazyload></li>
 </ul>
 <h5 id="针对接口编程，而不是针对实现-编程。"><a href="#针对接口编程，而不是针对实现-编程。" class="headerlink" title="针对接口编程，而不是针对实现 编程。"></a>针对接口编程，而不是针对实现 编程。</h5><ul>
 <li>「针对接口编程」真正的意思是「针对超类型（ s u p e r t y p e） 编程」。</li>
 <li>所谓的「接口」有多个含意，接口是一个「概念」， 也是一种 J a v a的 i n t e r f a c e构造。你可以在不涉及 J a v a i n t e r f a c e的情况下，「针对接口编程」，关键就在<strong>多态</strong>。 利用多态，程序可以针对超类型编程，执行时会根据实际状 况执行到真正的行为，不会被绑死在超类型的行为上。「针 对超类型编程」这句话，可以更明确地说成「变量的声明类 型，应该是超类型，通常是一个抽象类或者是一个接口，如 此，只要是具体实现此超类型的类所产生的对象，都可以指 定给这个变量；这也意味着，声明类时，不用理会以后执行 时的真正对象类型！」</li>
-<li><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20211018224526.png" srcset="/img/loading.gif" lazyload></li>
+<li><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/20211018224526.png" srcset="/img/loading.gif" lazyload></li>
 </ul>
 <h5 id="多用组合，少用继承。"><a href="#多用组合，少用继承。" class="headerlink" title="多用组合，少用继承。"></a>多用组合，少用继承。</h5><ul>
 <li>当你将两个类结合起来使用，如同本例一般，这就是组 合（ c o m p o s i t i o n）。这种作法和『继承』不同的地方 在于，鸭子的行为不是继承而来，而是和适当的行为对 象『组合』而来。</li>
@@ -209,7 +209,7 @@
 </ul>
 <h5 id="为了交互对象之间的松耦合设计而努力。"><a href="#为了交互对象之间的松耦合设计而努力。" class="headerlink" title="为了交互对象之间的松耦合设计而努力。"></a>为了交互对象之间的松耦合设计而努力。</h5><ul>
 <li>松耦合的设计之所以能让我们建立有弹性的OO系统，能够应对变化， 是因为对象之间的互相依赖降到了最低。</li>
-<li><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20211019224359.png" srcset="/img/loading.gif" lazyload></li>
+<li><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/20211019224359.png" srcset="/img/loading.gif" lazyload></li>
 </ul>
 <h5 id="开闭原则：类应该对扩展开放，对修改关闭。"><a href="#开闭原则：类应该对扩展开放，对修改关闭。" class="headerlink" title="开闭原则：类应该对扩展开放，对修改关闭。"></a>开闭原则：类应该对扩展开放，对修改关闭。</h5><ul>
 <li>你需要把注意力集中在设计中 最有可能改变的地方，然后应用开放-关闭 原则。</li>
@@ -218,8 +218,8 @@
 <li><p>所谓高层组件，是由其他低层组件定义其行为的类。</p>
 <ul>
 <li>PizzaStore是高层组件，因为它的行为是由Pizza定义的</li>
-<li><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20211025205747.png" srcset="/img/loading.gif" lazyload></li>
-<li><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20211025204652.png" srcset="/img/loading.gif" lazyload></li>
+<li><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/20211025205747.png" srcset="/img/loading.gif" lazyload></li>
+<li><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/20211025204652.png" srcset="/img/loading.gif" lazyload></li>
 </ul>
 </li>
 <li><p>高层组件不应该依赖低层组件，两个组件都应该依赖抽象。</p>
@@ -241,7 +241,7 @@
 <h2 id="依赖倒转原则"><a href="#依赖倒转原则" class="headerlink" title="依赖倒转原则"></a>依赖倒转原则</h2><p>依赖倒转可以说是面向对象设计的标志。依赖倒转其实就是谁也不要依靠谁，除了约定的接口，大家都可以灵活自如。</p>
 <h3 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h3><p>高层模块不应该依赖低层模块，两个模块都应该依赖抽象。</p>
 <ul>
-<li><img src="https://gitee.com/robin_p_liu/images_for_blog/raw/master/img/20211001225751.png" srcset="/img/loading.gif" lazyload></li>
+<li><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/20211001225751.png" srcset="/img/loading.gif" lazyload></li>
 </ul>
 <p>抽象不应该依赖细节，细节应该依赖于抽象。</p>
 <ul>

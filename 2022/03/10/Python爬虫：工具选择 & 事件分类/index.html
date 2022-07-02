@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>page.title - Robin Liu&#39;s Blog</title>
+  <title>Python爬虫：工具选择 &amp; 事件分类 - Robin Liu&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -34,6 +34,8 @@
     
   
 
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
   
 
 
@@ -62,7 +64,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -161,9 +163,46 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="page.title">
+            <span class="h2" id="subtitle" title="Python爬虫：工具选择 & 事件分类">
               
             </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-03-10 02:52" pubdate>
+        2022年3月10日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      460 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      5
+       分钟
+    </span>
+  
+
+  
+  
+</div>
 
             
           </div>
@@ -176,85 +215,120 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<article class="page-content">
-  <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>天气查询</title>
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/index.css" />
-  </head>
-
-  <body>
-    <div class="wrap" id="app">
-      <div class="search_form">
-        <div class="logo">天气查询</div>
-        <div class="form_group">
-          <input type="text" class="input_txt" placeholder="请输入要查询的城市"/>
-          <button class="input_sub">回车查询</button>
-        </div>
       
-      </div>
-      <ul class="weather_list">
-        <li>
-          <div class="info_type"><span class="iconfont">小雨</span></div>
-          <div class="info_temp">
-            <b>低温 2℃</b>
-            ~
-            <b>高温 19℃</b>
-          </div>
-          <div class="info_date"><span>24日星期天</span></div>
-        </li>
-        <li>
-          <div class="info_type"><span class="iconfont">小雨</span></div>
-          <div class="info_temp">
-            <b>低温 2℃</b>
-            ~
-            <b>高温 19℃</b>
-          </div>
-          <div class="info_date"><span>24日星期天</span></div>
-        </li>
-        <li>
-          <div class="info_type"><span class="iconfont">小雨</span></div>
-          <div class="info_temp">
-            <b>低温 2℃</b>
-            ~
-            <b>高温 19℃</b>
-          </div>
-          <div class="info_date"><span>24日星期天</span></div>
-        </li>
-      </ul>
-    </div>
-    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <!-- 官网提供的 axios 在线地址 -->
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <!-- 自己的js -->
 
-  </body>
-</html>
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Python爬虫：工具选择 &amp; 事件分类</h1>
+            
+            <div class="markdown-body">
+              <h2 id="工具选择"><a href="#工具选择" class="headerlink" title="工具选择"></a>工具选择</h2><h3 id="lxml-or-BeautifulSoup"><a href="#lxml-or-BeautifulSoup" class="headerlink" title="lxml or BeautifulSoup?"></a>lxml or BeautifulSoup?</h3><blockquote>
+<p>最开始的需求是<strong>分别</strong>从两个网站爬取一些文字信息。</p>
+</blockquote>
+<p>当时考虑两种实现方式，一个是lxml，一个是BeautifulSoup。</p>
+<p>然后了解到BeautifulSoup内部有lxml解析器，依据单一职责原则，我选择lxml。</p>
+<p>其实还有个原因，当时看网上的评论说，BeautifulSoup比lxml好上手，然后因为一些虚荣心作祟2333，我选lxml。</p>
+<p>后来看到了一些reasonable的原因：</p>
+<p><a target="_blank" rel="noopener" href="https://dev.to/prahladyeri/do-you-use-beautifulsoup-or-lxml-to-parse-your-html-markup-in-python-3lkn">https://dev.to/prahladyeri/do-you-use-beautifulsoup-or-lxml-to-parse-your-html-markup-in-python-3lkn</a></p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220701001400541.png" srcset="/img/loading.gif" lazyload></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/robinliuhhh/Blog-Demos/blob/main/python-crawler/1st-use-lxml/1st-use-lxml.py">点击欣赏我的lxml古早代码，第一次写爬虫。</a></p>
+<h3 id="from-lxml-to-Selenium"><a href="#from-lxml-to-Selenium" class="headerlink" title="from lxml to Selenium"></a>from lxml to Selenium</h3><blockquote>
+<p>后面需求变了，有网站间的跳转，还有点击下载图片。</p>
+</blockquote>
+<p>最开始用lxml碰钉子是遇到一个网站，有禁止爬虫的君子协议，但是老板怎么会遵守这种规则呢（笑）。</p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220504182745869.png" srcset="/img/loading.gif" lazyload></p>
+<p>于是弃lxml选择可以模拟鼠标事件的Selenium，一切归零重新开始。</p>
+<h2 id="事件分类"><a href="#事件分类" class="headerlink" title="事件分类"></a>事件分类</h2><p>首先，我想先归类一下爬虫涉及的主要事件类型。</p>
+<ul>
+<li>普通html文本</li>
+<li>链接跳转</li>
+<li>鼠标点击</li>
+</ul>
+<p>前两种都比较简单，在界面用XPath定位后，可以直接通过代码操控；鼠标点击则需要XPath定位、设置等待时间并判断所需元素是否加载完毕、根据需求条件选中复选框等其他复杂操作。</p>
+<p>存档一些对我帮助很大的博客：</p>
+<h3 id="XPath语法"><a href="#XPath语法" class="headerlink" title="XPath语法"></a>XPath语法</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/hb5cn/article/details/84937449?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_antiscan&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_antiscan&utm_relevant_index=1">定位元素的父（parent::）、兄弟（following-sibling::、preceding-sibling::）节点</a></p>
+<h3 id="Selenium"><a href="#Selenium" class="headerlink" title="Selenium"></a>Selenium</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/a9df5135a3a3">Mac Brew Install Chromedriver</a></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/111014448">Homebrew国内如何自动安装(Mac &amp; Linux)</a></li>
+</ul>
+<h4 id="定位-amp-点击"><a href="#定位-amp-点击" class="headerlink" title="定位 &amp; 点击"></a>定位 &amp; 点击</h4><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/simran/p/9234783.html">Selenium XPath定位</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/end-of-summer/p/9724932.html">点击元素、alert弹框、鼠标操作（左键点击、右键点击、双击、鼠标悬浮）、下拉选项框、窗口切换等操作</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Simple-Small/p/12035425.html">shadow-root节点</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_41774836/article/details/88965281">webdriver中的等待——主要讲解WebDriverWait()</a></p>
 
-
-  
-</article>
-
-              </div>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Python/">Python</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/04/13/%E4%B8%8B%E6%8B%89%E5%88%97%E8%A1%A8%E5%B1%80%E9%83%A8%E5%86%85%E5%AE%B9%E6%98%BE%E7%A4%BA%E4%B8%8D%E5%90%8C%E9%A2%9C%E8%89%B2/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">下拉列表局部内容显示不同颜色</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/02/17/%E5%B7%A5%E5%85%B7%20%E6%A0%BC%E5%BC%8F%E5%8C%96&amp;%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+                        <span class="hidden-mobile">工具 && 它们的格式化 || 快捷键</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
 
     
@@ -334,7 +408,11 @@
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
 
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
 
 
 

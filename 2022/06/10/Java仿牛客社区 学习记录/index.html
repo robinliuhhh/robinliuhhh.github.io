@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      42
+      43
        分钟
     </span>
   
@@ -296,7 +296,7 @@
 <p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220620173323103.png" srcset="/img/loading.gif" lazyload></p>
 <h4 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h4><p>MVC是一种设计模式，分层思想。</p>
 <p>服务端三层架构：表现层、业务层、数据层。<strong>MVC解决的是表现层的问题。</strong></p>
-<h5 id="MVC流程"><a href="#MVC流程" class="headerlink" title="MVC流程"></a>MVC流程</h5><p>DispatcherServlet控制以下3层的相互调用：</p>
+<h5 id="MVC流程"><a href="#MVC流程" class="headerlink" title="MVC流程"></a>MVC流程</h5><p>DispatcherServlet控制MVC的相互调用：</p>
 <ol>
 <li>请求访问Controller，Controller接收请求中的数据，然后调用业务层去处理</li>
 <li>处理后把数据封装在Model里，传给View</li>
@@ -307,13 +307,31 @@
 <p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220609111434198.png" srcset="/img/loading.gif" lazyload></p>
 <p>DispatcherServlet、Model、View、Controller都是位于Servlet engine（比如Tomcat）中运行的。</p>
 <ol>
-<li>请求统一由DispatcherServlet处理</li>
-<li>根据Mapping路径找到对应Controller</li>
-<li>Controller调用业务层，把数据封装到Model里，返回给DispatcherServlet</li>
-<li>DispatcherServlet再调用View，把Model数据传过去</li>
-<li>View把Model中的数据替换到页面，生成html，返回给DispatcherServlet</li>
-<li>DispatcherServlet把html返回给浏览器</li>
+<li><p>请求统一由DispatcherServlet处理</p>
+</li>
+<li><p>DispatcherServlet调用HandlerMapping，根据Mapping路径找到对应Controller</p>
+</li>
+<li><p>用HandlerExecutionChain封装Controller和Interceptor</p>
+</li>
+<li><p>DispatcherServlet调用HandlerExecutionChain中的HandlerAdapter，HandlerAdapter内部封装了Controller</p>
+<ul>
+<li>调用HandlerAdapter之前会先执行preHandle()方法</li>
+</ul>
+</li>
+<li><p>Controller调用业务层，把数据封装到Model里，返回ModelAndView给DispatcherServlet</p>
+<ul>
+<li>返回ModelAndView之后会执行postHandle()方法</li>
+</ul>
+</li>
+<li><p>DispatcherServlet再调用ViewResolver，把ModelAndView数据传过去，让ViewResolver解析</p>
+</li>
+<li><p>ViewResolver根据View找到模板引擎，把Model中的数据替换到页面，生成html，由模板引擎渲染到客户端</p>
+<ul>
+<li>渲染之后，DispatcherServlet会执行afterCompletion()方法</li>
+</ul>
+</li>
 </ol>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220702102239652.png" srcset="/img/loading.gif" lazyload></p>
 <p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220609111720961.png" srcset="/img/loading.gif" lazyload></p>
 <h4 id="Thymeleaf"><a href="#Thymeleaf" class="headerlink" title="Thymeleaf"></a>Thymeleaf</h4><p>Thymeleaf是后端渲染，后端直接推送的是整个html文档，服务器压力比较大。</p>
 <p>Vue是前端渲染，后端数据以json形式提供，前后端交互只有纯数据。</p>

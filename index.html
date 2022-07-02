@@ -418,6 +418,51 @@ IoC如果是我们自己管理
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2022/05/20/Python%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%EF%BC%9A%E6%A0%B9%E6%8D%AE%E6%AE%B5%E8%90%BD%E6%A0%87%E9%A2%98%E6%88%AA%E5%8F%96%E5%86%85%E5%AE%B9/" target="_self">
+          Python数据处理：根据段落标题截取内容
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/05/20/Python%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%EF%BC%9A%E6%A0%B9%E6%8D%AE%E6%AE%B5%E8%90%BD%E6%A0%87%E9%A2%98%E6%88%AA%E5%8F%96%E5%86%85%E5%AE%B9/" target="_self">
+          
+          
+            
+          
+          偷懒反被偷懒误截取标题之间的内容，但是根据标题内的特殊符号做切割，然后删去结尾的下一个标题。
+偷懒反被偷懒误，不如存字典。
+1234567891011121314151617181920def str_format(str):    &quot;&quot;&quot; 传入需要截取的文本 返回关键字对应的内容        e.g. PMID- 31446140    PMID：关键字    3
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-05-20 22:21" pubdate>
+              2022-05-20
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Python/">Python</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2022/04/18/vue%E6%9C%80%E5%B0%8F%E4%BB%A3%E4%BB%B7%E6%8D%A2%E7%BB%91%E6%95%B0%E6%8D%AE/" target="_self">
           vue最小代价换绑数据
         </a>
@@ -565,21 +610,24 @@ v-show一行代码实现12&lt;span v-show=&quot;!item.enterpriseTaxRegNo || item
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/02/17/%E5%B7%A5%E5%85%B7%20%E6%A0%BC%E5%BC%8F%E5%8C%96&%E5%BF%AB%E6%8D%B7%E9%94%AE/" target="_self">
-          工具 &amp;&amp; 它们的格式化 || 快捷键
+        <a href="/2022/03/10/Python%E7%88%AC%E8%99%AB%EF%BC%9A%E5%B7%A5%E5%85%B7%E9%80%89%E6%8B%A9%20&%20%E4%BA%8B%E4%BB%B6%E5%88%86%E7%B1%BB/" target="_self">
+          Python爬虫：工具选择 &amp; 事件分类
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/02/17/%E5%B7%A5%E5%85%B7%20%E6%A0%BC%E5%BC%8F%E5%8C%96&%E5%BF%AB%E6%8D%B7%E9%94%AE/" target="_self">
+        <a href="/2022/03/10/Python%E7%88%AC%E8%99%AB%EF%BC%9A%E5%B7%A5%E5%85%B7%E9%80%89%E6%8B%A9%20&%20%E4%BA%8B%E4%BB%B6%E5%88%86%E7%B1%BB/" target="_self">
           
           
             
           
-          Sublime格式化json打开 Sublime，command + shift + p -&gt; Install package -&gt; Pretty JSON
-Mac：command + ctrl + jWindows：ctrl + alt + j
-IDEA创建新文件时自动生成自定义名字和时间
-12345/** * * @author pliu * @date $&#123;YEAR&#
+          工具选择lxml or BeautifulSoup?
+最开始的需求是分别从两个网站爬取一些文字信息。
+
+当时考虑两种实现方式，一个是lxml，一个是BeautifulSoup。
+然后了解到BeautifulSoup内部有lxml解析器，依据单一职责原则，我选择lxml。
+其实还有个原因，当时看网上的评论说，BeautifulSoup比lxml好上手，然后因为一些虚荣心作祟2333，我选lxml。
+
         </a>
       </p>
 
@@ -587,8 +635,8 @@ IDEA创建新文件时自动生成自定义名字和时间
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-02-17 06:12" pubdate>
-              2022-02-17
+            <time datetime="2022-03-10 02:52" pubdate>
+              2022-03-10
             </time>
           </div>
         
@@ -596,54 +644,7 @@ IDEA创建新文件时自动生成自定义名字和时间
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Tools/">Tools</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/02/02/%E3%80%8A%E7%A8%8B%E5%BA%8F%E6%98%AF%E6%80%8E%E6%A0%B7%E8%B7%91%E8%B5%B7%E6%9D%A5%E7%9A%84%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" target="_self">
-          《程序是怎样跑起来的》阅读笔记
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/02/02/%E3%80%8A%E7%A8%8B%E5%BA%8F%E6%98%AF%E6%80%8E%E6%A0%B7%E8%B7%91%E8%B5%B7%E6%9D%A5%E7%9A%84%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" target="_self">
-          
-          
-            
-          
-          目录
-提示只读了感兴趣的部分，解答了一些感兴趣的问题。 
-收获1.4 条件分支和循环机制条件分支如何跳转？CPU在进行运算时，标志寄存器的数值会根据运算结果自动设定。条件分支在跳转指令前会进行比较运算。至于是否执行跳转指令，则由CPU在参考标志寄存器的数值后进行判断。
-
-CPU执行比较的机制很有意思，例如，假设要比较累加寄存器中存储的XXX值和通用寄存器中存储的YYY值，执行比较的指令后，CPU的
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-02-02 08:43" pubdate>
-              2022-02-02
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Books/">Books</a>
+              <a href="/categories/Python/">Python</a>
             
           </div>
         
