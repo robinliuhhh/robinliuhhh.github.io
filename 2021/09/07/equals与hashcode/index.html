@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      899 字
+      970 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      10
+      11
        分钟
     </span>
   
@@ -228,12 +228,15 @@
             <h1 style="display: none">equals与hashcode</h1>
             
             <div class="markdown-body">
-              <h2 id="equals"><a href="#equals" class="headerlink" title="equals"></a>equals</h2><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>判断两个对象是否相等。</p>
+              <h2 id="hashCode-与equals-有什么关系"><a href="#hashCode-与equals-有什么关系" class="headerlink" title="hashCode()与equals()有什么关系?"></a>hashCode()与equals()有什么关系?</h2><p>hashCode() 方法是相应对象整型的 hash 值。根据 Java 规范，两个使用 equals() 方法来判断相等的对象，必须具有相同的 hash code。</p>
+<h2 id="equals"><a href="#equals" class="headerlink" title="equals"></a>equals</h2><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>判断两个对象是否相等。</p>
 <h4 id="Java-对-equals-的要求"><a href="#Java-对-equals-的要求" class="headerlink" title="Java 对 equals() 的要求"></a>Java 对 <code>equals()</code> 的要求</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 自反性 </span><br>x.equals(x); <span class="hljs-comment">// true</span><br>  <br><span class="hljs-comment">// 对称性 </span><br>x.equals(y) == y.equals(x); <span class="hljs-comment">// true</span><br>  <br><span class="hljs-comment">// 传递性 </span><br><span class="hljs-keyword">if</span> (x.equals(y) &amp;&amp; y.equals(z))<br>    x.equals(z); <span class="hljs-comment">// true;</span><br>  <br><span class="hljs-comment">// 一致性 只要x和y内容一直不变 多次调用 equals() 方法结果不变 </span><br>x.equals(y) == x.equals(y); <span class="hljs-comment">// true</span><br>  <br><span class="hljs-comment">// 非空性 对任何不是 null 的对象 x 调用 x.equals(null) 结果都为 false </span><br>x.equals(<span class="hljs-keyword">null</span>); <span class="hljs-comment">// false;</span><br></code></pre></td></tr></table></figure>
 
 <h3 id="和-equals-的区别"><a href="#和-equals-的区别" class="headerlink" title="== 和 equals() 的区别"></a>== 和 <code>equals()</code> 的区别</h3><p>==：对于基本数据类型，== 比较的是值；对于引用数据类型，== 比较的是对象的内存地址。即，判断两个对象<strong>是不是同一个对象</strong>。</p>
 <p><code>equals()</code>：<strong>不能用于判断基本数据类型的变量</strong>，只能用来判断两个对象<strong>是否相等</strong>。</p>
 <ul>
+<li><p><strong>逻辑</strong>比较，只要内容相同，即使存储位置不同也可以</p>
+</li>
 <li><p><code>equals()</code>方法存在于<code>Object</code>类中，而<code>Object</code>类是所有类的直接或间接父类。<code>Object</code> 类 <code>equals()</code> 方法（默认使用<code>Object</code>类的<code>equals()</code>方法）：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">equals</span><span class="hljs-params">(Object obj)</span> </span>&#123;<br>     <span class="hljs-keyword">return</span> (<span class="hljs-keyword">this</span> == obj); <span class="hljs-comment">// 对于引用数据类型 比较的是对象的内存地址</span><br>&#125;<br></code></pre></td></tr></table></figure></li>
 <li><p>重写<code>equals()</code>方法：手动覆盖 <code>equals()</code>方法来比较两个对象是否等价，若相等则返回 true。</p>

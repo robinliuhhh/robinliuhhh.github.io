@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>Python3刷题：切片表达式 - Robin Liu&#39;s Blog</title>
+  <title>Python3刷题：@cache - Robin Liu&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Python3刷题：切片表达式">
+            <span class="h2" id="subtitle" title="Python3刷题：@cache">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-06-05 19:41" pubdate>
-        2022年6月5日 晚上
+      <time datetime="2022-06-15 08:11" pubdate>
+        2022年6月15日 早上
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      274 字
+      180 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4
+      3
        分钟
     </span>
   
@@ -225,23 +225,16 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Python3刷题：切片表达式</h1>
+            <h1 style="display: none">Python3刷题：@cache</h1>
             
             <div class="markdown-body">
-              <h3 id="获取s-str中当前字符s-i-的下一个临近的字符s-i-1"><a href="#获取s-str中当前字符s-i-的下一个临近的字符s-i-1" class="headerlink" title="获取s: str中当前字符s[i]的下一个临近的字符s[i+1]"></a>获取s: str中当前字符s[i]的下一个临近的字符s[i+1]</h3><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/roman-to-integer/">https://leetcode.com/problems/roman-to-integer/</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(s)):<br>    <span class="hljs-comment"># [i+1, i+2) -&gt; s[i+1]</span><br>    cur, nxt = s[i], s[i+<span class="hljs-number">1</span>:i+<span class="hljs-number">2</span>]<br></code></pre></td></tr></table></figure>
+              <h2 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a>题目链接</h2><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/delete-operation-for-two-strings/submissions/">https://leetcode.com/problems/delete-operation-for-two-strings/submissions/</a></p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220707094643878.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">minDistance</span>(<span class="hljs-params">self, word1: <span class="hljs-built_in">str</span>, word2: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">int</span>:</span><br>        m, n = <span class="hljs-built_in">len</span>(word1), <span class="hljs-built_in">len</span>(word2)<br>        <br><span class="hljs-meta">        @cache</span><br>        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">lcs</span>(<span class="hljs-params">i, j</span>):</span> <span class="hljs-comment"># find longest common subsequence</span><br>            <span class="hljs-keyword">if</span> i == m <span class="hljs-keyword">or</span> j == n:<br>                <span class="hljs-keyword">return</span> <span class="hljs-number">0</span><br>            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span> + lcs(i+<span class="hljs-number">1</span>, j+<span class="hljs-number">1</span>) <span class="hljs-keyword">if</span> word1[i] == word2[j] <span class="hljs-keyword">else</span> <span class="hljs-built_in">max</span>(lcs(i+<span class="hljs-number">1</span>, j), lcs(i, j+<span class="hljs-number">1</span>))<br>        <br>        <span class="hljs-comment"># Required number of deletions = length of s1 + length of s2 - 2 * length of LCS</span><br>        <span class="hljs-keyword">return</span> m + n - <span class="hljs-number">2</span> * lcs(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)<br></code></pre></td></tr></table></figure>
 
-<h4 id="为什么不直接用s-i-1-？"><a href="#为什么不直接用s-i-1-？" class="headerlink" title="为什么不直接用s[i+1]？"></a>为什么不直接用s[i+1]？</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">s = <span class="hljs-string">&quot;abcd&quot;</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(s)):<br>    cur, nxt = s[i], s[i+<span class="hljs-number">1</span>:i+<span class="hljs-number">2</span>]<br>    <span class="hljs-built_in">print</span>(s[<span class="hljs-number">4</span>:<span class="hljs-number">5</span>]) 	<span class="hljs-comment"># 打印结果为空</span><br>    <span class="hljs-built_in">print</span>(s[<span class="hljs-number">4</span>]) 	<span class="hljs-comment"># IndexError: string index out of range</span><br></code></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/stdtypes.html#common-sequence-operations">官方文档</a>介绍</p>
-<blockquote>
-<p>The slice of <em>s</em> from <em>i</em> to <em>j</em> is defined as the sequence of items with index <em>k</em> such that <code>i &lt;= k &lt; j</code>. <strong>If <em>i</em> or <em>j</em> is greater than <code>len(s)</code>, use <code>len(s)</code>.</strong> If <em>i</em> is omitted or <code>None</code>, use <code>0</code>. If <em>j</em> is omitted or <code>None</code>, use <code>len(s)</code>. If <em>i</em> is greater than or equal to <em>j</em>, the slice is empty.</p>
-</blockquote>
-<p>所以上面的 <code>s[4:5]</code> 等价于 <code>s[4:4]</code>，取值范围为 <code>[4, 4)</code>，什么都取不到，返回空值。</p>
-<h3 id="倒序输出"><a href="#倒序输出" class="headerlink" title="倒序输出"></a>倒序输出</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">s = <span class="hljs-string">&#x27;abc&#x27;</span><br><span class="hljs-built_in">print</span>(s[::-<span class="hljs-number">1</span>]) <span class="hljs-comment"># cba</span><br><br>l = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]<br><span class="hljs-built_in">print</span>(l[::-<span class="hljs-number">1</span>]) <span class="hljs-comment"># [3, 2, 1]</span><br></code></pre></td></tr></table></figure>
-
-<h3 id="每轮循环删除原字符串中的一个字符"><a href="#每轮循环删除原字符串中的一个字符" class="headerlink" title="每轮循环删除原字符串中的一个字符"></a>每轮循环删除原字符串中的一个字符</h3><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/longest-string-chain/">https://leetcode.com/problems/longest-string-chain/</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># For each word, loop on all possible previous word with 1 letter missing.</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(word)):<br>    prev = word[:i] + word[i+<span class="hljs-number">1</span>:]<br></code></pre></td></tr></table></figure>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220707094553126.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="cache缓存函数结果"><a href="#cache缓存函数结果" class="headerlink" title="@cache缓存函数结果"></a>@cache缓存函数结果</h3><p><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functools.html#functools.cache">https://docs.python.org/3/library/functools.html#functools.cache</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> cache<br><br><span class="hljs-comment"># 在一个递归函数上应用 cache 装饰器</span><br><span class="hljs-meta">@cache</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">factorial</span>(<span class="hljs-params">n</span>):</span><br>    <span class="hljs-keyword">return</span> n * factorial(n-<span class="hljs-number">1</span>) <span class="hljs-keyword">if</span> n <span class="hljs-keyword">else</span> <span class="hljs-number">1</span><br><br><span class="hljs-meta">&gt;&gt;&gt; </span>factorial(<span class="hljs-number">10</span>)      <span class="hljs-comment"># no previously cached result, makes 11 recursive calls</span><br><span class="hljs-number">3628800</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>factorial(<span class="hljs-number">5</span>)       <span class="hljs-comment"># just looks up cached value result</span><br><span class="hljs-number">120</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>factorial(<span class="hljs-number">12</span>)      <span class="hljs-comment"># makes two new recursive calls, the other 10 are cached</span><br><span class="hljs-number">479001600</span><br></code></pre></td></tr></table></figure>
 
 
             </div>
@@ -270,9 +263,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/06/10/Java%E4%BB%BF%E7%89%9B%E5%AE%A2%E7%A4%BE%E5%8C%BA%20%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
+                      <a href="/2022/06/22/Python3%E5%88%B7%E9%A2%98%EF%BC%9Aheapq%E6%8A%80%E5%B7%A7%E5%90%88%E9%9B%86/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Java仿牛客社区 学习记录</span>
+                        <span class="hidden-mobile">Python3刷题：heapq技巧合集</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -280,8 +273,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/05/20/Python%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%EF%BC%9A%E6%A0%B9%E6%8D%AE%E6%AE%B5%E8%90%BD%E6%A0%87%E9%A2%98%E6%88%AA%E5%8F%96%E5%86%85%E5%AE%B9/">
-                        <span class="hidden-mobile">Python数据处理：根据段落标题截取内容</span>
+                      <a href="/2022/06/10/Java%E4%BB%BF%E7%89%9B%E5%AE%A2%E7%A4%BE%E5%8C%BA%20%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
+                        <span class="hidden-mobile">Java仿牛客社区 学习记录</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

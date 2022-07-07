@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      344 字
+      368 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4
+      5
        分钟
     </span>
   
@@ -236,7 +236,8 @@
 
 <p>在线测试地址：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/null">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/null</a></p>
 <p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220509004012749.png" srcset="/img/loading.gif" lazyload alt="测试&#39;&#39;、null、undefined类型 取反结果"></p>
-<p>可以看到<code>!&#39;&#39;</code>值为<code>true</code>，说明上述HTML代码中<code>!item.enterpriseTaxRegNo</code>可以过滤三种值，后面的判断是为了剔除<code>&#39;&#39;</code>，因为没有税号时后端存的是空字符串。</p>
+<p>可以看到<code>!&#39;&#39;</code>值为<code>true</code>，说明上述HTML代码中<code>!item.enterpriseTaxRegNo</code>可以过滤三种值，<del>后面的判断是为了剔除<code>&#39;&#39;</code>，</del>因为没有税号时后端存的是空字符串。</p>
+<p>用<code>!item.enterpriseTaxRegNo</code>的测试结果和<code>!item.enterpriseTaxRegNo || item.enterpriseTaxRegNo === &#39;&#39;</code>的测试结果是一样的。</p>
 <h3 id="amp-的判断"><a href="#amp-的判断" class="headerlink" title="== &amp; === 的判断"></a>== &amp; === 的判断</h3><ul>
 <li><code>==</code>先转换类型再比较</li>
 <li><code>===</code>先判断类型，如果不是同一类型直接为<code>false</code></li>

@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>Python3刷题：切片表达式 - Robin Liu&#39;s Blog</title>
+  <title>Python3刷题：lambda技巧合集 - Robin Liu&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Python3刷题：切片表达式">
+            <span class="h2" id="subtitle" title="Python3刷题：lambda技巧合集">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-06-05 19:41" pubdate>
-        2022年6月5日 晚上
+      <time datetime="2022-06-24 08:14" pubdate>
+        2022年6月24日 早上
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      274 字
+      246 字
     </span>
   
 
@@ -225,23 +225,20 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Python3刷题：切片表达式</h1>
+            <h1 style="display: none">Python3刷题：lambda技巧合集</h1>
             
             <div class="markdown-body">
-              <h3 id="获取s-str中当前字符s-i-的下一个临近的字符s-i-1"><a href="#获取s-str中当前字符s-i-的下一个临近的字符s-i-1" class="headerlink" title="获取s: str中当前字符s[i]的下一个临近的字符s[i+1]"></a>获取s: str中当前字符s[i]的下一个临近的字符s[i+1]</h3><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/roman-to-integer/">https://leetcode.com/problems/roman-to-integer/</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(s)):<br>    <span class="hljs-comment"># [i+1, i+2) -&gt; s[i+1]</span><br>    cur, nxt = s[i], s[i+<span class="hljs-number">1</span>:i+<span class="hljs-number">2</span>]<br></code></pre></td></tr></table></figure>
+              <h3 id="list-1-2-3-4-按第二位排序"><a href="#list-1-2-3-4-按第二位排序" class="headerlink" title="list[[1,2], [3,4]]按第二位排序"></a>list[[1,2], [3,4]]按第二位排序</h3><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/course-schedule-iii/">https://leetcode.com/problems/course-schedule-iii/</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># [duration, deadline]</span><br>courses = [[<span class="hljs-number">100</span>,<span class="hljs-number">200</span>],[<span class="hljs-number">200</span>,<span class="hljs-number">1300</span>],[<span class="hljs-number">1000</span>,<span class="hljs-number">1250</span>],[<span class="hljs-number">2000</span>,<span class="hljs-number">3200</span>]]<br><br><span class="hljs-comment"># sort by deadline</span><br>courses.sort(key=<span class="hljs-keyword">lambda</span> course: course[<span class="hljs-number">1</span>])<br></code></pre></td></tr></table></figure>
 
-<h4 id="为什么不直接用s-i-1-？"><a href="#为什么不直接用s-i-1-？" class="headerlink" title="为什么不直接用s[i+1]？"></a>为什么不直接用s[i+1]？</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">s = <span class="hljs-string">&quot;abcd&quot;</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(s)):<br>    cur, nxt = s[i], s[i+<span class="hljs-number">1</span>:i+<span class="hljs-number">2</span>]<br>    <span class="hljs-built_in">print</span>(s[<span class="hljs-number">4</span>:<span class="hljs-number">5</span>]) 	<span class="hljs-comment"># 打印结果为空</span><br>    <span class="hljs-built_in">print</span>(s[<span class="hljs-number">4</span>]) 	<span class="hljs-comment"># IndexError: string index out of range</span><br></code></pre></td></tr></table></figure>
+<h3 id="list双参数排序"><a href="#list双参数排序" class="headerlink" title="list双参数排序"></a>list双参数排序</h3><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/queue-reconstruction-by-height/submissions/">https://leetcode.com/problems/queue-reconstruction-by-height/submissions/</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">reconstructQueue</span>(<span class="hljs-params">self, people: <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]]</span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]]:</span><br>        res = []<br>        <span class="hljs-comment"># sorted by height desc, index asc</span><br>        <span class="hljs-keyword">for</span> p <span class="hljs-keyword">in</span> <span class="hljs-built_in">sorted</span>(people, key=<span class="hljs-keyword">lambda</span> x: (-x[<span class="hljs-number">0</span>], x[<span class="hljs-number">1</span>])):<br>            <span class="hljs-comment"># insert from tall to short (insert at index = p[1])</span><br>            res.insert(p[<span class="hljs-number">1</span>], p)<br>        <span class="hljs-keyword">return</span> res<br></code></pre></td></tr></table></figure>
 
-<p><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/stdtypes.html#common-sequence-operations">官方文档</a>介绍</p>
-<blockquote>
-<p>The slice of <em>s</em> from <em>i</em> to <em>j</em> is defined as the sequence of items with index <em>k</em> such that <code>i &lt;= k &lt; j</code>. <strong>If <em>i</em> or <em>j</em> is greater than <code>len(s)</code>, use <code>len(s)</code>.</strong> If <em>i</em> is omitted or <code>None</code>, use <code>0</code>. If <em>j</em> is omitted or <code>None</code>, use <code>len(s)</code>. If <em>i</em> is greater than or equal to <em>j</em>, the slice is empty.</p>
-</blockquote>
-<p>所以上面的 <code>s[4:5]</code> 等价于 <code>s[4:4]</code>，取值范围为 <code>[4, 4)</code>，什么都取不到，返回空值。</p>
-<h3 id="倒序输出"><a href="#倒序输出" class="headerlink" title="倒序输出"></a>倒序输出</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">s = <span class="hljs-string">&#x27;abc&#x27;</span><br><span class="hljs-built_in">print</span>(s[::-<span class="hljs-number">1</span>]) <span class="hljs-comment"># cba</span><br><br>l = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]<br><span class="hljs-built_in">print</span>(l[::-<span class="hljs-number">1</span>]) <span class="hljs-comment"># [3, 2, 1]</span><br></code></pre></td></tr></table></figure>
-
-<h3 id="每轮循环删除原字符串中的一个字符"><a href="#每轮循环删除原字符串中的一个字符" class="headerlink" title="每轮循环删除原字符串中的一个字符"></a>每轮循环删除原字符串中的一个字符</h3><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/longest-string-chain/">https://leetcode.com/problems/longest-string-chain/</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># For each word, loop on all possible previous word with 1 letter missing.</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(word)):<br>    prev = word[:i] + word[i+<span class="hljs-number">1</span>:]<br></code></pre></td></tr></table></figure>
+<h4 id="单参数和双参数的区别"><a href="#单参数和双参数的区别" class="headerlink" title="单参数和双参数的区别"></a>单参数和双参数的区别</h4><ul>
+<li>没有指定次序，默认次序和已指定的相同</li>
+<li>所以<strong>要显式声明次序</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs python">people = [[<span class="hljs-number">9</span>,<span class="hljs-number">0</span>],[<span class="hljs-number">7</span>,<span class="hljs-number">0</span>],[<span class="hljs-number">1</span>,<span class="hljs-number">9</span>],[<span class="hljs-number">3</span>,<span class="hljs-number">0</span>],[<span class="hljs-number">2</span>,<span class="hljs-number">7</span>],[<span class="hljs-number">5</span>,<span class="hljs-number">3</span>],[<span class="hljs-number">6</span>,<span class="hljs-number">0</span>],[<span class="hljs-number">3</span>,<span class="hljs-number">4</span>],[<span class="hljs-number">6</span>,<span class="hljs-number">2</span>],[<span class="hljs-number">5</span>,<span class="hljs-number">2</span>]]<br><span class="hljs-keyword">for</span> p <span class="hljs-keyword">in</span> <span class="hljs-built_in">sorted</span>(people, key=<span class="hljs-keyword">lambda</span> x: (-x[<span class="hljs-number">0</span>], x[<span class="hljs-number">1</span>])):<br>    <span class="hljs-built_in">print</span>(p)<br>    [<span class="hljs-number">9</span>, <span class="hljs-number">0</span>]<br>    [<span class="hljs-number">7</span>, <span class="hljs-number">0</span>]<br>    [<span class="hljs-number">6</span>, <span class="hljs-number">0</span>]<br>    [<span class="hljs-number">6</span>, <span class="hljs-number">2</span>]<br>    [<span class="hljs-number">5</span>, <span class="hljs-number">2</span>]<br>    [<span class="hljs-number">5</span>, <span class="hljs-number">3</span>]<br>    [<span class="hljs-number">3</span>, <span class="hljs-number">0</span>]<br>    [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>]<br>    [<span class="hljs-number">2</span>, <span class="hljs-number">7</span>]<br>    [<span class="hljs-number">1</span>, <span class="hljs-number">9</span>]<br>    <br>people = [[<span class="hljs-number">9</span>,<span class="hljs-number">0</span>],[<span class="hljs-number">7</span>,<span class="hljs-number">0</span>],[<span class="hljs-number">1</span>,<span class="hljs-number">9</span>],[<span class="hljs-number">3</span>,<span class="hljs-number">0</span>],[<span class="hljs-number">2</span>,<span class="hljs-number">7</span>],[<span class="hljs-number">5</span>,<span class="hljs-number">3</span>],[<span class="hljs-number">6</span>,<span class="hljs-number">0</span>],[<span class="hljs-number">3</span>,<span class="hljs-number">4</span>],[<span class="hljs-number">6</span>,<span class="hljs-number">2</span>],[<span class="hljs-number">5</span>,<span class="hljs-number">2</span>]]<br><span class="hljs-keyword">for</span> p <span class="hljs-keyword">in</span> <span class="hljs-built_in">sorted</span>(people, key=<span class="hljs-keyword">lambda</span> x: -x[<span class="hljs-number">0</span>]):<br>    <span class="hljs-built_in">print</span>(p)<br>    [<span class="hljs-number">9</span>, <span class="hljs-number">0</span>]<br>    [<span class="hljs-number">7</span>, <span class="hljs-number">0</span>]<br>    [<span class="hljs-number">6</span>, <span class="hljs-number">0</span>]<br>    [<span class="hljs-number">6</span>, <span class="hljs-number">2</span>]<br>    [<span class="hljs-number">5</span>, <span class="hljs-number">3</span>]<br>    [<span class="hljs-number">5</span>, <span class="hljs-number">2</span>]<br>    [<span class="hljs-number">3</span>, <span class="hljs-number">0</span>]<br>    [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>]<br>    [<span class="hljs-number">2</span>, <span class="hljs-number">7</span>]<br>    [<span class="hljs-number">1</span>, <span class="hljs-number">9</span>]<br></code></pre></td></tr></table></figure>
 
 
             </div>
@@ -270,9 +267,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/06/10/Java%E4%BB%BF%E7%89%9B%E5%AE%A2%E7%A4%BE%E5%8C%BA%20%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
+                      <a href="/2022/06/28/Nowcoder-Community%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Java仿牛客社区 学习记录</span>
+                        <span class="hidden-mobile">Nowcoder-Community开发环境配置</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -280,8 +277,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/05/20/Python%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%EF%BC%9A%E6%A0%B9%E6%8D%AE%E6%AE%B5%E8%90%BD%E6%A0%87%E9%A2%98%E6%88%AA%E5%8F%96%E5%86%85%E5%AE%B9/">
-                        <span class="hidden-mobile">Python数据处理：根据段落标题截取内容</span>
+                      <a href="/2022/06/23/Nowcoder-Community%E5%90%84%E6%9C%8D%E5%8A%A1%E5%90%AF%E5%8A%A8%E5%91%BD%E4%BB%A4/">
+                        <span class="hidden-mobile">Nowcoder-Community各服务启动命令</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
