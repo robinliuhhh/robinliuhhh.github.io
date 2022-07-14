@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>Python3刷题：@cache - Robin Liu&#39;s Blog</title>
+  <title>Mybatis-Plus使用旅程 - Robin Liu&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Python3刷题：@cache">
+            <span class="h2" id="subtitle" title="Mybatis-Plus使用旅程">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-06-15 08:11" pubdate>
-        2022年6月15日 早上
+      <time datetime="2022-06-10 10:51" pubdate>
+        2022年6月10日 上午
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      190 字
+      496 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3
+      6
        分钟
     </span>
   
@@ -225,20 +225,57 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Python3刷题：@cache</h1>
+            <h1 style="display: none">Mybatis-Plus使用旅程</h1>
             
             <div class="markdown-body">
-              <h2 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a>题目链接</h2><p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/delete-operation-for-two-strings/submissions/">https://leetcode.com/problems/delete-operation-for-two-strings/submissions/</a></p>
-<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220707094643878.png" srcset="/img/loading.gif" lazyload></p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><ul>
-<li><code>@cache</code>可以防止TLE（Time Limit Exceed 超时）</li>
+              <h2 id="使用准备"><a href="#使用准备" class="headerlink" title="使用准备"></a>使用准备</h2><h3 id="MySQL测试准备"><a href="#MySQL测试准备" class="headerlink" title="MySQL测试准备"></a>MySQL测试准备</h3><p>建新用户</p>
+<p>建数据库</p>
+<p>赋权</p>
+<h3 id="Springboot-Mybatis-Plus事务管理"><a href="#Springboot-Mybatis-Plus事务管理" class="headerlink" title="Springboot + Mybatis-Plus事务管理"></a>Springboot + Mybatis-Plus事务管理</h3><p><a target="_blank" rel="noopener" href="https://blog.51cto.com/u_15359644/3803989">https://blog.51cto.com/u_15359644/3803989</a></p>
+<h4 id="开启事务"><a href="#开启事务" class="headerlink" title="开启事务"></a>开启事务</h4><ul>
+<li><code>MyBatisPlusConfig</code>添加<code>@EnableTransactionManagement</code></li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">minDistance</span>(<span class="hljs-params">self, word1: <span class="hljs-built_in">str</span>, word2: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">int</span>:</span><br>        m, n = <span class="hljs-built_in">len</span>(word1), <span class="hljs-built_in">len</span>(word2)<br>        <br><span class="hljs-meta">        @cache</span><br>        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">lcs</span>(<span class="hljs-params">i, j</span>):</span> <span class="hljs-comment"># find longest common subsequence</span><br>            <span class="hljs-keyword">if</span> i == m <span class="hljs-keyword">or</span> j == n:<br>                <span class="hljs-keyword">return</span> <span class="hljs-number">0</span><br>            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span> + lcs(i+<span class="hljs-number">1</span>, j+<span class="hljs-number">1</span>) <span class="hljs-keyword">if</span> word1[i] == word2[j] <span class="hljs-keyword">else</span> <span class="hljs-built_in">max</span>(lcs(i+<span class="hljs-number">1</span>, j), lcs(i, j+<span class="hljs-number">1</span>))<br>        <br>        <span class="hljs-comment"># Required number of deletions = length of s1 + length of s2 - 2 * length of LCS</span><br>        <span class="hljs-keyword">return</span> m + n - <span class="hljs-number">2</span> * lcs(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220707094553126.png" srcset="/img/loading.gif" lazyload></p>
-<h3 id="cache缓存函数结果"><a href="#cache缓存函数结果" class="headerlink" title="@cache缓存函数结果"></a>@cache缓存函数结果</h3><p><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functools.html#functools.cache">https://docs.python.org/3/library/functools.html#functools.cache</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> cache<br><br><span class="hljs-comment"># 在一个递归函数上应用 cache 装饰器</span><br><span class="hljs-meta">@cache</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">factorial</span>(<span class="hljs-params">n</span>):</span><br>    <span class="hljs-keyword">return</span> n * factorial(n-<span class="hljs-number">1</span>) <span class="hljs-keyword">if</span> n <span class="hljs-keyword">else</span> <span class="hljs-number">1</span><br><br><span class="hljs-meta">&gt;&gt;&gt; </span>factorial(<span class="hljs-number">10</span>)      <span class="hljs-comment"># no previously cached result, makes 11 recursive calls</span><br><span class="hljs-number">3628800</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>factorial(<span class="hljs-number">5</span>)       <span class="hljs-comment"># just looks up cached value result</span><br><span class="hljs-number">120</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>factorial(<span class="hljs-number">12</span>)      <span class="hljs-comment"># makes two new recursive calls, the other 10 are cached</span><br><span class="hljs-number">479001600</span><br></code></pre></td></tr></table></figure>
-
+<h4 id="Spring事务"><a href="#Spring事务" class="headerlink" title="Spring事务"></a>Spring事务</h4><h3 id="Mybatis-Plus自动填充更新时间"><a href="#Mybatis-Plus自动填充更新时间" class="headerlink" title="Mybatis-Plus自动填充更新时间"></a>Mybatis-Plus自动填充更新时间</h3><p><a target="_blank" rel="noopener" href="http://tranfer.cn/?id=90">成长足迹-MyBatis-Plus更新update自动填充功能无效解决办法 (tranfer.cn)</a></p>
+<ul>
+<li>实现<code>MetaObjectHandler</code>，覆写<code>updateFill()</code></li>
+</ul>
+<h3 id="驼峰转换"><a href="#驼峰转换" class="headerlink" title="驼峰转换"></a>驼峰转换</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_31856061/article/details/122824831">mybatis-plus踩坑之带下划线驼峰转换_LHT-2787的博客-CSDN博客_mybatisplus下划线转驼峰</a></p>
+<ul>
+<li><p><code>Java</code>对象<code>userId</code>映射到数据库是<code>user_id</code>，而此时数据库字段是<code>userId</code></p>
+</li>
+<li><p>数据库对大小写不敏感，但对下划线敏感</p>
+</li>
+<li><p>```yaml<br>mybatis-plus:<br>  configuration:</p>
+<pre><code># 关闭驼峰转换 否则entity的userId映射到数据库会变为user_id
+map-underscore-to-camel-case: false
+</code></pre>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs maxima"><br>### 时差<br><br>[彻底解决前后端程序时区差<span class="hljs-number">8</span>小时问题<span class="hljs-symbol">_</span>热水钟的技术博客_51CTO博客](https://blog.51cto.com/nanjke/<span class="hljs-number">2870121</span>)<br><br>- Calendar to mysql datetime正常，反向查询cast为null<br><br>- Date to mysql datetime正常，反向查询晚<span class="hljs-number">8</span>小时<br><br>- ```yaml<br>  spring:<br>    datasource:<br>      driver-class-name: com.mysql.cj.jdbc.Driver<br>      # GMT+<span class="hljs-number">8</span>时区需要写成GMT%<span class="hljs-number">2B8</span> 否则会被解析为空<br>      url: jdbc:mysql://localhost:<span class="hljs-number">3306</span>/$&#123;schema&#125;?characterEncoding=utf8&amp;useSSL=<span class="hljs-literal">true</span>&amp;timezone=GMT%<span class="hljs-number">2B8</span><br>      username: $&#123;username&#125;<br>      password: $&#123;password&#125;<br>    jackson:<br>      # 设置全局时间格式<br>      date-format: yyyy-MM-dd HH:mm:ss<br>      # 设置全局时区 Asia/Shanghai<br>      <span class="hljs-built_in">time</span>-zone: GMT+<span class="hljs-number">8</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="debug记录"><a href="#debug记录" class="headerlink" title="debug记录"></a>debug记录</h2><h3 id="and-amp-or-amp-in子查询"><a href="#and-amp-or-amp-in子查询" class="headerlink" title="and &amp; or &amp; in子查询"></a>and &amp; or &amp; in子查询</h3><p><a target="_blank" rel="noopener" href="https://www.yisu.com/zixun/312118.html">在MyBatisPlus中使用or()和and()时常见的坑 - 开发技术 - 亿速云 (yisu.com)</a></p>
+<h3 id="Select不能写xml"><a href="#Select不能写xml" class="headerlink" title="@Select不能写xml"></a>@Select不能写xml</h3><h4 id="报错信息"><a href="#报错信息" class="headerlink" title="报错信息"></a>报错信息</h4><p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220610092339778.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220610092410439.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220610092440086.png" srcset="/img/loading.gif" lazyload></p>
+<p><code>Caused by: org.xml.sax.SAXParseException: XML 文档结构必须从头至尾包含在同一个实体内。</code></p>
+<p>这个报错，一般都是改<code>xml</code>文件配置，但是用Mybatis Plus还写<code>xml</code>，有点emm。</p>
+<p>所以我不打算在<code>sql</code>层面改了，直接在<code>service</code>层改，用<code>QueryWrapper</code>动态拼接<code>sql</code>。</p>
+<p>这里有一个不错的教程：<a target="_blank" rel="noopener" href="https://www.hxstrive.com/subject/mybatis_plus.htm?id=265">Mybatis Plus select 复杂和动态查询</a></p>
+<h4 id="debug后"><a href="#debug后" class="headerlink" title="debug后"></a>debug后</h4><ul>
+<li><code>QueryWrapper</code>动态拼接<code>sql</code></li>
+</ul>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220610093000407.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220610093142624.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="long转int"><a href="#long转int" class="headerlink" title="long转int"></a>long转int</h3><ul>
+<li><p>基础类型 <code>(int)</code></p>
+</li>
+<li><p>包装类型 <code>.intValue()</code></p>
+</li>
+</ul>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220610093305412.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220610093142624.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="MAX-未取别名，无法注入实体类导致NullPointerException"><a href="#MAX-未取别名，无法注入实体类导致NullPointerException" class="headerlink" title="MAX()未取别名，无法注入实体类导致NullPointerException"></a>MAX()未取别名，无法注入实体类导致NullPointerException</h3><h4 id="报错信息-1"><a href="#报错信息-1" class="headerlink" title="报错信息"></a>报错信息</h4><p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220614154534765.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220614154606617.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="debug后-1"><a href="#debug后-1" class="headerlink" title="debug后"></a>debug后</h4><p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220614155004269.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="queryWrapper-select-“id”-自带COUNT"><a href="#queryWrapper-select-“id”-自带COUNT" class="headerlink" title="queryWrapper.select(“id”)自带COUNT()"></a>queryWrapper.select(“id”)自带COUNT()</h3><p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220614155741491.png" srcset="/img/loading.gif" lazyload></p>
 
             </div>
             <hr>
@@ -248,7 +285,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Python/">Python</a>
+                      <a class="hover-with-bg" href="/categories/Mybatis/">Mybatis</a>
                     
                   </div>
                 
@@ -266,9 +303,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/06/22/Python3%E5%88%B7%E9%A2%98%EF%BC%9Aheapq%E6%8A%80%E5%B7%A7%E5%90%88%E9%9B%86/">
+                      <a href="/2022/06/10/Java%E4%BB%BF%E7%89%9B%E5%AE%A2%E7%A4%BE%E5%8C%BA%20%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Python3刷题：heapq技巧合集</span>
+                        <span class="hidden-mobile">Java仿牛客社区 学习记录</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -276,8 +313,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/06/14/Spring%E4%BA%8B%E5%8A%A1/">
-                        <span class="hidden-mobile">Spring事务</span>
+                      <a href="/2022/06/05/Python3%E5%88%B7%E9%A2%98%EF%BC%9A%E5%88%87%E7%89%87%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+                        <span class="hidden-mobile">Python3刷题：切片表达式</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
