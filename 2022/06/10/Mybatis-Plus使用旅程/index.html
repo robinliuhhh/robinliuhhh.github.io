@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      496 字
+      491 字
     </span>
   
 
@@ -235,7 +235,8 @@
 <h4 id="开启事务"><a href="#开启事务" class="headerlink" title="开启事务"></a>开启事务</h4><ul>
 <li><code>MyBatisPlusConfig</code>添加<code>@EnableTransactionManagement</code></li>
 </ul>
-<h4 id="Spring事务"><a href="#Spring事务" class="headerlink" title="Spring事务"></a>Spring事务</h4><h3 id="Mybatis-Plus自动填充更新时间"><a href="#Mybatis-Plus自动填充更新时间" class="headerlink" title="Mybatis-Plus自动填充更新时间"></a>Mybatis-Plus自动填充更新时间</h3><p><a target="_blank" rel="noopener" href="http://tranfer.cn/?id=90">成长足迹-MyBatis-Plus更新update自动填充功能无效解决办法 (tranfer.cn)</a></p>
+<h4 id="Spring事务"><a href="#Spring事务" class="headerlink" title="Spring事务"></a>Spring事务</h4><p><a target="_blank" rel="noopener" href="https://robinliuhhh.github.io/2022/06/14/Spring%E4%BA%8B%E5%8A%A1/">Spring事务</a></p>
+<h3 id="Mybatis-Plus自动填充更新时间"><a href="#Mybatis-Plus自动填充更新时间" class="headerlink" title="Mybatis-Plus自动填充更新时间"></a>Mybatis-Plus自动填充更新时间</h3><p><a target="_blank" rel="noopener" href="http://tranfer.cn/?id=90">成长足迹-MyBatis-Plus更新update自动填充功能无效解决办法 (tranfer.cn)</a></p>
 <ul>
 <li>实现<code>MetaObjectHandler</code>，覆写<code>updateFill()</code></li>
 </ul>
@@ -244,12 +245,28 @@
 <li><p><code>Java</code>对象<code>userId</code>映射到数据库是<code>user_id</code>，而此时数据库字段是<code>userId</code></p>
 </li>
 <li><p>数据库对大小写不敏感，但对下划线敏感</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">mybatis-plus:</span><br>  <span class="hljs-attr">configuration:</span><br>    <span class="hljs-comment"># 关闭驼峰转换 否则entity的userId映射到数据库会变为user_id</span><br>    <span class="hljs-attr">map-underscore-to-camel-case:</span> <span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="时差"><a href="#时差" class="headerlink" title="时差"></a>时差</h3><p><a target="_blank" rel="noopener" href="https://blog.51cto.com/nanjke/2870121">彻底解决前后端程序时区差8小时问题_热水钟的技术博客_51CTO博客</a></p>
+<ul>
+<li><p>Calendar to mysql datetime正常，反向查询cast为null</p>
 </li>
-<li><p>```yaml<br>mybatis-plus:<br>  configuration:</p>
-<pre><code># 关闭驼峰转换 否则entity的userId映射到数据库会变为user_id
-map-underscore-to-camel-case: false
+<li><p>Date to mysql datetime正常，反向查询晚8小时</p>
+</li>
+<li><pre><code class="yaml">spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # GMT+8时区需要写成GMT%2B8 否则会被解析为空
+    url: jdbc:mysql://localhost:3306/$&#123;schema&#125;?characterEncoding=utf8&amp;useSSL=true&amp;timezone=GMT%2B8
+    username: $&#123;username&#125;
+    password: $&#123;password&#125;
+  jackson:
+    # 设置全局时间格式
+    date-format: yyyy-MM-dd HH:mm:ss
+    # 设置全局时区 Asia/Shanghai
+    time-zone: GMT+8
 </code></pre>
-<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs maxima"><br>### 时差<br><br>[彻底解决前后端程序时区差<span class="hljs-number">8</span>小时问题<span class="hljs-symbol">_</span>热水钟的技术博客_51CTO博客](https://blog.51cto.com/nanjke/<span class="hljs-number">2870121</span>)<br><br>- Calendar to mysql datetime正常，反向查询cast为null<br><br>- Date to mysql datetime正常，反向查询晚<span class="hljs-number">8</span>小时<br><br>- ```yaml<br>  spring:<br>    datasource:<br>      driver-class-name: com.mysql.cj.jdbc.Driver<br>      # GMT+<span class="hljs-number">8</span>时区需要写成GMT%<span class="hljs-number">2B8</span> 否则会被解析为空<br>      url: jdbc:mysql://localhost:<span class="hljs-number">3306</span>/$&#123;schema&#125;?characterEncoding=utf8&amp;useSSL=<span class="hljs-literal">true</span>&amp;timezone=GMT%<span class="hljs-number">2B8</span><br>      username: $&#123;username&#125;<br>      password: $&#123;password&#125;<br>    jackson:<br>      # 设置全局时间格式<br>      date-format: yyyy-MM-dd HH:mm:ss<br>      # 设置全局时区 Asia/Shanghai<br>      <span class="hljs-built_in">time</span>-zone: GMT+<span class="hljs-number">8</span><br></code></pre></td></tr></table></figure></li>
+</li>
 </ul>
 <h2 id="debug记录"><a href="#debug记录" class="headerlink" title="debug记录"></a>debug记录</h2><h3 id="and-amp-or-amp-in子查询"><a href="#and-amp-or-amp-in子查询" class="headerlink" title="and &amp; or &amp; in子查询"></a>and &amp; or &amp; in子查询</h3><p><a target="_blank" rel="noopener" href="https://www.yisu.com/zixun/312118.html">在MyBatisPlus中使用or()和and()时常见的坑 - 开发技术 - 亿速云 (yisu.com)</a></p>
 <h3 id="Select不能写xml"><a href="#Select不能写xml" class="headerlink" title="@Select不能写xml"></a>@Select不能写xml</h3><h4 id="报错信息"><a href="#报错信息" class="headerlink" title="报错信息"></a>报错信息</h4><p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20220610092339778.png" srcset="/img/loading.gif" lazyload></p>
