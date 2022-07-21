@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.7k 字
+      1.8k 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      18
+      19
        分钟
     </span>
   
@@ -308,7 +308,10 @@
 <p>因为这个是CGLIB实现，所以要开启AOP，要在Spring Boot启动类上加上注解<code>@EnableAspectJAutoProxy(exposeProxy = true)</code>。</p>
 <h4 id="try-catch后事务失效"><a href="#try-catch后事务失效" class="headerlink" title="try-catch后事务失效"></a>try-catch后事务失效</h4><p><code>@Transactional</code>默认回滚的是<code>RuntimeException</code>，如果在异常发生时程序员自己手动捕获处理了，异常就不会回滚。</p>
 <h5 id="解决-1"><a href="#解决-1" class="headerlink" title="解决"></a>解决</h5><p>若要事务生效需要在catch中<code>throw new RuntimeException();</code></p>
-<h3 id="Transactional"><a href="#Transactional" class="headerlink" title="@Transactional"></a>@Transactional</h3><p>通过 AOP 实现，AOP 又是使用动态代理实现的。</p>
+<h3 id="Transactional"><a href="#Transactional" class="headerlink" title="@Transactional"></a>@Transactional</h3><p>通过<code>AOP</code>实现，<code>AOP</code>又是使用动态代理实现的。</p>
+<p>如果一个类或者一个类中的 public 方法上被标注<code>@Transactional</code> 注解的话，Spring 容器就会在启动的时候为其创建一个代理类，在调用被<code>@Transactional</code> 注解的 public 方法的时候，实际调用的是，<code>TransactionInterceptor</code> 类中的 <code>invoke()</code>方法。这个方法的作用就是在目标方法之前开启事务，方法执行过程中如果遇到异常的时候回滚事务，方法调用完成之后提交事务。</p>
+<p>事务执行流程：代理类切片逻辑 -&gt; 业务逻辑 -&gt; 代理类切片逻辑。</p>
+<h4 id="动态代理"><a href="#动态代理" class="headerlink" title="动态代理"></a>动态代理</h4><p>从 JVM 层面来说， <strong>静态代理在编译时就将接口、实现类、代理类这些都变成了一个个实际的 class 文件。动态代理则是在运行时动态生成类字节码，并加载到 JVM 中的。</strong></p>
 <p><a target="_blank" rel="noopener" href="https://snailclimb.gitee.io/javaguide/#/docs/java/basis/proxy">https://snailclimb.gitee.io/javaguide/#/docs/java/basis/proxy</a></p>
 <ul>
 <li>如果目标对象是接口，默认情况下会采用 JDK 的动态代理<ul>
@@ -320,13 +323,12 @@
 </ul>
 </li>
 </ul>
-<p>如果一个类或者一个类中的 public 方法上被标注<code>@Transactional</code> 注解的话，Spring 容器就会在启动的时候为其创建一个代理类，在调用被<code>@Transactional</code> 注解的 public 方法的时候，实际调用的是，<code>TransactionInterceptor</code> 类中的 <code>invoke()</code>方法。这个方法的作用就是在目标方法之前开启事务，方法执行过程中如果遇到异常的时候回滚事务，方法调用完成之后提交事务。</p>
 <h4 id="Transactional的使用注意事项总结"><a href="#Transactional的使用注意事项总结" class="headerlink" title="@Transactional的使用注意事项总结"></a>@Transactional的使用注意事项总结</h4><ul>
 <li><code>@Transactional</code> 注解只有作用到 public 方法上事务才生效，不推荐在接口上使用；</li>
 <li>避免同一个类中调用 <code>@Transactional</code> 注解的方法，这样会导致事务失效；</li>
 <li>正确的设置 <code>@Transactional</code> 的 <code>rollbackFor</code> 和 <code>propagation</code> 属性，否则事务可能会回滚失败;</li>
 <li>被 <code>@Transactional</code> 注解的方法所在的类必须被 Spring 管理，否则不生效；</li>
-<li>底层使用的数据库必须支持事务机制，否则不生效；</li>
+<li>底层使用的数据库必须支持事务机制，否则不生效。</li>
 </ul>
 
             </div>
