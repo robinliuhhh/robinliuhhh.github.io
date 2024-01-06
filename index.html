@@ -182,6 +182,54 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2023/02/07/%E6%95%B0%E6%8D%AE%E6%AF%94%E8%BE%83%E6%97%B6String%E6%9C%AA%E8%BD%AC%E6%88%90BigDecimal%E7%9A%84%E5%9D%91/" target="_self">
+          数据比较时String未转成BigDecimal的坑
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2023/02/07/%E6%95%B0%E6%8D%AE%E6%AF%94%E8%BE%83%E6%97%B6String%E6%9C%AA%E8%BD%AC%E6%88%90BigDecimal%E7%9A%84%E5%9D%91/" target="_self">
+          
+          
+            
+          
+          数据比较时String未转成BigDecimal的坑
+如果价格的字段是String，要转换成BigDecimal等数字再比较，用String比较会出现奇怪的错误。
+
+这句话看起来很多余，但是实际写代码的时候确是很容易忽略。
+比如价格这个字段封装在对象里，而你只是a.getPrice().compareTo(b.getPrice())。
+CompareTo的String与BigDecimal对比这里
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-02-07 22:39" pubdate>
+              2023-02-07
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Java/">Java</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2023/02/02/Comparison%20method%20violates%20its%20general%20contract!%20%E4%B8%8E%20%E8%87%AA%E5%AE%9A%E4%B9%89%E6%AF%94%E8%BE%83%E5%99%A8/" target="_self">
           Comparison method violates its general contract! 与 自定义比较器
         </a>
@@ -576,60 +624,6 @@ CentOS系统内用yum安装比较方便。
             <i class="iconfont icon-category"></i>
             
               <a href="/categories/Python/">Python</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/06/14/Spring%E4%BA%8B%E5%8A%A1/" target="_self">
-          Spring事务
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/06/14/Spring%E4%BA%8B%E5%8A%A1/" target="_self">
-          
-          
-            
-          
-          事务简介事务特性https://snailclimb.gitee.io/javaguide/#/docs/database/mysql/transaction-isolation-level
-
-并发事务带来的问题隔离性是针对并发而言的。
-
-常见的并发异常第一类丢失更新（回滚）
-第二类丢失更新（提交）
-脏读（读到未提交数据）
-不可重复读（内容不一致）
-不可重复读的重点是修改（内容）
-
-
-幻读（行数不
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-06-14 13:47" pubdate>
-              2022-06-14
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Spring/">Spring</a>
             
           </div>
         
