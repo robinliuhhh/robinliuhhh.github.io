@@ -4,6 +4,44 @@
   
   
   <entry>
+    <title>用BETWEEN AND查某年的数据可能会丢失条数</title>
+    <link href="/2024/01/15/%E7%94%A8BETWEEN%20AND%E6%9F%A5%E6%9F%90%E5%B9%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%83%BD%E4%BC%9A%E4%B8%A2%E5%A4%B1%E6%9D%A1%E6%95%B0/"/>
+    <url>/2024/01/15/%E7%94%A8BETWEEN%20AND%E6%9F%A5%E6%9F%90%E5%B9%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%83%BD%E4%BC%9A%E4%B8%A2%E5%A4%B1%E6%9D%A1%E6%95%B0/</url>
+    
+    <content type="html"><![CDATA[<h2 id="用BETWEEN-AND查某年的数据可能会丢失条数"><a href="#用BETWEEN-AND查某年的数据可能会丢失条数" class="headerlink" title="用BETWEEN AND查某年的数据可能会丢失条数"></a>用BETWEEN AND查某年的数据可能会丢失条数</h2><blockquote><p>随便找一张有日期（字段类型为<strong>DATE</strong>）的表即可测试。</p></blockquote><p>假设存在这样一张表HOLIDAY，里面存储的是某些国家(表字段为COUNTRY_CODE)某些年的法定假日日期(表字段为HOLIDAY_DATE)。</p><p>我想查中国在2023年和2024年的法定假日日期。</p><h3 id="BETWEEN-AND"><a href="#BETWEEN-AND" class="headerlink" title="BETWEEN AND"></a>BETWEEN AND</h3><p>首先想到的是BETWEEN AND：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">-- BETWEEN AND查年份不精确</span><br><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> HOLIDAY <span class="hljs-keyword">WHERE</span> COUNTRY_CODE <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;cn&#x27;</span> <span class="hljs-keyword">AND</span> HOLIDAY_DATE <span class="hljs-keyword">BETWEEN</span> TO_DATE(<span class="hljs-string">&#x27;2023&#x27;</span>,<span class="hljs-string">&#x27;yyyy&#x27;</span>) <span class="hljs-keyword">AND</span> TO_DATE(<span class="hljs-string">&#x27;2024&#x27;</span>,<span class="hljs-string">&#x27;yyyy&#x27;</span>);<br></code></pre></td></tr></table></figure><p>根据查询结果来看，AND TO_DATE(‘2024’,’yyyy’)只能查到2024-01-01，24年只查到一天。</p><p>而且对比数据来看，<strong>如果在2024-01-15执行上述sql，23年的查询记录在2023-01-15到2023-12-31之间</strong>，23年的数据也会丢失一部分。</p><h4 id="日期完整性问题"><a href="#日期完整性问题" class="headerlink" title="日期完整性问题"></a>日期完整性问题</h4><p>日期存储格式为20240101，包含月日，写查询语句也要包含月日，否则可能丢失条数。</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> HOLIDAY <span class="hljs-keyword">WHERE</span> COUNTRY_CODE <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;cn&#x27;</span> <span class="hljs-keyword">AND</span> HOLIDAY_DATE <span class="hljs-keyword">BETWEEN</span> TO_DATE(<span class="hljs-string">&#x27;20230101&#x27;</span>,<span class="hljs-string">&#x27;yyyyMMdd&#x27;</span>) <span class="hljs-keyword">AND</span> TO_DATE(<span class="hljs-string">&#x27;20241231&#x27;</span>,<span class="hljs-string">&#x27;yyyyMMdd&#x27;</span>);<br></code></pre></td></tr></table></figure><h3 id="EXTRACT函数"><a href="#EXTRACT函数" class="headerlink" title="EXTRACT函数"></a>EXTRACT函数</h3><p>专门用来截取年、月、日、时、分、秒的函数。</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> HOLIDAY <span class="hljs-keyword">WHERE</span> COUNTRY_CODE <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;cn&#x27;</span> <span class="hljs-keyword">AND</span> <span class="hljs-built_in">EXTRACT</span>(<span class="hljs-keyword">YEAR</span> <span class="hljs-keyword">FROM</span> HOLIDAY_DATE) <span class="hljs-keyword">IN</span>(<span class="hljs-string">&#x27;2023&#x27;</span>,<span class="hljs-string">&#x27;2024&#x27;</span>);<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>SQL</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Oracle恢复数据库某张表某一时刻的数据</title>
+    <link href="/2024/01/15/Oracle%E6%81%A2%E5%A4%8D%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%90%E5%BC%A0%E8%A1%A8%E6%9F%90%E4%B8%80%E6%97%B6%E5%88%BB%E7%9A%84%E6%95%B0%E6%8D%AE/"/>
+    <url>/2024/01/15/Oracle%E6%81%A2%E5%A4%8D%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%90%E5%BC%A0%E8%A1%A8%E6%9F%90%E4%B8%80%E6%97%B6%E5%88%BB%E7%9A%84%E6%95%B0%E6%8D%AE/</url>
+    
+    <content type="html"><![CDATA[<h2 id="Oracle恢复数据库某张表某一时刻的数据"><a href="#Oracle恢复数据库某张表某一时刻的数据" class="headerlink" title="Oracle恢复数据库某张表某一时刻的数据"></a>Oracle恢复数据库某张表某一时刻的数据</h2><blockquote><p>测试时误删数据，或是需要还原数据反复测试sql，可以用Oracle的闪回功能使数据库恢复到某一时刻。</p></blockquote><h3 id="恢复数据到某一时刻"><a href="#恢复数据到某一时刻" class="headerlink" title="恢复数据到某一时刻"></a>恢复数据到某一时刻</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">-- 假设表名为 HOLIDAY</span><br><br><span class="hljs-comment">-- 开启行移动</span><br><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> HOLIDAY ENABLE <span class="hljs-type">ROW</span> MOVEMENT;<br><span class="hljs-comment">-- 恢复数据到某一时刻</span><br>FLASHBACK <span class="hljs-keyword">TABLE</span> HOLIDAY <span class="hljs-keyword">TO</span> <span class="hljs-type">TIMESTAMP</span> TO_TIMESTAMP(<span class="hljs-string">&#x27;2024-01-15 08:00:00&#x27;</span>, <span class="hljs-string">&#x27;yyyy-mm-dd hh24:mi:ss&#x27;</span>);<br><span class="hljs-comment">-- 关闭行移动</span><br><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> HOLIDAY DISABLE <span class="hljs-type">ROW</span> MOVEMENT;<br></code></pre></td></tr></table></figure><h4 id="ROW-MOVEMENT"><a href="#ROW-MOVEMENT" class="headerlink" title="ROW MOVEMENT"></a>ROW MOVEMENT</h4><p>不开启行移动会报错 <code>ORA-08189: cannot flashback the table because row movement is not enabled</code>。</p><p>关于行移动，ChatGPT的回答如下：</p><p>在Oracle数据库中，启用行移动（ROW MOVEMENT）是一个用于修改表定义的选项，它允许在表上执行一些特定的操作，如更新、删除和插入行，同时保持表的高度可用性。当你启用行移动时，可以更灵活地修改表结构，包括修改表的行的物理存储位置。</p><h3 id="查询某一时刻的数据"><a href="#查询某一时刻的数据" class="headerlink" title="查询某一时刻的数据"></a>查询某一时刻的数据</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">-- 查询某一时刻的数据</span><br><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> HOLIDAY <span class="hljs-keyword">AS</span> <span class="hljs-keyword">OF</span> <span class="hljs-type">TIMESTAMP</span> TO_TIMESTAMP(<span class="hljs-string">&#x27;2024-01-15 08:00:00&#x27;</span>, <span class="hljs-string">&#x27;yyyy-mm-dd hh24:mi:ss&#x27;</span>);<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>SQL</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>数据比较时String未转成BigDecimal的坑</title>
     <link href="/2023/02/07/%E6%95%B0%E6%8D%AE%E6%AF%94%E8%BE%83%E6%97%B6String%E6%9C%AA%E8%BD%AC%E6%88%90BigDecimal%E7%9A%84%E5%9D%91/"/>
     <url>/2023/02/07/%E6%95%B0%E6%8D%AE%E6%AF%94%E8%BE%83%E6%97%B6String%E6%9C%AA%E8%BD%AC%E6%88%90BigDecimal%E7%9A%84%E5%9D%91/</url>

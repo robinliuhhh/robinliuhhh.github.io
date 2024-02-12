@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>a - Robin Liu&#39;s Blog</title>
+  <title>Oracle恢复数据库某张表某一时刻的数据 - Robin Liu&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -34,6 +34,8 @@
     
   
 
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
   
 
 
@@ -62,7 +64,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -161,9 +163,46 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="a">
+            <span class="h2" id="subtitle" title="Oracle恢复数据库某张表某一时刻的数据">
               
             </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2024-01-15 21:58" pubdate>
+        2024年1月15日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      295 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      3
+       分钟
+    </span>
+  
+
+  
+  
+</div>
 
             
           </div>
@@ -176,26 +215,97 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
+      
 
-<article class="page-content">
-  
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Oracle恢复数据库某张表某一时刻的数据</h1>
+            
+            <div class="markdown-body">
+              <h2 id="Oracle恢复数据库某张表某一时刻的数据"><a href="#Oracle恢复数据库某张表某一时刻的数据" class="headerlink" title="Oracle恢复数据库某张表某一时刻的数据"></a>Oracle恢复数据库某张表某一时刻的数据</h2><blockquote>
+<p>测试时误删数据，或是需要还原数据反复测试sql，可以用Oracle的闪回功能使数据库恢复到某一时刻。</p>
+</blockquote>
+<h3 id="恢复数据到某一时刻"><a href="#恢复数据到某一时刻" class="headerlink" title="恢复数据到某一时刻"></a>恢复数据到某一时刻</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">-- 假设表名为 HOLIDAY</span><br><br><span class="hljs-comment">-- 开启行移动</span><br><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> HOLIDAY ENABLE <span class="hljs-type">ROW</span> MOVEMENT;<br><span class="hljs-comment">-- 恢复数据到某一时刻</span><br>FLASHBACK <span class="hljs-keyword">TABLE</span> HOLIDAY <span class="hljs-keyword">TO</span> <span class="hljs-type">TIMESTAMP</span> TO_TIMESTAMP(<span class="hljs-string">&#x27;2024-01-15 08:00:00&#x27;</span>, <span class="hljs-string">&#x27;yyyy-mm-dd hh24:mi:ss&#x27;</span>);<br><span class="hljs-comment">-- 关闭行移动</span><br><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> HOLIDAY DISABLE <span class="hljs-type">ROW</span> MOVEMENT;<br></code></pre></td></tr></table></figure>
 
-  
-</article>
+<h4 id="ROW-MOVEMENT"><a href="#ROW-MOVEMENT" class="headerlink" title="ROW MOVEMENT"></a>ROW MOVEMENT</h4><p>不开启行移动会报错 <code>ORA-08189: cannot flashback the table because row movement is not enabled</code>。</p>
+<p>关于行移动，ChatGPT的回答如下：</p>
+<p>在Oracle数据库中，启用行移动（ROW MOVEMENT）是一个用于修改表定义的选项，它允许在表上执行一些特定的操作，如更新、删除和插入行，同时保持表的高度可用性。当你启用行移动时，可以更灵活地修改表结构，包括修改表的行的物理存储位置。</p>
+<h3 id="查询某一时刻的数据"><a href="#查询某一时刻的数据" class="headerlink" title="查询某一时刻的数据"></a>查询某一时刻的数据</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">-- 查询某一时刻的数据</span><br><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> HOLIDAY <span class="hljs-keyword">AS</span> <span class="hljs-keyword">OF</span> <span class="hljs-type">TIMESTAMP</span> TO_TIMESTAMP(<span class="hljs-string">&#x27;2024-01-15 08:00:00&#x27;</span>, <span class="hljs-string">&#x27;yyyy-mm-dd hh24:mi:ss&#x27;</span>);<br></code></pre></td></tr></table></figure>
 
-              </div>
+
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/SQL/">SQL</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/01/15/%E7%94%A8BETWEEN%20AND%E6%9F%A5%E6%9F%90%E5%B9%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%83%BD%E4%BC%9A%E4%B8%A2%E5%A4%B1%E6%9D%A1%E6%95%B0/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">用BETWEEN AND查某年的数据可能会丢失条数</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/02/07/%E6%95%B0%E6%8D%AE%E6%AF%94%E8%BE%83%E6%97%B6String%E6%9C%AA%E8%BD%AC%E6%88%90BigDecimal%E7%9A%84%E5%9D%91/">
+                        <span class="hidden-mobile">数据比较时String未转成BigDecimal的坑</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
 
     
@@ -275,7 +385,11 @@
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
 
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
 
 
 

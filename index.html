@@ -182,6 +182,101 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2024/01/15/%E7%94%A8BETWEEN%20AND%E6%9F%A5%E6%9F%90%E5%B9%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%83%BD%E4%BC%9A%E4%B8%A2%E5%A4%B1%E6%9D%A1%E6%95%B0/" target="_self">
+          用BETWEEN AND查某年的数据可能会丢失条数
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2024/01/15/%E7%94%A8BETWEEN%20AND%E6%9F%A5%E6%9F%90%E5%B9%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%83%BD%E4%BC%9A%E4%B8%A2%E5%A4%B1%E6%9D%A1%E6%95%B0/" target="_self">
+          
+          
+            
+          
+          用BETWEEN AND查某年的数据可能会丢失条数
+随便找一张有日期（字段类型为DATE）的表即可测试。
+
+假设存在这样一张表HOLIDAY，里面存储的是某些国家(表字段为COUNTRY_CODE)某些年的法定假日日期(表字段为HOLIDAY_DATE)。
+我想查中国在2023年和2024年的法定假日日期。
+BETWEEN AND首先想到的是BETWEEN AND：
+12-- BETWEEN AN
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-01-15 23:19" pubdate>
+              2024-01-15
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/SQL/">SQL</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2024/01/15/Oracle%E6%81%A2%E5%A4%8D%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%90%E5%BC%A0%E8%A1%A8%E6%9F%90%E4%B8%80%E6%97%B6%E5%88%BB%E7%9A%84%E6%95%B0%E6%8D%AE/" target="_self">
+          Oracle恢复数据库某张表某一时刻的数据
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2024/01/15/Oracle%E6%81%A2%E5%A4%8D%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%90%E5%BC%A0%E8%A1%A8%E6%9F%90%E4%B8%80%E6%97%B6%E5%88%BB%E7%9A%84%E6%95%B0%E6%8D%AE/" target="_self">
+          
+          
+            
+          
+          Oracle恢复数据库某张表某一时刻的数据
+测试时误删数据，或是需要还原数据反复测试sql，可以用Oracle的闪回功能使数据库恢复到某一时刻。
+
+恢复数据到某一时刻12345678-- 假设表名为 HOLIDAY-- 开启行移动ALTER TABLE HOLIDAY ENABLE ROW MOVEMENT;-- 恢复数据到某一时刻FLASHBACK TABLE HOLIDAY TO TIMEST
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-01-15 21:58" pubdate>
+              2024-01-15
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/SQL/">SQL</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2023/02/07/%E6%95%B0%E6%8D%AE%E6%AF%94%E8%BE%83%E6%97%B6String%E6%9C%AA%E8%BD%AC%E6%88%90BigDecimal%E7%9A%84%E5%9D%91/" target="_self">
           数据比较时String未转成BigDecimal的坑
         </a>
@@ -531,99 +626,6 @@ CentOS系统内用yum安装比较方便。
             <i class="iconfont icon-category"></i>
             
               <a href="/categories/Linux/">Linux</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/06/22/Python3%E5%88%B7%E9%A2%98%EF%BC%9Aheapq%E6%8A%80%E5%B7%A7%E5%90%88%E9%9B%86/" target="_self">
-          Python3刷题：heapq技巧合集
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/06/22/Python3%E5%88%B7%E9%A2%98%EF%BC%9Aheapq%E6%8A%80%E5%B7%A7%E5%90%88%E9%9B%86/" target="_self">
-          
-          
-            
-          
-          heapq转成最大堆使用https://leetcode.com/problems/course-schedule-iii/
-
-123456789101112131415class Solution:    def scheduleCourse(self, courses: List[List[int]]) -&gt; int:        # sort by ddl        course
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-06-22 07:54" pubdate>
-              2022-06-22
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Python/">Python</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/06/15/Python3%E5%88%B7%E9%A2%98%EF%BC%9A@cache/" target="_self">
-          Python3刷题：@cache
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/06/15/Python3%E5%88%B7%E9%A2%98%EF%BC%9A@cache/" target="_self">
-          
-          
-            
-          
-          题目链接https://leetcode.com/problems/delete-operation-for-two-strings/submissions/
-
-解题思路
-@cache可以防止TLE（Time Limit Exceed 超时）
-
-123456789101112class Solution:    def minDistance(self, word1: str, word2: st
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-06-15 08:11" pubdate>
-              2022-06-15
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Python/">Python</a>
             
           </div>
         
