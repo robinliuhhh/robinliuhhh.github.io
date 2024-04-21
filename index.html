@@ -182,24 +182,72 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2024/01/15/%E7%94%A8BETWEEN%20AND%E6%9F%A5%E6%9F%90%E5%B9%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%83%BD%E4%BC%9A%E4%B8%A2%E5%A4%B1%E6%9D%A1%E6%95%B0/" target="_self">
-          用BETWEEN AND查某年的数据可能会丢失条数
+        <a href="/2024/02/04/%E7%95%8C%E9%9D%A2%E5%A2%9E%E5%8A%A0%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2%E4%B9%8B%E5%90%8E%E6%95%B0%E6%8D%AE%E6%B8%B2%E6%9F%93%E5%8F%98%E5%BE%97%E5%BE%88%E6%85%A2%EF%BC%8C%E6%8E%92%E6%9F%A5%E5%90%8E%E5%8F%91%E7%8E%B0%E7%BB%99%E8%A1%A8%E5%8A%A0%E4%B8%AA%E7%B4%A2%E5%BC%95%E5%B0%B1%E8%A7%A3%E5%86%B3%E4%BA%86/" target="_self">
+          界面增加分页查询之后数据渲染变得很慢，排查后发现给表加个索引就解决了
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2024/01/15/%E7%94%A8BETWEEN%20AND%E6%9F%A5%E6%9F%90%E5%B9%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%83%BD%E4%BC%9A%E4%B8%A2%E5%A4%B1%E6%9D%A1%E6%95%B0/" target="_self">
+        <a href="/2024/02/04/%E7%95%8C%E9%9D%A2%E5%A2%9E%E5%8A%A0%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2%E4%B9%8B%E5%90%8E%E6%95%B0%E6%8D%AE%E6%B8%B2%E6%9F%93%E5%8F%98%E5%BE%97%E5%BE%88%E6%85%A2%EF%BC%8C%E6%8E%92%E6%9F%A5%E5%90%8E%E5%8F%91%E7%8E%B0%E7%BB%99%E8%A1%A8%E5%8A%A0%E4%B8%AA%E7%B4%A2%E5%BC%95%E5%B0%B1%E8%A7%A3%E5%86%B3%E4%BA%86/" target="_self">
           
           
             
           
-          用BETWEEN AND查某年的数据可能会丢失条数
+          界面增加分页查询之后数据渲染变得很慢，排查后发现给表加个索引就解决了
+记录一下排查过程，主要就是做对照试验。
+
+排查1.对比数据库执行sql耗时和界面触发代码查询耗时因为从数据库查出来之后有for循环去处理数据，所以怀疑是代码处理太慢。
+对比之后发现，数据库执行要200ms，代码执行要400ms。0.4s和界面延迟体感差不多，要再细分一下是哪段代码慢。
+2.细分数据流通阶段，排查是哪步慢代码查询分
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-02-04 23:23" pubdate>
+              2024-02-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/SQL/">SQL</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2024/01/15/Oracle%E7%94%A8BETWEEN%20AND%E6%9F%A5%E6%9F%90%E5%B9%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%83%BD%E4%BC%9A%E4%B8%A2%E5%A4%B1%E6%9D%A1%E6%95%B0/" target="_self">
+          Oracle用BETWEEN AND查某年的数据可能会丢失条数
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2024/01/15/Oracle%E7%94%A8BETWEEN%20AND%E6%9F%A5%E6%9F%90%E5%B9%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%83%BD%E4%BC%9A%E4%B8%A2%E5%A4%B1%E6%9D%A1%E6%95%B0/" target="_self">
+          
+          
+            
+          
+          Oracle用BETWEEN AND查某年的数据可能会丢失条数
 随便找一张有日期（字段类型为DATE）的表即可测试。
 
 假设存在这样一张表HOLIDAY，里面存储的是某些国家(表字段为COUNTRY_CODE)某些年的法定假日日期(表字段为HOLIDAY_DATE)。
 我想查中国在2023年和2024年的法定假日日期。
 BETWEEN AND首先想到的是BETWEEN AND：
-12-- BETWEEN AN
+12-- BETW
         </a>
       </p>
 
@@ -586,59 +634,11 @@ JVM执行字节码（将字节码翻译成机器码，计算机再执行），JV
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/06/23/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" target="_self">
-          Linux服务器常用命令
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/06/23/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" target="_self">
-          
-          
-            
-          
-          命令行粘贴shift + insert
-Windows上传文件至Linux123# 打开cmd cd到待发送文件所在的目录# 以root身份向192.168.xx.xxx传文件 :后面是地址pscp 文件名 root@192.168.xx.xxx:/root/test
-
-服务器内部下载文件yum
-CentOS系统内用yum安装比较方便。
-123456789# 例:jre# 进入根目录 去yum库里
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-06-23 11:42" pubdate>
-              2022-06-23
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Linux/">Linux</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
 
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/#board">5</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/#board">6</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 
