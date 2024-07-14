@@ -182,6 +182,61 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2022/04/15/js%E6%9F%A5%E6%89%BE%E6%95%B0%E7%BB%84%E4%B8%AD%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E7%9B%B8%E5%90%8C%E5%85%83%E7%B4%A0%20&&%20%E7%9B%B8%E5%90%8C%E5%85%83%E7%B4%A0%E6%8E%92%E5%BA%8F%E6%97%B6%E6%94%BE%E5%9C%A8%E4%B8%80%E8%B5%B7/" target="_self">
+          js查找数组中是否存在相同元素 &amp;&amp; 相同元素排序时放在一起
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/04/15/js%E6%9F%A5%E6%89%BE%E6%95%B0%E7%BB%84%E4%B8%AD%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E7%9B%B8%E5%90%8C%E5%85%83%E7%B4%A0%20&&%20%E7%9B%B8%E5%90%8C%E5%85%83%E7%B4%A0%E6%8E%92%E5%BA%8F%E6%97%B6%E6%94%BE%E5%9C%A8%E4%B8%80%E8%B5%B7/" target="_self">
+          
+          
+            
+          
+          
+需求：发票抬头名称重复时，在发票抬头前显示“单位编号”进行区分，重复的发票抬头就近显示。
+
+js查找数组中是否存在相同元素思路
+遍历从后端拿出的发票抬头列表（映射到js就是数组），标记重复项
+手动写map记录发票抬头出现次数
+若之前未出现过，计数为1；若出现过，计数+1
+
+
+第二次遍历发票抬头列表，若该发票抬头在map中的值&gt;1，则添加“单位编号”前缀
+
+实现过滤逻辑
+1234567891
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-04-15 07:21" pubdate>
+              2022-04-15
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/FrontEnd/">FrontEnd</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2022/04/13/%E4%B8%8B%E6%8B%89%E5%88%97%E8%A1%A8%E5%B1%80%E9%83%A8%E5%86%85%E5%AE%B9%E6%98%BE%E7%A4%BA%E4%B8%8D%E5%90%8C%E9%A2%9C%E8%89%B2/" target="_self">
           下拉列表局部内容显示不同颜色
         </a>
@@ -609,55 +664,6 @@ buildDependents
             <i class="iconfont icon-category"></i>
             
               <a href="/categories/Projects/">Projects</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/12/10/Python3%E5%88%B7%E9%A2%98%EF%BC%9A%E5%BE%AA%E7%8E%AF%20&%20%E5%88%A4%E6%96%AD/" target="_self">
-          Python3刷题：判断 &amp; 循环
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/12/10/Python3%E5%88%B7%E9%A2%98%EF%BC%9A%E5%BE%AA%E7%8E%AF%20&%20%E5%88%A4%E6%96%AD/" target="_self">
-          
-          
-            
-          
-          判断多余()12# if (left &lt;= right): ×if left &lt;= right:
-
-用while代替if当只需要处理满足触发条件的情况时，用while，否则还需要处理if的else情况。
-不要看字面意思，以为while就是一个循环，if就是一个判断。
-三元表达式1return 0 if res == float(&quot;inf&quot;) else res
-
-循环
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-12-10 23:31" pubdate>
-              2021-12-10
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Python/">Python</a>
             
           </div>
         
