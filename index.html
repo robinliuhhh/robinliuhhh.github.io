@@ -182,19 +182,67 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2024/07/04/where%E6%A0%87%E7%AD%BE%E5%86%85%E5%B5%8Cforeach%E6%A0%87%E7%AD%BE%E6%9F%A5%E8%AF%A2%E6%8A%A5%E9%94%99'%E7%BC%BA%E5%A4%B1%E5%8F%B3%E6%8B%AC%E5%8F%B7'%E6%88%96'%E5%91%BD%E4%BB%A4%E6%9C%AA%E6%AD%A3%E7%A1%AE%E7%BB%93%E6%9D%9F'/" target="_self">
-          &lt;where&gt;标签内嵌&lt;foreach&gt;标签查询报错&#39;缺失右括号&#39;或&#39;命令未正确结束&#39;
+        <a href="/2024/07/04/MyBatis%20where%E6%A0%87%E7%AD%BE%E6%9B%BF%E6%8D%A2WHERE%201%20=%201%E4%BC%9A%E6%8F%90%E5%8D%87%E6%80%A7%E8%83%BD%E5%90%97/" target="_self">
+          MyBatis where标签替换WHERE 1 = 1会提升性能吗
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2024/07/04/where%E6%A0%87%E7%AD%BE%E5%86%85%E5%B5%8Cforeach%E6%A0%87%E7%AD%BE%E6%9F%A5%E8%AF%A2%E6%8A%A5%E9%94%99'%E7%BC%BA%E5%A4%B1%E5%8F%B3%E6%8B%AC%E5%8F%B7'%E6%88%96'%E5%91%BD%E4%BB%A4%E6%9C%AA%E6%AD%A3%E7%A1%AE%E7%BB%93%E6%9D%9F'/" target="_self">
+        <a href="/2024/07/04/MyBatis%20where%E6%A0%87%E7%AD%BE%E6%9B%BF%E6%8D%A2WHERE%201%20=%201%E4%BC%9A%E6%8F%90%E5%8D%87%E6%80%A7%E8%83%BD%E5%90%97/" target="_self">
           
           
             
           
-          &lt;where&gt;标签内嵌&lt;foreach&gt;标签查询报错’缺失右括号’或’命令未正确结束’&lt;where&gt;标签内嵌&lt;foreach&gt;标签截取一段脱敏xml，写明大概意思
-12345678910&lt;select id=&quot;queryLogByIds&quot; resultMap=&quot;BaseResultMap&quot;&gt;    
+          MyBatis &lt;where&gt;标签替换WHERE 1 = 1会提升性能吗查看项目早期数据库查询语句时，发现很多地方写了WHERE 1 = 1，怀疑这里有性能损失，想替换成&lt;where&gt;标签。
+验证已知索引
+1CREATE INDEX BP_LOG_BP_DATE_IDX ON QXX.BP_LOG (BP_DATE);
+
+分别explain plan
+12345explai
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-07-04 20:18" pubdate>
+              2024-07-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/SQL/">SQL</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2024/07/04/MyBatis%20where%E6%A0%87%E7%AD%BE%E5%86%85%E5%B5%8Cforeach%E6%A0%87%E7%AD%BE%E6%9F%A5%E8%AF%A2%E6%8A%A5%E9%94%99'%E7%BC%BA%E5%A4%B1%E5%8F%B3%E6%8B%AC%E5%8F%B7'%E6%88%96'%E5%91%BD%E4%BB%A4%E6%9C%AA%E6%AD%A3%E7%A1%AE%E7%BB%93%E6%9D%9F'/" target="_self">
+          MyBatis &lt;where&gt;标签内嵌&lt;foreach&gt;标签查询报错&#39;缺失右括号&#39;或&#39;命令未正确结束&#39;
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2024/07/04/MyBatis%20where%E6%A0%87%E7%AD%BE%E5%86%85%E5%B5%8Cforeach%E6%A0%87%E7%AD%BE%E6%9F%A5%E8%AF%A2%E6%8A%A5%E9%94%99'%E7%BC%BA%E5%A4%B1%E5%8F%B3%E6%8B%AC%E5%8F%B7'%E6%88%96'%E5%91%BD%E4%BB%A4%E6%9C%AA%E6%AD%A3%E7%A1%AE%E7%BB%93%E6%9D%9F'/" target="_self">
+          
+          
+            
+          
+          MyBatis &lt;where&gt;标签内嵌&lt;foreach&gt;标签查询报错’缺失右括号’或’命令未正确结束’&lt;where&gt;标签内嵌&lt;foreach&gt;标签截取一段脱敏xml，写明大概意思
+12345678910&lt;select id=&quot;queryLogByIds&quot; resultMap=&quot;BaseResultMap&quot;
         </a>
       </p>
 
@@ -583,50 +631,6 @@ JVM执行字节码（将字节码翻译成机器码，计算机再执行），JV
             <i class="iconfont icon-category"></i>
             
               <a href="/categories/Archive/">Archive</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/06/24/Python3%E5%88%B7%E9%A2%98%EF%BC%9Alambda%E6%8A%80%E5%B7%A7%E5%90%88%E9%9B%86/" target="_self">
-          Python3刷题：lambda技巧合集
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/06/24/Python3%E5%88%B7%E9%A2%98%EF%BC%9Alambda%E6%8A%80%E5%B7%A7%E5%90%88%E9%9B%86/" target="_self">
-          
-          
-            
-          
-          list[[1,2], [3,4]]按第二位排序https://leetcode.com/problems/course-schedule-iii/
-12345# [duration, deadline]courses = [[100,200],[200,1300],[1000,1250],[2000,3200]]# sort by deadlinecourses.sort(key=lambda 
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-06-24 08:14" pubdate>
-              2022-06-24
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Python/">Python</a>
             
           </div>
         

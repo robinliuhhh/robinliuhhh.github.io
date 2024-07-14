@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>界面增加分页查询之后数据渲染变得很慢，排查后发现给表加个索引就解决了 - Robin Liu&#39;s Blog</title>
+  <title>MyBatis &lt;where&gt;标签内嵌&lt;foreach&gt;标签查询报错&#39;缺失右括号&#39;或&#39;命令未正确结束&#39; - Robin Liu&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="界面增加分页查询之后数据渲染变得很慢，排查后发现给表加个索引就解决了">
+            <span class="h2" id="subtitle" title="MyBatis <where>标签内嵌<foreach>标签查询报错'缺失右括号'或'命令未正确结束'">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2024-02-04 23:23" pubdate>
-        2024年2月4日 晚上
+      <time datetime="2024-07-04 20:08" pubdate>
+        2024年7月4日 晚上
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      661 字
+      286 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      7
+      4
        分钟
     </span>
   
@@ -225,29 +225,19 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">界面增加分页查询之后数据渲染变得很慢，排查后发现给表加个索引就解决了</h1>
+            <h1 style="display: none">MyBatis &lt;where&gt;标签内嵌&lt;foreach&gt;标签查询报错&#39;缺失右括号&#39;或&#39;命令未正确结束&#39;</h1>
             
             <div class="markdown-body">
-              <h2 id="界面增加分页查询之后数据渲染变得很慢，排查后发现给表加个索引就解决了"><a href="#界面增加分页查询之后数据渲染变得很慢，排查后发现给表加个索引就解决了" class="headerlink" title="界面增加分页查询之后数据渲染变得很慢，排查后发现给表加个索引就解决了"></a>界面增加分页查询之后数据渲染变得很慢，排查后发现给表加个索引就解决了</h2><blockquote>
-<p>记录一下排查过程，主要就是做对照试验。</p>
-</blockquote>
-<h3 id="排查"><a href="#排查" class="headerlink" title="排查"></a>排查</h3><h4 id="1-对比数据库执行sql耗时和界面触发代码查询耗时"><a href="#1-对比数据库执行sql耗时和界面触发代码查询耗时" class="headerlink" title="1.对比数据库执行sql耗时和界面触发代码查询耗时"></a>1.对比数据库执行sql耗时和界面触发代码查询耗时</h4><p>因为从数据库查出来之后有for循环去处理数据，所以怀疑是代码处理太慢。</p>
-<p>对比之后发现，数据库执行要200ms，代码执行要400ms。0.4s和界面延迟体感差不多，要再细分一下是哪段代码慢。</p>
-<h4 id="2-细分数据流通阶段，排查是哪步慢"><a href="#2-细分数据流通阶段，排查是哪步慢" class="headerlink" title="2.细分数据流通阶段，排查是哪步慢"></a>2.细分数据流通阶段，排查是哪步慢</h4><p>代码查询分页并组装数据(400ms) -100ms-&gt; 发送到客户端 -1ms-&gt; 渲染完毕展示到界面</p>
-<p>还是分页部分最慢，于是找了下其他分页查询，比对查询时间。如果都慢就要优化分页；如果只有当前查询慢，那就是数据量太大或者当前表有问题。</p>
-<h4 id="3-比较其他分页"><a href="#3-比较其他分页" class="headerlink" title="3.比较其他分页"></a>3.比较其他分页</h4><p>其他分页查询耗时在30ms左右，快了N倍，用的分页方式都是一样的，所以不是分页慢，而是当前查询的特殊问题。</p>
-<h4 id="4-去服务器环境查询，耗时达到2s以上，确认是数据量的问题"><a href="#4-去服务器环境查询，耗时达到2s以上，确认是数据量的问题" class="headerlink" title="4.去服务器环境查询，耗时达到2s以上，确认是数据量的问题"></a>4.去服务器环境查询，耗时达到2s以上，确认是数据量的问题</h4><p>服务器上该表有百万条数据，开发环境只有几万条，所以服务器环境放大了这个缺陷。</p>
-<h4 id="5-那为什么原来的查询不慢？"><a href="#5-那为什么原来的查询不慢？" class="headerlink" title="5.那为什么原来的查询不慢？"></a>5.那为什么原来的查询不慢？</h4><p>仔细观察之后，发现原来界面渲染方式是：界面会保留上一次查询的数据，查到新数据后再渲染新的数据，所以只有第一次查询时体感很慢（因为这时界面没有数据）。</p>
-<p>第一次查询慢往往不会引起重视，因为可能被认为是在“预热”。后续的查询依旧很慢，但由于界面上有上一次的数据，<strong>显得</strong>没有那么慢。</p>
-<p>界面加了分页组件之后，渲染方式改变了：查询时先清空上一次的数据，查到新数据后再渲染新的数据。所以查询慢，界面就一直没有数据，就能被感知到了。</p>
-<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>最后，给查询的表加索引。</p>
-<p>注意，<strong>索引加在查询WHERE条件用的那列</strong>，不要无脑加在这张表的主键上（加主键上不会提速的）。<br>eg. </p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> LOG <span class="hljs-keyword">WHERE</span> ORDER_ID <span class="hljs-operator">=</span> #&#123;req.orderID&#125; <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> LOG_ID<br></code></pre></td></tr></table></figure>
+              <h2 id="MyBatis-lt-where-gt-标签内嵌-lt-foreach-gt-标签查询报错’缺失右括号’或’命令未正确结束’"><a href="#MyBatis-lt-where-gt-标签内嵌-lt-foreach-gt-标签查询报错’缺失右括号’或’命令未正确结束’" class="headerlink" title="MyBatis &lt;where&gt;标签内嵌&lt;foreach&gt;标签查询报错’缺失右括号’或’命令未正确结束’"></a>MyBatis &lt;where&gt;标签内嵌&lt;foreach&gt;标签查询报错’缺失右括号’或’命令未正确结束’</h2><h3 id="lt-where-gt-标签内嵌-lt-foreach-gt-标签"><a href="#lt-where-gt-标签内嵌-lt-foreach-gt-标签" class="headerlink" title="&lt;where&gt;标签内嵌&lt;foreach&gt;标签"></a>&lt;where&gt;标签内嵌&lt;foreach&gt;标签</h3><p>截取一段脱敏xml，写明大概意思</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;queryLogByIds&quot;</span> <span class="hljs-attr">resultMap</span>=<span class="hljs-string">&quot;BaseResultMap&quot;</span>&gt;</span><br>    SELECT * FROM BP_LOG<br>    <span class="hljs-tag">&lt;<span class="hljs-name">where</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">if</span> <span class="hljs-attr">test</span>=<span class="hljs-string">&quot;ids != null and ids.size() &gt; 0&quot;</span>&gt;</span><br>            <span class="hljs-comment">&lt;!--在&lt;where&gt;标签内 注意在LOG_ID=#&#123;item&#125;两侧留空格 否则会报&#x27;缺失右括号&#x27;(&lt;foreach&gt;被括号包围的情况下)或&#x27;命令未正确结束&#x27;--&gt;</span><br>            (<span class="hljs-tag">&lt;<span class="hljs-name">foreach</span> <span class="hljs-attr">collection</span>=<span class="hljs-string">&quot;ids&quot;</span> <span class="hljs-attr">item</span>=<span class="hljs-string">&quot;item&quot;</span> <span class="hljs-attr">separator</span>=<span class="hljs-string">&quot;or&quot;</span>&gt;</span> LOG_ID=#&#123;item&#125; <span class="hljs-tag">&lt;/<span class="hljs-name">foreach</span>&gt;</span> )<br>        <span class="hljs-tag">&lt;/<span class="hljs-name">if</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">where</span>&gt;</span><br>    ORDER BY LOG_ID<br><span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
-<p>索引要加在ORDER_ID这一列，而不是主键LOG_ID。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> INDEX IDX_ORDER_ID <span class="hljs-keyword">ON</span> <span class="hljs-built_in">LOG</span>(ORDER_ID)<br></code></pre></td></tr></table></figure>
+<h3 id="报错：缺失右括号"><a href="#报错：缺失右括号" class="headerlink" title="报错：缺失右括号"></a>报错：缺失右括号</h3><p>打印sql如下</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> BP_LOG <span class="hljs-keyword">WHERE</span> (LOG_ID<span class="hljs-operator">=</span>?orLOG_ID<span class="hljs-operator">=</span>?orLOG_ID<span class="hljs-operator">=</span>? ) <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> LOG_ID<br></code></pre></td></tr></table></figure>
 
-<p>加索引后测试：200w条数据由1000ms -&gt; 20ms，优化成功。</p>
+<p>看sql是有右括号的，猜测是 <code>LOG_ID=?orLOG_ID=?...</code>连在一起，执行时断句失败导致报错</p>
+<p>替换<code>?</code>去数据库执行一下，果然是因为没有空格断句失败</p>
+<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20240712173736852.png" srcset="/img/loading.gif" lazyload alt="image-20240712173736852"></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><code>&lt;where&gt;</code>标签内嵌<code>&lt;foreach&gt;</code>标签时，注意在<code>&lt;foreach&gt;</code>标签内的拼接条件（<code>LOG_ID=#&#123;item&#125;</code>）的两侧留空格。</p>
 
             </div>
             <hr>
@@ -275,9 +265,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/07/04/MyBatis%20where%E6%A0%87%E7%AD%BE%E5%86%85%E5%B5%8Cforeach%E6%A0%87%E7%AD%BE%E6%9F%A5%E8%AF%A2%E6%8A%A5%E9%94%99&#39;%E7%BC%BA%E5%A4%B1%E5%8F%B3%E6%8B%AC%E5%8F%B7&#39;%E6%88%96&#39;%E5%91%BD%E4%BB%A4%E6%9C%AA%E6%AD%A3%E7%A1%AE%E7%BB%93%E6%9D%9F&#39;/">
+                      <a href="/2024/07/04/MyBatis%20where%E6%A0%87%E7%AD%BE%E6%9B%BF%E6%8D%A2WHERE%201%20=%201%E4%BC%9A%E6%8F%90%E5%8D%87%E6%80%A7%E8%83%BD%E5%90%97/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">MyBatis <where>标签内嵌<foreach>标签查询报错'缺失右括号'或'命令未正确结束'</span>
+                        <span class="hidden-mobile">MyBatis where标签替换WHERE 1 = 1会提升性能吗</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -285,8 +275,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/01/15/Oracle%E7%94%A8BETWEEN%20AND%E6%9F%A5%E6%9F%90%E5%B9%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%83%BD%E4%BC%9A%E4%B8%A2%E5%A4%B1%E6%9D%A1%E6%95%B0/">
-                        <span class="hidden-mobile">Oracle用BETWEEN AND查某年的数据可能会丢失条数</span>
+                      <a href="/2024/02/04/%E7%95%8C%E9%9D%A2%E5%A2%9E%E5%8A%A0%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2%E4%B9%8B%E5%90%8E%E6%95%B0%E6%8D%AE%E6%B8%B2%E6%9F%93%E5%8F%98%E5%BE%97%E5%BE%88%E6%85%A2%EF%BC%8C%E6%8E%92%E6%9F%A5%E5%90%8E%E5%8F%91%E7%8E%B0%E7%BB%99%E8%A1%A8%E5%8A%A0%E4%B8%AA%E7%B4%A2%E5%BC%95%E5%B0%B1%E8%A7%A3%E5%86%B3%E4%BA%86/">
+                        <span class="hidden-mobile">界面增加分页查询之后数据渲染变得很慢，排查后发现给表加个索引就解决了</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
