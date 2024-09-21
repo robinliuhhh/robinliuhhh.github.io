@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>MyBatis &lt;where&gt;标签内嵌&lt;foreach&gt;标签查询报错&#39;缺失右括号&#39;或&#39;命令未正确结束&#39; - Robin Liu&#39;s Blog</title>
+  <title>数据库某字段要保存中文时，怎样确定长度（以Oracle为例） - Robin Liu&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="MyBatis <where>标签内嵌<foreach>标签查询报错'缺失右括号'或'命令未正确结束'">
+            <span class="h2" id="subtitle" title="数据库某字段要保存中文时，怎样确定长度（以Oracle为例）">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2024-07-04 20:08" pubdate>
-        2024年7月4日 晚上
+      <time datetime="2023-10-23 23:46" pubdate>
+        2023年10月23日 晚上
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      286 字
+      343 字
     </span>
   
 
@@ -225,19 +225,20 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">MyBatis &lt;where&gt;标签内嵌&lt;foreach&gt;标签查询报错&#39;缺失右括号&#39;或&#39;命令未正确结束&#39;</h1>
+            <h1 style="display: none">数据库某字段要保存中文时，怎样确定长度（以Oracle为例）</h1>
             
             <div class="markdown-body">
-              <h2 id="MyBatis-lt-where-gt-标签内嵌-lt-foreach-gt-标签查询报错’缺失右括号’或’命令未正确结束’"><a href="#MyBatis-lt-where-gt-标签内嵌-lt-foreach-gt-标签查询报错’缺失右括号’或’命令未正确结束’" class="headerlink" title="MyBatis &lt;where&gt;标签内嵌&lt;foreach&gt;标签查询报错’缺失右括号’或’命令未正确结束’"></a>MyBatis &lt;where&gt;标签内嵌&lt;foreach&gt;标签查询报错’缺失右括号’或’命令未正确结束’</h2><h3 id="lt-where-gt-标签内嵌-lt-foreach-gt-标签"><a href="#lt-where-gt-标签内嵌-lt-foreach-gt-标签" class="headerlink" title="&lt;where&gt;标签内嵌&lt;foreach&gt;标签"></a>&lt;where&gt;标签内嵌&lt;foreach&gt;标签</h3><p>截取一段脱敏xml，写明大概意思</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;queryLogByIds&quot;</span> <span class="hljs-attr">resultMap</span>=<span class="hljs-string">&quot;BaseResultMap&quot;</span>&gt;</span><br>    SELECT * FROM BP_LOG<br>    <span class="hljs-tag">&lt;<span class="hljs-name">where</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">if</span> <span class="hljs-attr">test</span>=<span class="hljs-string">&quot;ids != null and ids.size() &gt; 0&quot;</span>&gt;</span><br>            <span class="hljs-comment">&lt;!--在&lt;where&gt;标签内 注意在LOG_ID=#&#123;item&#125;两侧留空格 否则会报&#x27;缺失右括号&#x27;(&lt;foreach&gt;被括号包围的情况下)或&#x27;命令未正确结束&#x27;--&gt;</span><br>            (<span class="hljs-tag">&lt;<span class="hljs-name">foreach</span> <span class="hljs-attr">collection</span>=<span class="hljs-string">&quot;ids&quot;</span> <span class="hljs-attr">item</span>=<span class="hljs-string">&quot;item&quot;</span> <span class="hljs-attr">separator</span>=<span class="hljs-string">&quot;or&quot;</span>&gt;</span> LOG_ID=#&#123;item&#125; <span class="hljs-tag">&lt;/<span class="hljs-name">foreach</span>&gt;</span> )<br>        <span class="hljs-tag">&lt;/<span class="hljs-name">if</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">where</span>&gt;</span><br>    ORDER BY LOG_ID<br><span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span><br></code></pre></td></tr></table></figure>
+              <h2 id="数据库某字段要保存中文时，怎样确定长度"><a href="#数据库某字段要保存中文时，怎样确定长度" class="headerlink" title="数据库某字段要保存中文时，怎样确定长度"></a>数据库某字段要保存中文时，怎样确定长度</h2><h3 id="1-确定存储中文字数在哪个区间"><a href="#1-确定存储中文字数在哪个区间" class="headerlink" title="1.确定存储中文字数在哪个区间"></a>1.确定存储中文字数在哪个区间</h3><p>假设我在前端限制最长保存5个汉字。</p>
+<h3 id="2-查询该字数在数据库的长度"><a href="#2-查询该字数在数据库的长度" class="headerlink" title="2.查询该字数在数据库的长度"></a>2.查询该字数在数据库的长度</h3><p>以5个汉字为例。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">-- Oracle语法</span><br><span class="hljs-keyword">SELECT</span> LENGTH(<span class="hljs-string">&#x27;一二三四五&#x27;</span>) <span class="hljs-keyword">FROM</span> dual; <span class="hljs-comment">-- 5 单位是字符</span><br><span class="hljs-keyword">SELECT</span> LENGTHB(<span class="hljs-string">&#x27;一二三四五&#x27;</span>) <span class="hljs-keyword">FROM</span> dual; <span class="hljs-comment">-- 15 单位是字节</span><br></code></pre></td></tr></table></figure>
 
-<h3 id="报错：缺失右括号"><a href="#报错：缺失右括号" class="headerlink" title="报错：缺失右括号"></a>报错：缺失右括号</h3><p>打印sql如下</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> BP_LOG <span class="hljs-keyword">WHERE</span> (LOG_ID<span class="hljs-operator">=</span>?orLOG_ID<span class="hljs-operator">=</span>?orLOG_ID<span class="hljs-operator">=</span>? ) <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> LOG_ID<br></code></pre></td></tr></table></figure>
+<h3 id="3-建表并指定列长"><a href="#3-建表并指定列长" class="headerlink" title="3.建表并指定列长"></a>3.建表并指定列长</h3><p><code>VARCHAR2(5 CHAR)</code>或<code>VARCHAR2(15)</code>均可。</p>
+<p>当以<code>VARCHAR2(15)</code>建表时，<strong>Oracle默认指定长度单位是字节</strong>（不知道这个没关系，建个表测一下也能发现，实际上实操比找文档快多了）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">-- 建表测试</span><br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> TEMP(<br>TMP1 VARCHAR2(<span class="hljs-number">5</span> <span class="hljs-type">CHAR</span>),<br>TMP2 VARCHAR2(<span class="hljs-number">5</span>),<br>TMP3 VARCHAR2(<span class="hljs-number">15</span>)<br>);<br><br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> TEMP (TMP1,TMP2,TMP3) <span class="hljs-keyword">VALUES</span> (<span class="hljs-string">&#x27;一二三四五&#x27;</span>,<span class="hljs-keyword">NULL</span>,<span class="hljs-keyword">NULL</span>); <span class="hljs-comment">-- succeed</span><br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> TEMP (TMP1,TMP2,TMP3) <span class="hljs-keyword">VALUES</span> (<span class="hljs-keyword">NULL</span>,<span class="hljs-string">&#x27;一二三四五&#x27;</span>,<span class="hljs-keyword">NULL</span>); <span class="hljs-comment">-- ORA-12899: 列 &quot;TEMP&quot;.&quot;TMP2&quot; 的值太大 (实际值: 15, 最大值: 5)</span><br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> TEMP (TMP1,TMP2,TMP3) <span class="hljs-keyword">VALUES</span> (<span class="hljs-keyword">NULL</span>,<span class="hljs-keyword">NULL</span>,<span class="hljs-string">&#x27;一二三四五&#x27;</span>); <span class="hljs-comment">-- succeed</span><br></code></pre></td></tr></table></figure>
 
-<p>看sql是有右括号的，猜测是 <code>LOG_ID=?orLOG_ID=?...</code>连在一起，执行时断句失败导致报错</p>
-<p>替换<code>?</code>去数据库执行一下，果然是因为没有空格断句失败</p>
-<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20240712173736852.png" srcset="/img/loading.gif" lazyload></p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><code>&lt;where&gt;</code>标签内嵌<code>&lt;foreach&gt;</code>标签时，注意在<code>&lt;foreach&gt;</code>标签内的拼接条件（<code>LOG_ID=#&#123;item&#125;</code>）的两侧留空格。</p>
+<p>测试结果显示，限制存储数据长度时，建表时可以指定字符长度，也可指定字节长度。</p>
+<p>关键在于测试一下要存储的数据在数据库的<strong>单位</strong>，本例为<strong>1汉字对应1字符/3字节</strong>。</p>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/kerrycode/p/3466993.html">ORACLE数据库汉字占几个字节问题</a></p>
 
             </div>
             <hr>
@@ -265,9 +266,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/07/04/MyBatis%20where%E6%A0%87%E7%AD%BE%E6%9B%BF%E6%8D%A2WHERE%201%20=%201%E4%BC%9A%E6%8F%90%E5%8D%87%E6%80%A7%E8%83%BD%E5%90%97/">
+                      <a href="/2024/01/15/Oracle%E6%81%A2%E5%A4%8D%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%90%E5%BC%A0%E8%A1%A8%E6%9F%90%E4%B8%80%E6%97%B6%E5%88%BB%E7%9A%84%E6%95%B0%E6%8D%AE/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">MyBatis where标签替换WHERE 1 = 1会提升性能吗</span>
+                        <span class="hidden-mobile">Oracle恢复数据库某张表某一时刻的数据</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -275,8 +276,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/03/07/MyBatis%20if%20%E6%A0%87%E7%AD%BE%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E7%AD%89%E5%88%A4%E6%96%AD%E7%9A%84%E9%99%B7%E9%98%B1&amp;%E6%97%A0%E9%9C%80%E5%88%A4%E7%A9%BA%E7%9A%84%E7%AE%80%E6%B4%81%E5%88%A4%E6%96%AD%E6%96%B9%E5%BC%8F/">
-                        <span class="hidden-mobile">MyBatis <if> 标签字符串相等判断的陷阱&无需判空的简洁判断方式</span>
+                      <a href="/2023/02/07/%E6%95%B0%E6%8D%AE%E6%AF%94%E8%BE%83%E6%97%B6String%E6%9C%AA%E8%BD%AC%E6%88%90BigDecimal%E7%9A%84%E5%9D%91/">
+                        <span class="hidden-mobile">数据比较时String未转成BigDecimal的坑</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

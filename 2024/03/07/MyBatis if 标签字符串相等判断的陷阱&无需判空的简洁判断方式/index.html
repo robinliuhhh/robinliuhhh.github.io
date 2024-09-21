@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>MyBatis &lt;where&gt;标签内嵌&lt;foreach&gt;标签查询报错&#39;缺失右括号&#39;或&#39;命令未正确结束&#39; - Robin Liu&#39;s Blog</title>
+  <title>MyBatis &lt;if&gt; 标签字符串相等判断的陷阱&amp;无需判空的简洁判断方式 - Robin Liu&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="MyBatis <where>标签内嵌<foreach>标签查询报错'缺失右括号'或'命令未正确结束'">
+            <span class="h2" id="subtitle" title="MyBatis <if> 标签字符串相等判断的陷阱&无需判空的简洁判断方式">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2024-07-04 20:08" pubdate>
-        2024年7月4日 晚上
+      <time datetime="2024-03-07 23:47" pubdate>
+        2024年3月7日 晚上
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      286 字
+      441 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4
+      6
        分钟
     </span>
   
@@ -225,19 +225,30 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">MyBatis &lt;where&gt;标签内嵌&lt;foreach&gt;标签查询报错&#39;缺失右括号&#39;或&#39;命令未正确结束&#39;</h1>
+            <h1 style="display: none">MyBatis &lt;if&gt; 标签字符串相等判断的陷阱&amp;无需判空的简洁判断方式</h1>
             
             <div class="markdown-body">
-              <h2 id="MyBatis-lt-where-gt-标签内嵌-lt-foreach-gt-标签查询报错’缺失右括号’或’命令未正确结束’"><a href="#MyBatis-lt-where-gt-标签内嵌-lt-foreach-gt-标签查询报错’缺失右括号’或’命令未正确结束’" class="headerlink" title="MyBatis &lt;where&gt;标签内嵌&lt;foreach&gt;标签查询报错’缺失右括号’或’命令未正确结束’"></a>MyBatis &lt;where&gt;标签内嵌&lt;foreach&gt;标签查询报错’缺失右括号’或’命令未正确结束’</h2><h3 id="lt-where-gt-标签内嵌-lt-foreach-gt-标签"><a href="#lt-where-gt-标签内嵌-lt-foreach-gt-标签" class="headerlink" title="&lt;where&gt;标签内嵌&lt;foreach&gt;标签"></a>&lt;where&gt;标签内嵌&lt;foreach&gt;标签</h3><p>截取一段脱敏xml，写明大概意思</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;queryLogByIds&quot;</span> <span class="hljs-attr">resultMap</span>=<span class="hljs-string">&quot;BaseResultMap&quot;</span>&gt;</span><br>    SELECT * FROM BP_LOG<br>    <span class="hljs-tag">&lt;<span class="hljs-name">where</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">if</span> <span class="hljs-attr">test</span>=<span class="hljs-string">&quot;ids != null and ids.size() &gt; 0&quot;</span>&gt;</span><br>            <span class="hljs-comment">&lt;!--在&lt;where&gt;标签内 注意在LOG_ID=#&#123;item&#125;两侧留空格 否则会报&#x27;缺失右括号&#x27;(&lt;foreach&gt;被括号包围的情况下)或&#x27;命令未正确结束&#x27;--&gt;</span><br>            (<span class="hljs-tag">&lt;<span class="hljs-name">foreach</span> <span class="hljs-attr">collection</span>=<span class="hljs-string">&quot;ids&quot;</span> <span class="hljs-attr">item</span>=<span class="hljs-string">&quot;item&quot;</span> <span class="hljs-attr">separator</span>=<span class="hljs-string">&quot;or&quot;</span>&gt;</span> LOG_ID=#&#123;item&#125; <span class="hljs-tag">&lt;/<span class="hljs-name">foreach</span>&gt;</span> )<br>        <span class="hljs-tag">&lt;/<span class="hljs-name">if</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">where</span>&gt;</span><br>    ORDER BY LOG_ID<br><span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span><br></code></pre></td></tr></table></figure>
+              <h2 id="MyBatis-lt-if-gt-标签字符串相等判断的陷阱-amp-无需判空的简洁判断方式"><a href="#MyBatis-lt-if-gt-标签字符串相等判断的陷阱-amp-无需判空的简洁判断方式" class="headerlink" title="MyBatis &lt;if&gt; 标签字符串相等判断的陷阱&amp;无需判空的简洁判断方式"></a>MyBatis &lt;if&gt; 标签字符串相等判断的陷阱&amp;无需判空的简洁判断方式</h2><blockquote>
+<p><code>&lt;if&gt;</code> 标签判断相等条件时，有时判断会不起作用，一般来说都是细节错误。</p>
+<p>比如入参没有判空，或者等式左右的比较对象不是同类型（入参String比较int或是入参String比较char）。</p>
+</blockquote>
+<h3 id="eg-enable状态为Y时，查询某条件，比如开启日志则查询时也带出LOG记录"><a href="#eg-enable状态为Y时，查询某条件，比如开启日志则查询时也带出LOG记录" class="headerlink" title="eg. enable状态为Y时，查询某条件，比如开启日志则查询时也带出LOG记录"></a>eg. enable状态为Y时，查询某条件，比如开启日志则查询时也带出LOG记录</h3><h4 id="toString-写法"><a href="#toString-写法" class="headerlink" title="toString()写法"></a><code>toString()</code>写法</h4><p>入参调用<code>toString()</code>，每次<code>toString()</code>前都需要判空</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">if</span> <span class="hljs-attr">test</span>=<span class="hljs-string">&quot;enable != null and enable.toString() == &#x27;Y&#x27;.toString()&quot;</span>&gt;</span><br>    and LOG IS NOT NULL<br><span class="hljs-tag">&lt;/<span class="hljs-name">if</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
-<h3 id="报错：缺失右括号"><a href="#报错：缺失右括号" class="headerlink" title="报错：缺失右括号"></a>报错：缺失右括号</h3><p>打印sql如下</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> BP_LOG <span class="hljs-keyword">WHERE</span> (LOG_ID<span class="hljs-operator">=</span>?orLOG_ID<span class="hljs-operator">=</span>?orLOG_ID<span class="hljs-operator">=</span>? ) <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> LOG_ID<br></code></pre></td></tr></table></figure>
+<p>这里还有个隐藏bug，入参<code>Y</code>直接和<code>&#39;Y&#39;</code>比较是<strong>不相等的</strong>，下面的写法是无法匹配的</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">if</span> <span class="hljs-attr">test</span>=<span class="hljs-string">&quot;enable != null and enable.toString() == &#x27;Y&#x27;&quot;</span>&gt;</span><br>    and LOG IS NOT NULL<br><span class="hljs-tag">&lt;/<span class="hljs-name">if</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
-<p>看sql是有右括号的，猜测是 <code>LOG_ID=?orLOG_ID=?...</code>连在一起，执行时断句失败导致报错</p>
-<p>替换<code>?</code>去数据库执行一下，果然是因为没有空格断句失败</p>
-<p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/image-20240712173736852.png" srcset="/img/loading.gif" lazyload></p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><code>&lt;where&gt;</code>标签内嵌<code>&lt;foreach&gt;</code>标签时，注意在<code>&lt;foreach&gt;</code>标签内的拼接条件（<code>LOG_ID=#&#123;item&#125;</code>）的两侧留空格。</p>
+<p>因为MyBatis用OGNL表达式动态解析生成 SQL 语句，入参被解析成<code>String</code>，<code>&#39;Y&#39;</code>被解析成<code>char</code>，<strong>Java是强类型的，<code>char</code>和<code>String</code>是不相等的</strong></p>
+<p>简单修复这个bug可以把<code>&#39;Y&#39;</code>替换成<code>&quot;Y&quot;</code>，变成<code>String</code>后再和入参比较</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">if</span> <span class="hljs-attr">test</span>=<span class="hljs-string">&quot;enable != null and enable.toString() == &quot;</span><span class="hljs-attr">Y</span>&quot; &quot;&gt;</span><br>    and LOG IS NOT NULL<br><span class="hljs-tag">&lt;/<span class="hljs-name">if</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="java-lang-String-valueOf-写法"><a href="#java-lang-String-valueOf-写法" class="headerlink" title="@java.lang.String@valueOf()写法"></a><code>@java.lang.String@valueOf()</code>写法</h4><p>入参用<code>valueOf</code>转换一下，然后<code>equals</code>比较</p>
+<p>hint: <code>@java.lang.String@valueOf(&#39;req.enable&#39;)</code> 不用判空，<code>null</code>会变成字符串<code>&quot;null&quot;</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">if</span> <span class="hljs-attr">test</span>=<span class="hljs-string">&quot;@java.lang.String@valueOf(req.enable).equals(&quot;</span><span class="hljs-attr">Y</span>&quot;)&quot;&gt;</span><br>    and LOG IS NOT NULL<br><span class="hljs-tag">&lt;/<span class="hljs-name">if</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>第二种写法省去了判空这一步，可以避免一些bug，不过就是看起来很繁琐。</p>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a target="_blank" rel="noopener" href="https://commons.apache.org/dormant/commons-ognl/">OGNL - Apache Commons OGNL - Object Graph Navigation Library</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40254606/article/details/142188154">MyBatis 源码解析：OGNL 表达式解析与使用-CSDN博客</a></p>
 
             </div>
             <hr>
@@ -265,9 +276,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/07/04/MyBatis%20where%E6%A0%87%E7%AD%BE%E6%9B%BF%E6%8D%A2WHERE%201%20=%201%E4%BC%9A%E6%8F%90%E5%8D%87%E6%80%A7%E8%83%BD%E5%90%97/">
+                      <a href="/2024/07/04/MyBatis%20where%E6%A0%87%E7%AD%BE%E5%86%85%E5%B5%8Cforeach%E6%A0%87%E7%AD%BE%E6%9F%A5%E8%AF%A2%E6%8A%A5%E9%94%99&#39;%E7%BC%BA%E5%A4%B1%E5%8F%B3%E6%8B%AC%E5%8F%B7&#39;%E6%88%96&#39;%E5%91%BD%E4%BB%A4%E6%9C%AA%E6%AD%A3%E7%A1%AE%E7%BB%93%E6%9D%9F&#39;/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">MyBatis where标签替换WHERE 1 = 1会提升性能吗</span>
+                        <span class="hidden-mobile">MyBatis <where>标签内嵌<foreach>标签查询报错'缺失右括号'或'命令未正确结束'</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -275,8 +286,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/03/07/MyBatis%20if%20%E6%A0%87%E7%AD%BE%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E7%AD%89%E5%88%A4%E6%96%AD%E7%9A%84%E9%99%B7%E9%98%B1&amp;%E6%97%A0%E9%9C%80%E5%88%A4%E7%A9%BA%E7%9A%84%E7%AE%80%E6%B4%81%E5%88%A4%E6%96%AD%E6%96%B9%E5%BC%8F/">
-                        <span class="hidden-mobile">MyBatis <if> 标签字符串相等判断的陷阱&无需判空的简洁判断方式</span>
+                      <a href="/2024/02/04/%E7%95%8C%E9%9D%A2%E5%A2%9E%E5%8A%A0%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2%E4%B9%8B%E5%90%8E%E6%95%B0%E6%8D%AE%E6%B8%B2%E6%9F%93%E5%8F%98%E5%BE%97%E5%BE%88%E6%85%A2%EF%BC%8C%E6%8E%92%E6%9F%A5%E5%90%8E%E5%8F%91%E7%8E%B0%E7%BB%99%E8%A1%A8%E5%8A%A0%E4%B8%AA%E7%B4%A2%E5%BC%95%E5%B0%B1%E8%A7%A3%E5%86%B3%E4%BA%86/">
+                        <span class="hidden-mobile">界面增加分页查询之后数据渲染变得很慢，排查后发现给表加个索引就解决了</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
