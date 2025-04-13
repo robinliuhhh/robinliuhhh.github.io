@@ -4,6 +4,63 @@
   
   
   <entry>
+    <title>当你看到同事在Linux服务器上打了一堆惊艳的命令并想回放学习时</title>
+    <link href="/2025/04/11/%E5%BD%93%E4%BD%A0%E7%9C%8B%E5%88%B0%E5%90%8C%E4%BA%8B%E5%9C%A8Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E6%89%93%E4%BA%86%E4%B8%80%E5%A0%86%E6%83%8A%E8%89%B3%E7%9A%84%E5%91%BD%E4%BB%A4%E5%B9%B6%E6%83%B3%E5%9B%9E%E6%94%BE%E5%AD%A6%E4%B9%A0%E6%97%B6/"/>
+    <url>/2025/04/11/%E5%BD%93%E4%BD%A0%E7%9C%8B%E5%88%B0%E5%90%8C%E4%BA%8B%E5%9C%A8Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E6%89%93%E4%BA%86%E4%B8%80%E5%A0%86%E6%83%8A%E8%89%B3%E7%9A%84%E5%91%BD%E4%BB%A4%E5%B9%B6%E6%83%B3%E5%9B%9E%E6%94%BE%E5%AD%A6%E4%B9%A0%E6%97%B6/</url>
+    
+    <content type="html"><![CDATA[<h2 id="当你看到同事在Linux服务器上打了一堆惊艳的命令并想回放学习时"><a href="#当你看到同事在Linux服务器上打了一堆惊艳的命令并想回放学习时" class="headerlink" title="当你看到同事在Linux服务器上打了一堆惊艳的命令并想回放学习时"></a>当你看到同事在Linux服务器上打了一堆惊艳的命令并想回放学习时</h2><p>Linux查看历史执行命令</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">history</span><br></code></pre></td></tr></table></figure><p>执行<code>history</code>就可以看到历史命令了，如果还想看具体的执行时间，那就先执行下面这句再执行<code>history</code></p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">export</span> HISTTIMEFORMAT=<span class="hljs-string">&#x27;%F %T &#x27;</span><br><br><span class="hljs-comment"># 输出格式如下</span><br>2025-04-11 09:18:01 free -h<br>2025-04-11 09:18:01 vmstat -s | grep -E <span class="hljs-string">&quot;buffer|cache&quot;</span><br>2025-04-11 09:18:01 vmstat -s -S M | grep -i swap<br>2025-04-11 09:18:01 vmstat -s -S G | grep -i swap<br>2025-04-11 09:18:01 vmstat -s -S m | grep -i swap<br>2025-04-11 09:18:01 vmstat -s -S M | grep -i swap<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>BigDecimal使用过程中遇到的坑</title>
+    <link href="/2025/03/24/BigDecimal%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/"/>
+    <url>/2025/03/24/BigDecimal%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/</url>
+    
+    <content type="html"><![CDATA[<h2 id="BigDecimal使用过程中遇到的坑"><a href="#BigDecimal使用过程中遇到的坑" class="headerlink" title="BigDecimal使用过程中遇到的坑"></a>BigDecimal使用过程中遇到的坑</h2><h3 id="Unpredictable-‘new-BigDecimal-’-call"><a href="#Unpredictable-‘new-BigDecimal-’-call" class="headerlink" title="Unpredictable ‘new BigDecimal()’ call"></a>Unpredictable ‘new BigDecimal()’ call</h3><blockquote><p>使用double值new BigDecimal(double)会导致计算出意料之外的结果</p></blockquote><p>官方文档对double constructor的介绍：</p><p><img src="https://image-for-robins-blog.oss-cn-shanghai.aliyuncs.com/img/b62e80bd8dd251b3e13702e18d5153c7.JPG" alt="b62e80bd8dd251b3e13702e18d5153c7"></p><p><a href="https://docs.oracle.com/javase/8/docs/api/">https://docs.oracle.com/javase/8/docs/api/</a></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Test</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testDouble2BigDecimal</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-comment">// BigDecimal(double)的结果是不可预测的</span><br>    BigDecimal doubleVal = <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-number">0.1</span>);<br>    BigDecimal stringVal = <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;0.1&quot;</span>);<br>    System.out.println(doubleVal); <span class="hljs-comment">// 0.1000000000000000055511151231257827021181583404541015625</span><br>    System.out.println(stringVal); <span class="hljs-comment">// 0.1</span><br>&#125;<br></code></pre></td></tr></table></figure><p>所以计算时要确保用<code>String constructor</code></p><h3 id="BigDecimal比较相等时慎用equals"><a href="#BigDecimal比较相等时慎用equals" class="headerlink" title="BigDecimal比较相等时慎用equals"></a>BigDecimal比较相等时慎用equals</h3><p>场景：一笔订单的订单量OrderQty是90000，累计成交量CumQty也是90000，但是判断是否全量成交时却判断为未全量成交</p><p>排查下来发现，OrderQty表示为9E+4（科学计数法）而CumQty表示为90000，equals比较时会参考scale：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment">* Compares this &#123;<span class="hljs-doctag">@code</span> BigDecimal&#125; with the specified</span><br><span class="hljs-comment">* &#123;<span class="hljs-doctag">@code</span> Object&#125; for equality.  Unlike &#123;<span class="hljs-doctag">@link</span></span><br><span class="hljs-comment">* #compareTo(BigDecimal) compareTo&#125;, this method considers two</span><br><span class="hljs-comment">* &#123;<span class="hljs-doctag">@code</span> BigDecimal&#125; objects equal only if they are equal in</span><br><span class="hljs-comment">* value and scale (thus 2.0 is not equal to 2.00 when compared by</span><br><span class="hljs-comment">* this method).</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Test</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testBigDecimalEquals</span><span class="hljs-params">()</span> </span>&#123;<br>    BigDecimal orderQty = <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;9E+4&quot;</span>);<br>    BigDecimal cumQty = <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;90000&quot;</span>);<br>    System.out.println(orderQty.scale() + <span class="hljs-string">&quot;|&quot;</span> + cumQty.scale()); <span class="hljs-comment">// -4|0</span><br>    System.out.println(<span class="hljs-string">&quot;equals: &quot;</span> + orderQty.equals(cumQty)); <span class="hljs-comment">// equals: false</span><br>    System.out.println(<span class="hljs-string">&quot;compareTo: &quot;</span> + orderQty.compareTo(cumQty)); <span class="hljs-comment">// compareTo: 0</span><br>&#125;<br></code></pre></td></tr></table></figure><p>数值相等的比较一定要用<code>compareTo</code>！</p><h4 id="BigDecimal在系统内部流转时可能导致变为科学计数法表示的操作"><a href="#BigDecimal在系统内部流转时可能导致变为科学计数法表示的操作" class="headerlink" title="BigDecimal在系统内部流转时可能导致变为科学计数法表示的操作"></a>BigDecimal在系统内部流转时可能导致变为科学计数法表示的操作</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Test</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testBigDecimalEquals</span><span class="hljs-params">()</span> </span>&#123;<br>    BigDecimal orderQty = <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-string">&quot;90000&quot;</span>);<br>    System.out.println(orderQty); <span class="hljs-comment">// 90000</span><br>    System.out.println(orderQty.stripTrailingZeros()); <span class="hljs-comment">// 9E+4</span><br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Java</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Linux查看某个时间段内的日志</title>
+    <link href="/2024/08/27/Linux%E6%9F%A5%E7%9C%8B%E6%9F%90%E4%B8%AA%E6%97%B6%E9%97%B4%E6%AE%B5%E5%86%85%E7%9A%84%E6%97%A5%E5%BF%97/"/>
+    <url>/2024/08/27/Linux%E6%9F%A5%E7%9C%8B%E6%9F%90%E4%B8%AA%E6%97%B6%E9%97%B4%E6%AE%B5%E5%86%85%E7%9A%84%E6%97%A5%E5%BF%97/</url>
+    
+    <content type="html"><![CDATA[<h2 id="Linux查看某个时间段内的日志"><a href="#Linux查看某个时间段内的日志" class="headerlink" title="Linux查看某个时间段内的日志"></a>Linux查看某个时间段内的日志</h2><p>命令格式</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">sed -n <span class="hljs-string">&#x27;/开始时间/,/结束时间/p&#x27;</span> xxx.log<br></code></pre></td></tr></table></figure><p>-n：sed默认输出所有处理过的行，加上-n选项，只输出被模式匹配的行<br>p：打印，通常与-n联合使用</p><p>eg. 查看8点00分00秒到00分20秒之间的日志</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">sed -n <span class="hljs-string">&#x27;/2024-08-27 08:00:00/,/2024-08-27 08:00:20/p&#x27;</span> Error.log<br></code></pre></td></tr></table></figure><p><strong>注意</strong></p><p>命令中的时间点必须是日志中有的。</p><ol><li>如果开始时间没在日志中，查询结果为空。</li><li>如果结束时间没在日志中，查询结果为开始时间到日志结尾包含的全部日志。</li></ol><p>模糊查询</p><p>如果不知道精确时间，可以模糊查一个时间范围。</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">sed -n <span class="hljs-string">&#x27;/2024-08-27 08:00:*/,/2024-08-27 08:01:*/p&#x27;</span> Error.log<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>MyBatis where标签替换WHERE 1 = 1会提升性能吗</title>
     <link href="/2024/07/04/MyBatis%20where%E6%A0%87%E7%AD%BE%E6%9B%BF%E6%8D%A2WHERE%201%20=%201%E4%BC%9A%E6%8F%90%E5%8D%87%E6%80%A7%E8%83%BD%E5%90%97/"/>
     <url>/2024/07/04/MyBatis%20where%E6%A0%87%E7%AD%BE%E6%9B%BF%E6%8D%A2WHERE%201%20=%201%E4%BC%9A%E6%8F%90%E5%8D%87%E6%80%A7%E8%83%BD%E5%90%97/</url>
@@ -131,6 +188,31 @@
       
     </categories>
     
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>方法返回值最好不要随便return null</title>
+    <link href="/2023/02/27/%E6%96%B9%E6%B3%95%E8%BF%94%E5%9B%9E%E5%80%BC%E6%9C%80%E5%A5%BD%E4%B8%8D%E8%A6%81%E9%9A%8F%E4%BE%BFreturn%20null/"/>
+    <url>/2023/02/27/%E6%96%B9%E6%B3%95%E8%BF%94%E5%9B%9E%E5%80%BC%E6%9C%80%E5%A5%BD%E4%B8%8D%E8%A6%81%E9%9A%8F%E4%BE%BFreturn%20null/</url>
+    
+    <content type="html"><![CDATA[<h2 id="方法返回值最好不要随便return-null"><a href="#方法返回值最好不要随便return-null" class="headerlink" title="方法返回值最好不要随便return null"></a>方法返回值最好不要随便return null</h2><p>方法返回值是<code>Collection</code>的，建议不要返回<code>null</code>，而是返回 <code>Collections.emptyList()</code> 这种empty list。这样在拿到返回值之后的处理就不需要判空了，可以直接<code>addAll</code>或是进入<code>for</code>循环，避免造成<code>NullPointerException</code>。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 定义两种返回方式</span><br><span class="hljs-function"><span class="hljs-keyword">private</span> List&lt;String&gt; <span class="hljs-title">getMatchDatasNull</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">private</span> List&lt;String&gt; <span class="hljs-title">getMatchDatasEmpty</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-comment">// Returns an empty list (immutable).  This list is serializable.</span><br>    <span class="hljs-keyword">return</span> Collections.emptyList();<br>&#125;<br><br><span class="hljs-meta">@Test</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testListAddNull</span><span class="hljs-params">()</span> </span>&#123;<br>    List&lt;String&gt; emptyList = getMatchDatasEmpty();<br>    <span class="hljs-comment">// 不要向Collections.emptyList()加元素 因为它是final类型的成员变量 是immutable的</span><br>    emptyList.add(<span class="hljs-string">&quot;test a&quot;</span>); <span class="hljs-comment">// UnsupportedOperationException</span><br><br>    List&lt;String&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>    list.addAll(emptyList);<br>    list.add(<span class="hljs-string">&quot;test b&quot;</span>);<br>    System.out.println(<span class="hljs-string">&quot;getMatchDatasEmpty -&gt; &quot;</span> + list); <span class="hljs-comment">// getMatchDatasEmpty -&gt; [test b]</span><br><br>    list.addAll(getMatchDatasNull()); <span class="hljs-comment">// NullPointerException</span><br>    System.out.println(<span class="hljs-string">&quot;getMatchDatasNull -&gt; &quot;</span> + list);<br>&#125;<br><br><span class="hljs-meta">@Test</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testListForNull</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">for</span> (String string : getMatchDatasEmpty()) &#123;<br>        System.out.println(<span class="hljs-string">&quot;getMatchDatasEmpty &quot;</span> + string); <span class="hljs-comment">// 无输出</span><br>    &#125;<br>    System.out.println(<span class="hljs-string">&quot;getMatchDatasEmpty end&quot;</span>); <span class="hljs-comment">// getMatchDatasEmpty end</span><br>    <span class="hljs-keyword">for</span> (String string : getMatchDatasNull()) &#123; <span class="hljs-comment">// NullPointerException</span><br>        System.out.println(<span class="hljs-string">&quot;getMatchDatasNull &quot;</span> + string);<br>    &#125;<br>    System.out.println(<span class="hljs-string">&quot;getMatchDatasNull end&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Java</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>代码习惯</tag>
+      
+    </tags>
     
   </entry>
   

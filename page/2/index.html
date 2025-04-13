@@ -182,6 +182,192 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2023/02/27/%E6%96%B9%E6%B3%95%E8%BF%94%E5%9B%9E%E5%80%BC%E6%9C%80%E5%A5%BD%E4%B8%8D%E8%A6%81%E9%9A%8F%E4%BE%BFreturn%20null/" target="_self">
+          方法返回值最好不要随便return null
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2023/02/27/%E6%96%B9%E6%B3%95%E8%BF%94%E5%9B%9E%E5%80%BC%E6%9C%80%E5%A5%BD%E4%B8%8D%E8%A6%81%E9%9A%8F%E4%BE%BFreturn%20null/" target="_self">
+          
+          
+            
+          
+          方法返回值最好不要随便return null方法返回值是Collection的，建议不要返回null，而是返回 Collections.emptyList() 这种empty list。这样在拿到返回值之后的处理就不需要判空了，可以直接addAll或是进入for循环，避免造成NullPointerException。
+1234567891011121314151617181920212223242
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-02-27 10:54" pubdate>
+              2023-02-27
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Java/">Java</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E4%BB%A3%E7%A0%81%E4%B9%A0%E6%83%AF/">代码习惯</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2023/02/07/%E6%95%B0%E6%8D%AE%E6%AF%94%E8%BE%83%E6%97%B6String%E6%9C%AA%E8%BD%AC%E6%88%90BigDecimal%E7%9A%84%E5%9D%91/" target="_self">
+          数据比较时String未转成BigDecimal的坑
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2023/02/07/%E6%95%B0%E6%8D%AE%E6%AF%94%E8%BE%83%E6%97%B6String%E6%9C%AA%E8%BD%AC%E6%88%90BigDecimal%E7%9A%84%E5%9D%91/" target="_self">
+          
+          
+            
+          
+          数据比较时String未转成BigDecimal的坑
+如果价格的字段是String，要转换成BigDecimal等数字再比较，用String比较会出现奇怪的错误。
+
+这句话看起来很多余，但是实际写代码的时候确是很容易忽略。
+比如价格这个字段封装在对象里，而你只是a.getPrice().compareTo(b.getPrice())。
+CompareTo的String与BigDecimal对比这里
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-02-07 22:39" pubdate>
+              2023-02-07
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Java/">Java</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2023/02/02/Comparison%20method%20violates%20its%20general%20contract!%20%E4%B8%8E%20%E8%87%AA%E5%AE%9A%E4%B9%89%E6%AF%94%E8%BE%83%E5%99%A8/" target="_self">
+          Comparison method violates its general contract! 与 自定义比较器
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2023/02/02/Comparison%20method%20violates%20its%20general%20contract!%20%E4%B8%8E%20%E8%87%AA%E5%AE%9A%E4%B9%89%E6%AF%94%E8%BE%83%E5%99%A8/" target="_self">
+          
+          
+            
+          
+          Comparison method violates its general contract! 与 自定义比较器Comparison method violates its general contract!压测时发现的报错，原因是自定义的比较器没有满足可逆比较。
+Comparator接口的compare方法文档中有标注：The implementor must ensure that sgn(
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-02-02 22:08" pubdate>
+              2023-02-02
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Java/">Java</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2023/01/16/%E5%BD%93%E4%BD%A0%E6%83%B3%E7%94%A8%E4%B8%80%E4%B8%AA%E8%BF%94%E5%9B%9E%E5%80%BC%E5%90%8C%E6%97%B6%E8%BF%94%E5%9B%9E%E4%B8%A4%E4%B8%AA%E7%BB%93%E6%9E%9C%E4%BD%86%E5%8F%88%E4%B8%8D%E6%83%B3%E7%94%A8map%EF%BC%88%E5%9B%A0%E4%B8%BA%E8%A6%81%E9%81%8D%E5%8E%86%EF%BC%89%E6%88%96%E4%B8%8D%E6%83%B3%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%B1%BB%E6%97%B6/" target="_self">
+          当你想用一个返回值同时返回两个结果但又不想用map（因为要遍历）或不想新建一个类时
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2023/01/16/%E5%BD%93%E4%BD%A0%E6%83%B3%E7%94%A8%E4%B8%80%E4%B8%AA%E8%BF%94%E5%9B%9E%E5%80%BC%E5%90%8C%E6%97%B6%E8%BF%94%E5%9B%9E%E4%B8%A4%E4%B8%AA%E7%BB%93%E6%9E%9C%E4%BD%86%E5%8F%88%E4%B8%8D%E6%83%B3%E7%94%A8map%EF%BC%88%E5%9B%A0%E4%B8%BA%E8%A6%81%E9%81%8D%E5%8E%86%EF%BC%89%E6%88%96%E4%B8%8D%E6%83%B3%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%B1%BB%E6%97%B6/" target="_self">
+          
+          
+            
+          
+          当你想用一个返回值同时返回两个结果但又不想用map（因为要遍历）或不想新建一个类时RtnTwoObject1234567891011121314151617181920212223242526272829public class RtnTwoObject&lt;T1, T2&gt; &#123;    private T1 t1;    private T2 t2;    public RtnTw
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-01-16 22:58" pubdate>
+              2023-01-16
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Java/">Java</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2022/07/01/%E4%BB%8EJava%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B%E7%9C%8BJVM/" target="_self">
           从Java代码执行流程看JVM
         </a>
@@ -441,212 +627,6 @@ CentOS系统内用yum安装比较方便。
             <i class="iconfont icon-category"></i>
             
               <a href="/categories/Python/">Python</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/06/15/Python3%E5%88%B7%E9%A2%98%EF%BC%9A@cache/" target="_self">
-          Python3刷题：@cache
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/06/15/Python3%E5%88%B7%E9%A2%98%EF%BC%9A@cache/" target="_self">
-          
-          
-            
-          
-          题目链接https://leetcode.com/problems/delete-operation-for-two-strings/submissions/
-
-解题思路
-@cache可以防止TLE（Time Limit Exceed 超时）
-
-123456789101112class Solution:    def minDistance(self, word1: str, word2: st
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-06-15 08:11" pubdate>
-              2022-06-15
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Python/">Python</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/06/14/Spring%E4%BA%8B%E5%8A%A1/" target="_self">
-          Spring事务
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/06/14/Spring%E4%BA%8B%E5%8A%A1/" target="_self">
-          
-          
-            
-          
-          事务简介事务特性https://snailclimb.gitee.io/javaguide/#/docs/database/mysql/transaction-isolation-level
-
-并发事务带来的问题隔离性是针对并发而言的。
-
-常见的并发异常第一类丢失更新（回滚）
-第二类丢失更新（提交）
-脏读（读到未提交数据）
-不可重复读（内容不一致）
-不可重复读的重点是修改（内容）
-
-
-幻读（行数不
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-06-14 13:47" pubdate>
-              2022-06-14
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Spring/">Spring</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/06/10/Java%E4%BB%BF%E7%89%9B%E5%AE%A2%E7%A4%BE%E5%8C%BA%20%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" target="_self">
-          Java仿牛客社区 学习记录
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/06/10/Java%E4%BB%BF%E7%89%9B%E5%AE%A2%E7%A4%BE%E5%8C%BA%20%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" target="_self">
-          
-          
-            
-          
-          第一章 初识Spring Boot技术架构
-开发环境
-Spring
-Spring Framework是基石
-Spring Boot帮助我们快速构建项目
-Spring Cloud把一个项目拆分成若干个子项目，再集成，这样每个子项目规模小，便于维护
-Spring Cloud Data Flow把各客户端（PC、手机、穿戴设备等）的数据集成
-
-
-Spring Framework
-IoC如果是我们自己管理
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-06-10 15:58" pubdate>
-              2022-06-10
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Archive/">Archive</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/06/10/Mybatis-Plus%E4%BD%BF%E7%94%A8%E6%97%85%E7%A8%8B/" target="_self">
-          Mybatis-Plus使用旅程
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/06/10/Mybatis-Plus%E4%BD%BF%E7%94%A8%E6%97%85%E7%A8%8B/" target="_self">
-          
-          
-            
-          
-          使用准备MySQL测试准备建新用户
-建数据库
-赋权
-Springboot + Mybatis-Plus事务管理https://blog.51cto.com/u_15359644/3803989
-开启事务
-MyBatisPlusConfig添加@EnableTransactionManagement
-
-Spring事务Spring事务
-Mybatis-Plus自动填充更新时间成长足迹-MyBatis
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-06-10 10:51" pubdate>
-              2022-06-10
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Mybatis/">Mybatis</a>
             
           </div>
         

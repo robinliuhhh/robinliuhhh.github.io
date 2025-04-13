@@ -182,6 +182,150 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2025/04/11/%E5%BD%93%E4%BD%A0%E7%9C%8B%E5%88%B0%E5%90%8C%E4%BA%8B%E5%9C%A8Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E6%89%93%E4%BA%86%E4%B8%80%E5%A0%86%E6%83%8A%E8%89%B3%E7%9A%84%E5%91%BD%E4%BB%A4%E5%B9%B6%E6%83%B3%E5%9B%9E%E6%94%BE%E5%AD%A6%E4%B9%A0%E6%97%B6/" target="_self">
+          当你看到同事在Linux服务器上打了一堆惊艳的命令并想回放学习时
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2025/04/11/%E5%BD%93%E4%BD%A0%E7%9C%8B%E5%88%B0%E5%90%8C%E4%BA%8B%E5%9C%A8Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E6%89%93%E4%BA%86%E4%B8%80%E5%A0%86%E6%83%8A%E8%89%B3%E7%9A%84%E5%91%BD%E4%BB%A4%E5%B9%B6%E6%83%B3%E5%9B%9E%E6%94%BE%E5%AD%A6%E4%B9%A0%E6%97%B6/" target="_self">
+          
+          
+            
+          
+          当你看到同事在Linux服务器上打了一堆惊艳的命令并想回放学习时Linux查看历史执行命令
+1history
+
+执行history就可以看到历史命令了，如果还想看具体的执行时间，那就先执行下面这句再执行history
+123456789export HISTTIMEFORMAT=&#x27;%F %T &#x27;# 输出格式如下2025-04-11 09:18:01 free -h2025-04
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2025-04-11 15:38" pubdate>
+              2025-04-11
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Linux/">Linux</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2025/03/24/BigDecimal%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/" target="_self">
+          BigDecimal使用过程中遇到的坑
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2025/03/24/BigDecimal%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/" target="_self">
+          
+          
+            
+          
+          BigDecimal使用过程中遇到的坑Unpredictable ‘new BigDecimal()’ call
+使用double值new BigDecimal(double)会导致计算出意料之外的结果
+
+官方文档对double constructor的介绍：
+
+https://docs.oracle.com/javase/8/docs/api/
+12345678@Testpublic void 
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2025-03-24 10:29" pubdate>
+              2025-03-24
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Java/">Java</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2024/08/27/Linux%E6%9F%A5%E7%9C%8B%E6%9F%90%E4%B8%AA%E6%97%B6%E9%97%B4%E6%AE%B5%E5%86%85%E7%9A%84%E6%97%A5%E5%BF%97/" target="_self">
+          Linux查看某个时间段内的日志
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2024/08/27/Linux%E6%9F%A5%E7%9C%8B%E6%9F%90%E4%B8%AA%E6%97%B6%E9%97%B4%E6%AE%B5%E5%86%85%E7%9A%84%E6%97%A5%E5%BF%97/" target="_self">
+          
+          
+            
+          
+          Linux查看某个时间段内的日志命令格式
+1sed -n &#x27;/开始时间/,/结束时间/p&#x27; xxx.log
+
+-n：sed默认输出所有处理过的行，加上-n选项，只输出被模式匹配的行p：打印，通常与-n联合使用
+eg. 查看8点00分00秒到00分20秒之间的日志
+1sed -n &#x27;/2024-08-27 08:00:00/,/2024-08-27 08:00:20/p
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-08-27 09:05" pubdate>
+              2024-08-27
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Linux/">Linux</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2024/07/04/MyBatis%20where%E6%A0%87%E7%AD%BE%E6%9B%BF%E6%8D%A2WHERE%201%20=%201%E4%BC%9A%E6%8F%90%E5%8D%87%E6%80%A7%E8%83%BD%E5%90%97/" target="_self">
           MyBatis where标签替换WHERE 1 = 1会提升性能吗
         </a>
@@ -496,141 +640,6 @@ BETWEEN AND首先想到的是BETWEEN AND：
             <i class="iconfont icon-category"></i>
             
               <a href="/categories/SQL/">SQL</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2023/02/07/%E6%95%B0%E6%8D%AE%E6%AF%94%E8%BE%83%E6%97%B6String%E6%9C%AA%E8%BD%AC%E6%88%90BigDecimal%E7%9A%84%E5%9D%91/" target="_self">
-          数据比较时String未转成BigDecimal的坑
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2023/02/07/%E6%95%B0%E6%8D%AE%E6%AF%94%E8%BE%83%E6%97%B6String%E6%9C%AA%E8%BD%AC%E6%88%90BigDecimal%E7%9A%84%E5%9D%91/" target="_self">
-          
-          
-            
-          
-          数据比较时String未转成BigDecimal的坑
-如果价格的字段是String，要转换成BigDecimal等数字再比较，用String比较会出现奇怪的错误。
-
-这句话看起来很多余，但是实际写代码的时候确是很容易忽略。
-比如价格这个字段封装在对象里，而你只是a.getPrice().compareTo(b.getPrice())。
-CompareTo的String与BigDecimal对比这里
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-02-07 22:39" pubdate>
-              2023-02-07
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Java/">Java</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2023/02/02/Comparison%20method%20violates%20its%20general%20contract!%20%E4%B8%8E%20%E8%87%AA%E5%AE%9A%E4%B9%89%E6%AF%94%E8%BE%83%E5%99%A8/" target="_self">
-          Comparison method violates its general contract! 与 自定义比较器
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2023/02/02/Comparison%20method%20violates%20its%20general%20contract!%20%E4%B8%8E%20%E8%87%AA%E5%AE%9A%E4%B9%89%E6%AF%94%E8%BE%83%E5%99%A8/" target="_self">
-          
-          
-            
-          
-          Comparison method violates its general contract! 与 自定义比较器Comparison method violates its general contract!压测时发现的报错，原因是自定义的比较器没有满足可逆比较。
-Comparator接口的compare方法文档中有标注：The implementor must ensure that sgn(
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-02-02 22:08" pubdate>
-              2023-02-02
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Java/">Java</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2023/01/16/%E5%BD%93%E4%BD%A0%E6%83%B3%E7%94%A8%E4%B8%80%E4%B8%AA%E8%BF%94%E5%9B%9E%E5%80%BC%E5%90%8C%E6%97%B6%E8%BF%94%E5%9B%9E%E4%B8%A4%E4%B8%AA%E7%BB%93%E6%9E%9C%E4%BD%86%E5%8F%88%E4%B8%8D%E6%83%B3%E7%94%A8map%EF%BC%88%E5%9B%A0%E4%B8%BA%E8%A6%81%E9%81%8D%E5%8E%86%EF%BC%89%E6%88%96%E4%B8%8D%E6%83%B3%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%B1%BB%E6%97%B6/" target="_self">
-          当你想用一个返回值同时返回两个结果但又不想用map（因为要遍历）或不想新建一个类时
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2023/01/16/%E5%BD%93%E4%BD%A0%E6%83%B3%E7%94%A8%E4%B8%80%E4%B8%AA%E8%BF%94%E5%9B%9E%E5%80%BC%E5%90%8C%E6%97%B6%E8%BF%94%E5%9B%9E%E4%B8%A4%E4%B8%AA%E7%BB%93%E6%9E%9C%E4%BD%86%E5%8F%88%E4%B8%8D%E6%83%B3%E7%94%A8map%EF%BC%88%E5%9B%A0%E4%B8%BA%E8%A6%81%E9%81%8D%E5%8E%86%EF%BC%89%E6%88%96%E4%B8%8D%E6%83%B3%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%B1%BB%E6%97%B6/" target="_self">
-          
-          
-            
-          
-          当你想用一个返回值同时返回两个结果但又不想用map（因为要遍历）或不想新建一个类时RtnTwoObject1234567891011121314151617181920212223242526272829public class RtnTwoObject&lt;T1, T2&gt; &#123;    private T1 t1;    private T2 t2;    public RtnTw
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-01-16 22:58" pubdate>
-              2023-01-16
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Java/">Java</a>
             
           </div>
         
